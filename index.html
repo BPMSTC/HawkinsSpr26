@@ -2,56 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NovaCore Graphics</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>The Cake Cart | Artisan Bakery</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/master.css">
 </head>
+
 <body>
 
-<nav>
-  <h1>NovaCore</h1>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="aboutus.html">About Us</a></li>
-  </ul>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white">
+  <div class="container">
+    <a class="navbar-brand brand" href="#">The Cake Cart</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">☰</button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<section class="hero">
-  <h2>Powering the Future of Graphics</h2>
-  <p>
-    NovaCore Graphics designs next-generation GPUs built for gaming,
-    AI workloads, and ultra-realistic rendering.
-  </p>
-</section>
 
-<section class="card-grid">
-  <div class="card">
-    <img src= "GPU1.png">
-    <h3>Nova RTX-X</h3>
-    <p>Extreme performance for competitive gaming and creators.</p>
-  </div>
+<!-- ================= HERO ================= -->
+<section class="hero text-center">
+  <div class="container">
 
-  <div class="card">
-    <img src= "GPU2.png">
-    <h3>Nova AI-Pro</h3>
-    <p>Optimized for deep learning, simulations, and data science.</p>
-  </div>
+    <img src="images/cake-cart.png" class="hero-img rope-border mb-4"/>
 
-  <div class="card">
-    <img src= "GPU3.png">
-    <h3>Nova Ultra</h3>
-    <p>4K and 8K rendering with ray-tracing acceleration.</p>
+    <h1 class="display-4">Fresh From the Cart</h1>
+
+    <p class="lead mb-4">
+      Old-world charm. Modern craft. Daily baked delights.
+    </p>
+
+    <a href="#menu" class="btn btn-dark btn-lg">Browse Menu</a>
+
   </div>
 </section>
 
-<section class="input-box">
-  <h3>Get Product Updates</h3>
-  <br />
-  <input type="email" placeholder="Enter your email" />
+
+<!-- ================= MENU ================= -->
+<section id="menu" class="py-5 text-center">
+  <div class="container">
+
+    <h2>Signature Treats</h2>
+    <div class="accent-line"></div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4 fade-in">
+        <div class="card menu-card p-4">
+          <h4>Royal Layer Cake</h4>
+          <p>Honey cream & berries</p>
+          <strong>$28</strong>
+        </div>
+      </div>
+
+      <div class="col-md-4 fade-in">
+        <div class="card menu-card p-4">
+          <h4>Butter Croissants</h4>
+          <p>Golden, flaky, warm</p>
+          <strong>$4</strong>
+        </div>
+      </div>
+
+      <div class="col-md-4 fade-in">
+        <div class="card menu-card p-4">
+          <h4>Blackberry Tarts</h4>
+          <p>Rustic berry filling</p>
+          <strong>$6</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<footer>
-  © 2026 NovaCore Graphics
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="bg-white py-5 text-center">
+  <div class="container">
+    <h2>Our Story</h2>
+    <div class="accent-line"></div>
+
+    <p class="col-lg-8 mx-auto">
+      Inspired by medieval market carts and artisan baking traditions,
+      The Cake Cart delivers handcrafted sweets with a modern twist.
+    </p>
+  </div>
+</section>
+
+
+<!-- ================= CTA ================= -->
+<section id="order" class="py-5 text-center">
+  <div class="container cta-box p-5">
+    <h2>Order Today</h2>
+    <button class="btn btn-light btn-lg mt-3" id="orderBtn">Place Order</button>
+  </div>
+</section>
+
+
+<footer class="text-center py-4">
+  © 2026 The Cake Cart
 </footer>
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
