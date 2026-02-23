@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>About Us</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
 
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-        <!-- No CSS file link. I just used Bootstrap. Add CSS file link later if needed. -->
-    </head>
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="CSS/Master.css">
+  </head>
 
-<!-- Page made with flexbox, and minimal AI for dev control and code integrity. Don't add or modify anything. Leave it to the original developer of this page. -->
-<body class="bg-light text-dark d-flex flex-column min-vh-100">
+<!-- Page made with minimal AI for dev control and code integrity. Don't add or modify anything with too big of changes. -->
+<body>
 
 <main class="flex-fill">
 
 <!-- ================= NAVBAR FOR AboutUs.html PAGE ================= -->
 <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white">
   <div class="container">
-    <a class="navbar-brand brand" href="../index.html">The Cake Cart</a>
+    <a class="navbar-brand brand" href="#">The Cake Cart</a>
 
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">☰</button>
 
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="../index.html">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="Order.html">Order</a></li>
+        <li class="nav-item"><a class="nav-link" href="#AboutUs">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#Order">Order</a></li>
       </ul>
     </div>
   </div>
@@ -54,7 +56,7 @@
     <div class="row g-4">
 
       <div class="col-md-4 fade-in">
-        <div class="card menu-card p-4 shadow-sm">
+        <div class="card menu-card p-4 shadow-sm rope-border">
           <img></img>
           <h4>Founder</h4>
           <p>The founder/leader of this project that helped build this project.</p>
@@ -65,7 +67,7 @@
         <div class="card menu-card p-4 shadow-sm">
           <img></img>
           <h4>Nerd</h4>
-          <p>Teammember that helped build this project.</p>
+          <p>Team member that helped build this project.</p>
         </div>
       </div>
 
@@ -73,7 +75,7 @@
         <div class="card menu-card p-4 shadow-sm">
           <img></img>
           <h4>Nerder</h4>
-          <p>Teammember that helped build this project.</p>
+          <p>Team member that helped build this project.</p>
         </div>
       </div>
 
@@ -83,9 +85,14 @@
 
 </main>
 
-<footer class="text-center py-4 mt-auto">
+<footer class="text-center py-4">
   © 2026 The Cake Cart
 </footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="JS/app.js"></script>
 
 </body>
 </html>
