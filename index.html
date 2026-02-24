@@ -30,9 +30,9 @@
 
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Main Page</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
         <li class="nav-item"><a class="nav-link" href="Pages/AboutUs.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="Pages/Products.html">Order</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
       </ul>
     </div>
   </div>
@@ -54,8 +54,9 @@
     <h1 class="display-4">Fresh From the Cart</h1>
 
     <p class="lead mb-4">
-      Where medieval tradition meets modern craft.
+      Old-world charm. Modern craft. Daily baked delights.
     </p>
+<<<<<<< HEAD
 <section class="card-grid">
   <div class="card"><img src="images/GPU3.png" alt="gpu3-1">
 <h3>Nova Ultra Pro</h3>
@@ -65,52 +66,45 @@
     <img src="images/GPU1.png" alt="gpu1">
     <h3>Nova RTX-X</h3>
     <p>Extreme performance for competitive gaming and creators.</p>
+=======
+
+    <a href="#menu" class="btn btn-dark btn-lg">Browse Menu</a>
+
+>>>>>>> parent of 47b3055 (Added Product page and edited other pages to allow better flow)
   </div>
 </section>
 
 
-<!-- ================= INTRO SECTION ================= -->
-<section class="py-5 text-center">
+<!-- ================= MENU ================= -->
+<section id="menu" class="py-5 text-center">
   <div class="container">
-    <h2>Welcome to The Cake Cart</h2>
+
+    <h2>Signature Treats</h2>
     <div class="accent-line"></div>
 
-    <p class="col-lg-8 mx-auto">
-      Inspired by the charm of medieval market carts and the artistry of
-      old-world baking, The Cake Cart blends rustic heritage with modern flavor innovation.
-      Every pastry is crafted with time-honored techniques and presented
-      with a contemporary touch.
-    </p>
-  </div>
-</section>
-
-
-<!-- ================= FEATURE HIGHLIGHT ================= -->
-<section class="bg-white py-5 text-center">
-  <div class="container">
-    <h2>Crafted With Care</h2>
-    <div class="accent-line"></div>
-
-    <div class="row g-4 mt-4">
+    <div class="row g-4">
 
       <div class="col-md-4 fade-in">
         <div class="card menu-card p-4">
-          <h4>Traditional Techniques</h4>
-          <p>Hand-shaped doughs and slow fermentation methods.</p>
+          <h4>Royal Layer Cake</h4>
+          <p>Honey cream & berries</p>
+          <strong>$28</strong>
         </div>
       </div>
 
       <div class="col-md-4 fade-in">
         <div class="card menu-card p-4">
-          <h4>Premium Ingredients</h4>
-          <p>European butter, natural sugars, and rich creams.</p>
+          <h4>Butter Croissants</h4>
+          <p>Golden, flaky, warm</p>
+          <strong>$4</strong>
         </div>
       </div>
 
       <div class="col-md-4 fade-in">
         <div class="card menu-card p-4">
-          <h4>Modern Creativity</h4>
-          <p>Classic recipes elevated with refined flavor combinations.</p>
+          <h4>Blackberry Tarts</h4>
+          <p>Rustic berry filling</p>
+          <strong>$6</strong>
         </div>
       </div>
 
@@ -123,13 +117,25 @@
 </section>
 
 
+<!-- ================= ABOUT ================= -->
+<section id="about" class="bg-white py-5 text-center">
+  <div class="container">
+    <h2>Our Story</h2>
+    <div class="accent-line"></div>
+
+    <p class="col-lg-8 mx-auto">
+      Inspired by medieval market carts and artisan baking traditions,
+      The Cake Cart delivers handcrafted sweets with a modern twist.
+    </p>
+  </div>
+</section>
+
+
 <!-- ================= CTA ================= -->
-<section class="py-5 text-center">
+<section id="order" class="py-5 text-center">
   <div class="container cta-box p-5">
-    <h2>Ready to Taste the Tradition?</h2>
-    <a href="Pages/Products.html" class="btn btn-light btn-lg mt-3">
-      Explore Our Menu
-    </a>
+    <h2>Order Today</h2>
+    <button class="btn btn-light btn-lg mt-3" id="orderBtn">Place Order</button>
   </div>
 </section>
 
