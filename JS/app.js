@@ -1,20 +1,18 @@
 $(function () {
 
- // ================= SMOOTH SCROLL =================
-$(".nav-link[href^='#'], .btn[href^='#']").on("click", function (e) {
-  e.preventDefault();
+  // Smooth scroll
+  $(".nav-link, .btn[href^='#']").on("click", function (e) {
+    e.preventDefault();
 
-  const target = $(this.hash);
+    const target = $(this.hash);
 
-  if (target.length) {
     $("html, body").animate({
       scrollTop: target.offset().top - 70
     }, 600);
-  }
-});
+  });
 
 
-  // ================= FADE IN =================
+  // Fade-in on scroll
   function reveal() {
     $(".fade-in").each(function () {
       const elementTop = $(this).offset().top;
@@ -30,78 +28,12 @@ $(".nav-link[href^='#'], .btn[href^='#']").on("click", function (e) {
   reveal();
 
 
-  // ================= ORDER BUTTON =================
+  // Order button demo
   $("#orderBtn").click(function () {
     $("<div class='alert alert-light position-fixed top-50 start-50 translate-middle shadow-lg'>Ordering coming soon!</div>")
       .appendTo("body")
       .delay(1500)
       .fadeOut(400, function () { $(this).remove(); });
   });
-
-
-  // ================= PRODUCTS PAGE LOGIC =================
-  if ($("#productContainer").length) {
-
-    $.getJSON("../Data/products.json", function (products) {
-
-      const grouped = {};
-
-      products.forEach(p => {
-        if (!grouped[p.category]) {
-          grouped[p.category] = [];
-        }
-        grouped[p.category].push(p);
-      });
-
-      for (let category in grouped) {
-
-        const section = $(`
-          <div class="mb-5">
-            <h2>${category}</h2>
-            <div class="accent-line"></div>
-            <div class="row g-4"></div>
-          </div>
-        `);
-
-        const row = section.find(".row");
-
-        grouped[category].forEach(p => {
-
-          const card = $(`
-  <div class="col-md-4 d-flex fade-in">
-    <div class="card menu-card p-4 text-center w-100">
-
-      <img src="../Images/${p.image}" 
-           class="img-fluid mb-3 rope-border"
-           style="height:220px; object-fit:cover;" 
-           alt="${p.name}">
-
-      <h4>${p.name}</h4>
-      <p class="flex-grow-1">${p.description}</p>
-
-      <small class="text-muted d-block mb-2">
-        ${p.attributes}
-      </small>
-
-      <strong>$${p.price.toFixed(2)}</strong>
-
-      <button class="btn btn-dark mt-3">
-        Buy Now
-      </button>
-
-    </div>
-  </div>
-`);
-
-          row.append(card);
-        });
-
-        $("#productContainer").append(section);
-        reveal();
-      }
-
-    });
-
-  }
 
 });
