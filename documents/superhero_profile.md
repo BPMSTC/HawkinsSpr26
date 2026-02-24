@@ -1,1 +1,0 @@
-# Superhero Profile: Spider-Man **Real Name:** Peter Parker **Superpowers:** Wall-crawling, super strength, spider-sense, agility **Catchphrase:** "With great power comes great responsibility."
