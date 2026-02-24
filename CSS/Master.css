@@ -1,0 +1,83 @@
+:root{
+  --parchment:#f5efe4;
+  --ink:#3b2f24;
+  --wood:#6b4b32;
+  --gold:#c7a75a;
+}
+
+/* ================= GLOBAL ================= */
+body{
+  font-family:'Inter', sans-serif;
+  background:var(--parchment);
+  color:var(--ink);
+  scroll-behavior:smooth;
+  margin:0;
+}
+
+h1,h2,h3,.brand{
+  font-family:'Playfair Display', serif;
+}
+
+/* ================= NAVBAR ================= */
+.brand{
+  color:var(--wood);
+  font-size:1.8rem;
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding:120px 0 80px;
+  background:linear-gradient(135deg,#ffffff,#f5efe4);
+}
+
+.hero-img{
+  max-width:380px;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.25));
+}
+
+/* ================= ACCENT ================= */
+.accent-line{
+  width:70px;
+  height:4px;
+  background:var(--gold);
+  margin:15px auto 35px;
+  border-radius:5px;
+}
+
+/* ================= CARDS ================= */
+.menu-card{
+  border:none;
+  border-radius:18px;
+  box-shadow:0 10px 18px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.menu-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 30px rgba(0,0,0,.15);
+}
+
+/* ================= CTA ================= */
+.cta-box{
+  background:var(--wood);
+  color:white;
+  border-radius:30px;
+}
+
+/* ================= ROPE BORDER ================= */
+.rope-border{
+  border:8px double var(--wood);
+  border-radius:40px;
+}
+
+/* ================= FADE IN ================= */
+.fade-in{
+  opacity:0;
+  transform:translateY(25px);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#2c2219;
+  color:#ddd;
+}
