@@ -5,44 +5,37 @@
   --gold:#c7a75a;
 }
 
-/* Global */
+/* ================= GLOBAL ================= */
 body{
   font-family:'Inter', sans-serif;
   background:var(--parchment);
   color:var(--ink);
   scroll-behavior:smooth;
+  margin:0;
 }
 
-/* Headings use medieval serif */
 h1,h2,h3,.brand{
   font-family:'Playfair Display', serif;
 }
 
-/* Hero */
-.hero{
-  padding:100px 0 80px;
-  background:linear-gradient(135deg,#ffffff,#f5efe4);
-}
-
-/* Medieval rope accent */
-.rope-border{
-  border:8px double var(--wood);
-  border-radius:40px;
-}
-
-/* Image */
-.hero-img{
-  max-width:380px;
-  filter:drop-shadow(0 12px 20px rgba(0,0,0,.25));
-}
-
-/* Brand styling */
+/* ================= NAVBAR ================= */
 .brand{
   color:var(--wood);
   font-size:1.8rem;
 }
 
-/* Accent divider */
+/* ================= HERO ================= */
+.hero{
+  padding:120px 0 80px;
+  background:linear-gradient(135deg,#ffffff,#f5efe4);
+}
+
+.hero-img{
+  max-width:380px;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.25));
+}
+
+/* ================= ACCENT ================= */
 .accent-line{
   width:70px;
   height:4px;
@@ -51,7 +44,7 @@ h1,h2,h3,.brand{
   border-radius:5px;
 }
 
-/* Cards (modern style) */
+/* ================= CARDS ================= */
 .menu-card{
   border:none;
   border-radius:18px;
@@ -64,20 +57,26 @@ h1,h2,h3,.brand{
   box-shadow:0 14px 30px rgba(0,0,0,.15);
 }
 
-/* CTA */
+/* ================= CTA ================= */
 .cta-box{
   background:var(--wood);
   color:white;
   border-radius:30px;
 }
 
-/* Fade animation */
+/* ================= ROPE BORDER ================= */
+.rope-border{
+  border:8px double var(--wood);
+  border-radius:40px;
+}
+
+/* ================= FADE IN ================= */
 .fade-in{
   opacity:0;
   transform:translateY(25px);
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 footer{
   background:#2c2219;
   color:#ddd;
