@@ -6,9 +6,11 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css"></link>
   <style>
 body {
-  background-color: beige;
+  background-color: black;
+  color: azure;
 }
 
 p {
@@ -18,11 +20,11 @@ p {
 
 /* Navbar at the top of the page */
 .container {
-  background-color: skyblue;
+  background-color: #323234;
   text-align: center;
 }
 /* Dropdown container */
-.dropdown {
+ .dropdown {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   display: inline-block;
@@ -33,7 +35,7 @@ p {
 /* Dropdown button */
 .dropbtn {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: lightgreen;
+  background-color: azure;
   color: black;
   padding: 12px 24px;
   font-size: 16px;
@@ -48,7 +50,7 @@ p {
   display: none;
   text-align: center;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: azure;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   border-radius: 6px;
@@ -65,7 +67,7 @@ p {
 
 /* Hover effect for dropdown links */
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #626264;
 }
 
 /* Show dropdown on hover */
@@ -75,7 +77,7 @@ p {
 
 /* Change button color on hover */
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #626264;
 }
   </style>
 </head>
@@ -83,7 +85,7 @@ p {
   <app-root></app-root>
     <div class="container">
       <div class="dropdown">
-        <button class="dropbtn">Menu</button>
+        <button class="dropbtn">☰</button>
           <div class="dropdown-content">
             <a href="#">Home</a>
             <a href="#">About</a>
@@ -92,7 +94,8 @@ p {
       </div>
     </div>  
   <p>Welcome to CYOA (Choose your own adventure). This is a website designed for you to create your own adventure story
-    with the help of our own CYOA AI.
+    with the help of our own CYOA AI to help you create or choose your stories. This website was created for ease-of-use 
+    in mind with a simple interface for new and original users.
   </p>
 </body>
 </html>
