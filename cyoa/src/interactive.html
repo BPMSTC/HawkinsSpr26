@@ -1,0 +1,53 @@
+<section class="panel-wrapper">
+
+  <!-- Header Text Box -->
+  <div class="field-group">
+    <label class="field-label" for="heading">Title</label>
+    <input
+      id="heading"
+      class="input heading-input"
+      type="text"
+      [(ngModel)]="heading"
+      placeholder="Enter a heading…"
+      maxlength="80"
+    />
+    <span class="char-count">{{ heading.length }} / 80</span>
+  </div>
+
+  <!-- Button Container -->
+  <div class="field-group">
+    <label class="field-label">Category</label>
+    <div class="button-bar">
+      <button
+        *ngFor="let filter of filters"
+        class="tag-btn"
+        [class.active]="activeFilter === filter"
+        (click)="setFilter(filter)"
+        type="button"
+      >
+        {{ filter }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Body Text Box -->
+  <div class="field-group">
+    <label class="field-label" for="body">Content</label>
+    <textarea
+      id="body"
+      class="input textarea"
+      [(ngModel)]="bodyText"
+      placeholder="Write something here…"
+      rows="6"
+      maxlength="1000"
+    ></textarea>
+    <span class="char-count">{{ bodyText.length }} / 1000</span>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <button class="btn btn-ghost" type="button" (click)="clearAll()">Clear</button>
+    <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
+  </div>
+
+</section>
