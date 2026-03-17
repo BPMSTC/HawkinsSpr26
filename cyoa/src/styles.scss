@@ -1,0 +1,87 @@
+/* ── Global reset ── */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #000;
+}
+
+/* ── Global CSS custom properties ── */
+/* These MUST live here, not in a component SCSS, */
+/* because Angular ViewEncapsulation scopes :root  */
+/* selectors and they never match otherwise.        */
+
+:root {
+  --font-display: 'Cinzel', serif;
+  --font-body:    'Lora', serif;
+
+  --shell-bg:       #000000;
+  --panel-bg:       #0d0d0d;
+  --panel-border:   #1e1e1e;
+  --sidebar-bg:     #080808;
+  --sidebar-border: #181818;
+  --history-sep:    #1a1a1a;
+
+  --text-primary:   #f0f0f0;
+  --text-secondary: #b8b8b8;
+  --text-muted:     #666666;
+  --text-error:     #ff6b6b;
+
+  /* Default accent: Cyan */
+  --accent:        #00e5ff;
+  --accent-dim:    #007a8a;
+  --accent-glow:   rgba(0, 229, 255, 0.18);
+  --accent-subtle: rgba(0, 229, 255, 0.06);
+  --accent-border: rgba(0, 229, 255, 0.3);
+  --accent-btn-bg: rgba(0, 229, 255, 0.07);
+}
+
+/* ── Theme overrides (must be global too) ── */
+.theme-cyan {
+  --accent:        #00e5ff;
+  --accent-dim:    #007a8a;
+  --accent-glow:   rgba(0, 229, 255, 0.18);
+  --accent-subtle: rgba(0, 229, 255, 0.06);
+  --accent-border: rgba(0, 229, 255, 0.3);
+  --accent-btn-bg: rgba(0, 229, 255, 0.07);
+}
+.theme-amber {
+  --accent:        #ffb830;
+  --accent-dim:    #8a6010;
+  --accent-glow:   rgba(255, 184, 48, 0.18);
+  --accent-subtle: rgba(255, 184, 48, 0.06);
+  --accent-border: rgba(255, 184, 48, 0.3);
+  --accent-btn-bg: rgba(255, 184, 48, 0.07);
+}
+.theme-green {
+  --accent:        #39ff14;
+  --accent-dim:    #1a7a00;
+  --accent-glow:   rgba(57, 255, 20, 0.15);
+  --accent-subtle: rgba(57, 255, 20, 0.05);
+  --accent-border: rgba(57, 255, 20, 0.28);
+  --accent-btn-bg: rgba(57, 255, 20, 0.06);
+}
+.theme-magenta {
+  --accent:        #ff3af0;
+  --accent-dim:    #8a007e;
+  --accent-glow:   rgba(255, 58, 240, 0.15);
+  --accent-subtle: rgba(255, 58, 240, 0.05);
+  --accent-border: rgba(255, 58, 240, 0.28);
+  --accent-btn-bg: rgba(255, 58, 240, 0.06);
+}
+.theme-lavender {
+  --accent:        #c0a0ff;
+  --accent-dim:    #6040aa;
+  --accent-glow:   rgba(192, 160, 255, 0.16);
+  --accent-subtle: rgba(192, 160, 255, 0.06);
+  --accent-border: rgba(192, 160, 255, 0.28);
+  --accent-btn-bg: rgba(192, 160, 255, 0.07);
+}
+.theme-silver {
+  --accent:        #e8e8e8;
+  --accent-dim:    #888888;
+  --accent-glow:   rgba(232, 232, 232, 0.12);
+  --accent-subtle: rgba(232, 232, 232, 0.04);
+  --accent-border: rgba(232, 232, 232, 0.22);
+  --accent-btn-bg: rgba(232, 232, 232, 0.05);
+}
