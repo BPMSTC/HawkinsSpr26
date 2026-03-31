@@ -1,0 +1,25 @@
+.landing-panel {
+
+  text-align: center;
+
+  .narrative-para {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .choices-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+.story-title-main {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+}
