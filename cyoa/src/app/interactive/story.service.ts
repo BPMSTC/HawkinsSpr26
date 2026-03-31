@@ -19,15 +19,22 @@ export class StoryService {
   error$        = this.errorSubject.asObservable();
   loading$      = this.loadingSubject.asObservable();
 
-  constructor(private http: HttpClient) {
-    this.loadStoryData();
+  constructor(private http: HttpClient) {}
+
+  loadStory(storyPath: string): void {
+    this.historySubject.next([]);
+    this.metaSubject.next(null);
+    this.currentSceneSubject.next(null);
+    this.errorSubject.next(null);
+    const filePath = storyPath.startsWith('/') ? storyPath : `/${storyPath}`;
+    this.loadStoryData(filePath);
   }
 
-  private loadStoryData(): void {
+  private loadStoryData(filePath: string): void {
     this.loadingSubject.next(true);
     this.errorSubject.next(null);
 
-    this.http.get<StoryData>('story.json').subscribe({
+    this.http.get<StoryData>(filePath).subscribe({
       next: (data) => {
         if (!data?.meta) {
           this.errorSubject.next('The story data is missing its meta block. Please check story.json.');
@@ -54,7 +61,6 @@ export class StoryService {
   private navigateTo(id: string): void {
     const scene = this.scenesMap.get(id);
     if (!scene) {
-      const meta = this.metaSubject.value;
       this.errorSubject.next(`Scene "${id}" could not be found. The story cannot continue from this point.`);
       return;
     }
