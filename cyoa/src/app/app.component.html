@@ -1,0 +1,81 @@
+<div class="story-shell" [ngClass]="'theme-' + activeTheme">
+
+  <!-- Theme Bar -->
+  <div class="theme-bar">
+    <span class="theme-bar-label">Colour</span>
+
+    <button
+      *ngFor="let t of themes"
+      class="theme-swatch"
+      [ngClass]="['swatch-' + t.name, activeTheme === t.name ? 'active' : '']"
+      (click)="setTheme(t.name)">
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="story-header">
+    <div class="header-inner">
+      <div class="header-ornament">✦</div>
+      <h1 class="story-title-main">
+        Choose Your Own Adventure
+      </h1>
+      <div class="header-ornament">✦</div>
+    </div>
+
+    <p class="story-subtitle">
+      Step into a world of branching paths, mystery, and consequence.
+    </p>
+  </header>
+
+  <!-- Landing Panel -->
+  <main class="story-layout container-fluid px-2 px-md-4">
+
+    <section class="story-panel landing-panel">
+
+      <div class="scene-content fade-in">
+
+        <h2 class="scene-title">
+          Begin Your Journey
+        </h2>
+
+        <div class="scene-divider">
+          <span>◆</span>
+        </div>
+
+        <p class="narrative-para">
+          Every decision shapes your fate. Choose a story below to begin exploring interactive narratives filled with choices, endings, and surprises.
+        </p>
+
+        <div class="choices-list">
+
+          <button
+            class="choice-btn"
+            [routerLink]="['/interactive', 'story.json']">
+
+            <span class="choice-arrow">›</span>
+            <span class="choice-text">The Signal Beneath the Ice</span>
+
+          </button>
+
+          <button
+            class="choice-btn secondary"
+            [routerLink]="['/interactive', 'story2.json']">
+
+            <span class="choice-arrow">›</span>
+            <span class="choice-text">Black Ridge Hunt</span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="story-footer">
+    Forge your legend one choice at a time.
+  </footer>
+
+</div>
