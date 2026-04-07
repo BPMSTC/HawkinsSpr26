@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "The desert treasure",
+    "title": "The Desert Treasure",
     "subtitle": "You hear of a hidden treasure in a near desert called Goldwind Desert. Who knows what you will find?",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
@@ -9,8 +9,8 @@
     "restartLabel": "Begin again",
     "historyHeading": "Your Journey",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "The sandy road · Chapter One",
-    "loadingText": "Loading story…",
+    "footerText": "The Sandy Road · Chapter One",
+    "loadingText": "Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
