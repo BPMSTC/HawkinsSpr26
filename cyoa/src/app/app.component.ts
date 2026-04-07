@@ -11,12 +11,15 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
 
-  activeTheme = 'ember';
+  activeTheme = 'cyan';
 
   themes = [
-    { name: 'ember', label: 'Ember' },
-    { name: 'forest', label: 'Forest' },
-    { name: 'arcane', label: 'Arcane' }
+    { name: 'cyan',     label: 'Cyan'     },
+    { name: 'amber',    label: 'Amber'    },
+    { name: 'green',    label: 'Green'    },
+    { name: 'magenta',  label: 'Magenta'  },
+    { name: 'lavender', label: 'Lavender' },
+    { name: 'silver',   label: 'Silver'   },
   ];
 
   setTheme(theme: string) {
