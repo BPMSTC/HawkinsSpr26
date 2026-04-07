@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "The Desert Treasure",
+    "subtitle": "You hear of a hidden treasure in a near desert called Goldwind Desert. Who knows what you will find?",
+    "chapterLabel": "Chapter One",
+    "currentSceneLabel": "Current Scene",
+    "choicesPrompt": "What do you do?",
+    "endingLabel": "Chapter Complete",
+    "restartLabel": "Begin again",
+    "historyHeading": "Your Journey",
+    "historyEmptyText": "Your path will be recorded here as you make choices.",
+    "footerText": "The Sandy Road · Chapter One",
+    "loadingText": "Loading Story…",
+    "startSceneId": "start"
+  },
+  "scenes": [
+    {
+      "id": "start",
+      "title": "The Desert road Intersection",
+      "narrative": "You come across a road intersection.",
+      "choices": [
+        { "id": "c1", "text": "Go left", "nextSceneId": "scene 2" },
+        { "id": "c2", "text": "Go forward", "nextSceneId": "scene 3" },
+        { "id": "c3", "text": "Go right", "nextSceneId": "scene 4" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "scene 2",
+      "title": "The Long Walk",
+      "narrative": "You go left at the intersection and there is a very long road ahead. \n\nIt goes by many tall sand dunes - you walk for a while and then you see a building with a ladder on the side.",
+      "choices": [
+        { "id": "c4", "text": "Enter the building", "nextSceneId": "scene 4" },
+        { "id": "c5", "text": "Keep walking down the road", "nextSceneId": "scene 5" },
+        { "id": "c6", "text": "Climb the ladder on the building", "nextSceneId": "scene 3" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "scene 3",
+      "title": "The Building",
+      "narrative": "You climbed the ladder on the building, and you rest at the top where you see an open roof window. \n\nYou spot an oasis in the distance.",
+      "choices": [
+        { "id": "c7", "text": "Enter the building through the roof window", "nextSceneId": "ending 2" },
+        { "id": "c8", "text": "Travel to the oasis", "nextSceneId": "scene 5" },
+        { "id": "c9", "text": "Climb down the ladder on the building", "nextSceneId": "scene 2" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "scene 4",
+      "title": "The Research Discovery",
+      "narrative": "You enter the building. \n\nYou see a room and a balcony you can't get to. \n\nYou also see a map.",
+      "choices": [
+        { "id": "c8", "text": "Pick up the map and read it", "nextSceneId": "ending 1" },
+        { "id": "c9", "text": "Look around the building more", "nextSceneId": "scene 5" },
+        { "id": "c10", "text": "Enter the room", "nextSceneId": "death ending" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "scene 5",
+      "title": "The Ice Chamber",
+      "narrative": "You look around the building some more. \n\nYou don't find much besides expired cans and boxes of food. \n\nYou quickly get bored and see the map again.",
+      "choices": [
+        { "id": "c11", "text": "Pick up the map and read it", "nextSceneId": "ending 1" },
+        { "id": "c12", "text": "Leave the building", "nextSceneId": "ending 3" },
+        { "id": "c13", "text": "Enter the room you saw", "nextSceneId": "death ending" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "ending 1",
+      "title": "Map ending",
+      "narrative": "You pick up and read the map and it tells you where the treasure is. \n\nTHE END.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "ending 2",
+      "title": "Something Found",
+      "narrative": "You go through the roof window. \n\nYou hop down on a balcony and see a room with a big chast in it. \n\nYou enter the room and open the chest. \n\nThe chest is full of gold and diamonds - this is the treasure. \n\nTHE END.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "ending 3",
+      "title": "The First Contact",
+      "narrative": "You leave the building with nothing. \n\nYou are disapointed so you decide to go back home and report your findings to others. \n\nTHE END",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "death ending",
+      "title": "Death.",
+      "narrative": "You stumble upon a mangled creature that looks like an animatronic. \n\nYou run away but the creature is too fast and it gets you. \n\nYOU DIED",
+      "choices": [],
+      "isEnding": true
+    }
+
+  ]
+}

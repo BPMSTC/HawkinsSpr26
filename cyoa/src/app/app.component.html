@@ -8,7 +8,9 @@
       *ngFor="let t of themes"
       class="theme-swatch"
       [ngClass]="['swatch-' + t.name, activeTheme === t.name ? 'active' : '']"
-      (click)="setTheme(t.name)">
+      (click)="setTheme(t.name)"
+      [attr.aria-label]="'Switch to ' + t.label + ' theme'"
+      [attr.title]="t.label">
     </button>
   </div>
 
@@ -30,7 +32,7 @@
   <!-- Landing Panel -->
   <main class="story-layout container-fluid px-2 px-md-4">
 
-    <section class="story-panel landing-panel">
+    <section class="story-panel">
 
       <div class="scene-content fade-in">
 
@@ -42,15 +44,15 @@
           <span>◆</span>
         </div>
 
-        <p class="narrative-para">
+        <p class="narrative-para landing-para">
           Every decision shapes your fate. Choose a story below to begin exploring interactive narratives filled with choices, endings, and surprises.
         </p>
 
-        <div class="choices-list">
+        <div class="choices-list landing-choices">
 
           <button
             class="choice-btn"
-            [routerLink]="['/interactive', 'story.json']">
+            [routerLink]="['/interactive', 'IceStory.json']">
 
             <span class="choice-arrow">›</span>
             <span class="choice-text">The Signal Beneath the Ice</span>
@@ -59,10 +61,19 @@
 
           <button
             class="choice-btn secondary"
-            [routerLink]="['/interactive', 'story2.json']">
+            [routerLink]="['/interactive', 'HuntingStory.json']">
 
             <span class="choice-arrow">›</span>
             <span class="choice-text">Black Ridge Hunt</span>
+
+          </button>
+
+          <button
+            class="choice-btn secondary"
+            [routerLink]="['/interactive', 'DesertStory.json']">
+
+            <span class="choice-arrow">›</span>
+            <span class="choice-text">The Desert Treasure</span>
 
           </button>
 
@@ -73,6 +84,35 @@
     </section>
 
   </main>
+
+  <!-- Company Overview -->
+  <section id="about" class="story-panel company-panel">
+
+    <div class="scene-content fade-in">
+
+      <h2 class="scene-title">
+        About The Cake Cart
+      </h2>
+
+      <div class="scene-divider">
+        <span>◆</span>
+      </div>
+
+      <p class="narrative-para">
+        Welcome to The Cake Cart, your go-to bakery for interactive adventures! As a joke-turned-reality, this company bakes up branching narratives instead of bread. Founded and primarily owned by The Founder, we specialize in Choose-Your-Own-Adventure stories that let you explore mysteries, make tough choices, and forge your own legend.
+      </p>
+
+      <p class="narrative-para">
+        <strong>Services:</strong> Immersive story experiences with multiple endings, theme customization, and endless replayability. Perfect for adventurers who prefer their tales with a side of consequence.
+      </p>
+
+      <p class="narrative-para">
+        <strong>Contact:</strong> (715) THE-CAKE
+      </p>
+
+    </div>
+
+  </section>
 
   <footer class="story-footer">
     Forge your legend one choice at a time.
