@@ -24,6 +24,20 @@
       <div class="header-ornament">✦</div>
     </div>
 
+    <div class="auth-section">
+      <div *ngIf="!currentUser" class="auth-buttons">
+        <button class="auth-btn login-btn" (click)="toggleAuthForm()">
+          Login / Register
+        </button>
+      </div>
+      <div *ngIf="currentUser" class="user-info">
+        <span class="welcome-text">Welcome, {{ currentUser.username }}!</span>
+        <button class="auth-btn logout-btn" (click)="onLogout()">
+          Logout
+        </button>
+      </div>
+    </div>
+
     <p class="story-subtitle">
       Step into a world of branching paths, mystery, and consequence.
     </p>
@@ -113,6 +127,107 @@
     </div>
 
   </section>
+
+  <!-- Authentication Modal -->
+  <div *ngIf="showAuthForm" class="auth-modal-overlay" (click)="toggleAuthForm()">
+    <div class="auth-modal" (click)="$event.stopPropagation()">
+      <div class="auth-modal-header">
+        <h3>{{ isLoginMode ? 'Login' : 'Register' }}</h3>
+        <button class="close-btn" (click)="toggleAuthForm()">×</button>
+      </div>
+
+      <div class="auth-modal-body">
+        <!-- Login Form -->
+        <form *ngIf="isLoginMode" (ngSubmit)="onLogin()" class="auth-form">
+          <div class="form-group">
+            <label for="login-email">Email (from registration)</label>
+            <input
+              id="login-email"
+              type="email"
+              [(ngModel)]="loginData.email"
+              name="email"
+              required
+              placeholder="Enter the email you used to register">          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              type="password"
+              [(ngModel)]="loginData.password"
+              name="password"
+              required
+              placeholder="Enter your password">
+          </div>
+
+          <button type="submit" class="auth-submit-btn" [disabled]="isLoading">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+        </form>
+
+        <!-- Register Form -->
+        <form *ngIf="!isLoginMode" (ngSubmit)="onRegister()" class="auth-form">
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input
+              id="register-username"
+              type="text"
+              [(ngModel)]="registerData.username"
+              name="username"
+              required
+              placeholder="Choose a username">
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input
+              id="register-email"
+              type="email"
+              [(ngModel)]="registerData.email"
+              name="email"
+              required
+              placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input
+              id="register-password"
+              type="password"
+              [(ngModel)]="registerData.password"
+              name="password"
+              required
+              placeholder="Create a password">
+          </div>
+
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input
+              id="register-confirm"
+              type="password"
+              [(ngModel)]="registerData.confirmPassword"
+              name="confirmPassword"
+              required
+              placeholder="Confirm your password">
+          </div>
+
+          <button type="submit" class="auth-submit-btn" [disabled]="isLoading">
+            {{ isLoading ? 'Registering...' : 'Register' }}
+          </button>
+        </form>
+
+        <div *ngIf="authError" class="auth-error">
+          {{ authError }}
+        </div>
+
+        <div class="auth-switch">
+          <button type="button" class="switch-btn" (click)="switchMode()">
+            {{ isLoginMode ? 'Need an account? Register' : 'Already have an account? Login' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="story-footer">
     Forge your legend one choice at a time.
