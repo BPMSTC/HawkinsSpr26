@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  accentColor: {
+    type: String,
+    default: 'cyan'
+  },
   storyProgress: [{
     storyId: String,
     currentScene: String,
