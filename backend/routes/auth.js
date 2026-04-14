@@ -40,10 +40,11 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create user
-    const user = User.create({
+    const user = await User.create({
       username,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      accentColor: 'cyan'
     });
 
     // Generate token
@@ -56,7 +57,7 @@ router.post('/register', async (req, res) => {
     console.log(`[AUTH] Registration successful: ${username} (ID: ${user._id})`);
     res.status(201).json({
       token,
-      user: { id: user._id, username, email }
+      user: { id: user._id, username, email, accentColor: user.accentColor }
     });
   } catch (error) {
     console.error('[AUTH] Registration error:', error);
@@ -97,7 +98,7 @@ router.post('/login', async (req, res) => {
 
     res.json({
       token,
-      user: { id: user._id, username: user.username, email }
+      user: { id: user._id, username: user.username, email, accentColor: user.accentColor }
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -118,6 +119,29 @@ router.get('/profile', auth, async (req, res) => {
     res.json(userProfile);
   } catch (error) {
     console.error('Profile error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Update user profile settings
+router.put('/profile', auth, async (req, res) => {
+  try {
+    const { accentColor } = req.body;
+
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (accentColor) {
+      user.accentColor = accentColor;
+    }
+
+    await user.save();
+    const { password, ...userProfile } = user;
+    res.json(userProfile);
+  } catch (error) {
+    console.error('Profile update error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });

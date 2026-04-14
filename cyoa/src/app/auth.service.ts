@@ -7,6 +7,7 @@ export interface User {
   id: string;
   username: string;
   email: string;
+  accentColor?: string;
 }
 
 export interface AuthResponse {
@@ -66,6 +67,11 @@ export class AuthService {
     this.currentUserSubject.next(authResult.user);
   }
 
+  private updateCurrentUser(user: User): void {
+    localStorage.setItem(this.userKey, JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
@@ -94,5 +100,11 @@ export class AuthService {
   getAllProgress(): Observable<StoryProgress[]> {
     const headers = { 'Authorization': `Bearer ${this.getToken()}` };
     return this.http.get<StoryProgress[]>(`${this.apiUrl}/progress`, { headers });
+  }
+
+  updateAccentColor(accentColor: string): Observable<User> {
+    const headers = { 'Authorization': `Bearer ${this.getToken()}` };
+    return this.http.put<User>(`${this.apiUrl}/profile`, { accentColor }, { headers })
+      .pipe(tap(user => this.updateCurrentUser(user)));
   }
 }
