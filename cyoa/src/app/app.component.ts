@@ -47,13 +47,34 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    const savedTheme = localStorage.getItem('activeTheme');
+    if (savedTheme) {
+      this.activeTheme = savedTheme;
+    }
+
     this.authService.currentUser$.subscribe(user => {
       this.currentUser = user;
+      if (user?.accentColor) {
+        this.activeTheme = user.accentColor;
+        localStorage.setItem('activeTheme', user.accentColor);
+      }
     });
   }
 
   setTheme(theme: string) {
     this.activeTheme = theme;
+    localStorage.setItem('activeTheme', theme);
+
+    if (this.currentUser) {
+      this.authService.updateAccentColor(theme).subscribe({
+        next: user => {
+          this.currentUser = user;
+        },
+        error: err => {
+          console.error('Failed to save accent color', err);
+        }
+      });
+    }
   }
 
   toggleAuthForm() {
