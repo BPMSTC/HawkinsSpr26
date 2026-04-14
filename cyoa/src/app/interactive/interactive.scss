@@ -65,6 +65,23 @@
   &.swatch-silver   { background: #e8e8e8; }
 }
 
+.progress-indicator {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--panel-border);
+}
+
+.progress-icon {
+  font-size: 0.8rem;
+  color: var(--accent-dim);
+  cursor: help;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
 // ── Header ──────────────────────────────────────
 .story-header {
   text-align: center;

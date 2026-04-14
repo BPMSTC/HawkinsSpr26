@@ -11,6 +11,11 @@
       [attr.aria-label]="'Switch to ' + t.label + ' theme'"
       [attr.title]="t.label">
     </button>
+
+    <!-- Progress indicator for logged-in users -->
+    <div *ngIf="isLoggedIn()" class="progress-indicator">
+      <span class="progress-icon" title="Progress automatically saved">💾</span>
+    </div>
   </div>
 
   <!-- ── Header — driven entirely by meta ── -->
