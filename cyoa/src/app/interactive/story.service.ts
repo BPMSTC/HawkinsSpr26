@@ -21,16 +21,16 @@ export class StoryService {
 
   constructor(private http: HttpClient) {}
 
-  loadStory(storyPath: string): void {
-    this.historySubject.next([]);
+  loadStory(storyPath: string, startSceneId?: string, initialHistory: HistoryEntry[] = []): void {
+    this.historySubject.next(initialHistory);
     this.metaSubject.next(null);
     this.currentSceneSubject.next(null);
     this.errorSubject.next(null);
     const filePath = storyPath.startsWith('/') ? storyPath : `/${storyPath}`;
-    this.loadStoryData(filePath);
+    this.loadStoryData(filePath, startSceneId);
   }
 
-  private loadStoryData(filePath: string): void {
+  private loadStoryData(filePath: string, startSceneId?: string): void {
     this.loadingSubject.next(true);
     this.errorSubject.next(null);
 
@@ -49,7 +49,7 @@ export class StoryService {
         this.scenesMap = new Map(data.scenes.map(s => [s.id, s]));
         this.metaSubject.next(data.meta);
         this.loadingSubject.next(false);
-        this.navigateTo(data.meta.startSceneId);
+        this.navigateTo(startSceneId || data.meta.startSceneId);
       },
       error: () => {
         this.errorSubject.next('The story data could not be loaded. Please check that story.json is present and try refreshing.');
@@ -61,7 +61,19 @@ export class StoryService {
   private navigateTo(id: string): void {
     const scene = this.scenesMap.get(id);
     if (!scene) {
-      this.errorSubject.next(`Scene "${id}" could not be found. The story cannot continue from this point.`);
+      console.warn(`Scene "${id}" could not be found. Falling back to start scene.`);
+      // Try to find the start scene from meta
+      const meta = this.metaSubject.value;
+      if (meta?.startSceneId) {
+        const startScene = this.scenesMap.get(meta.startSceneId);
+        if (startScene) {
+          this.errorSubject.next(null);
+          this.currentSceneSubject.next(startScene);
+          return;
+        }
+      }
+      // If we can't find start scene either, show error
+      this.errorSubject.next(`Scene "${id}" could not be found and no valid start scene available.`);
       return;
     }
     this.errorSubject.next(null);
