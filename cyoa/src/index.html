@@ -14,8 +14,10 @@ body {
   text-align: center;
 }
 
+/* Welcome/discription text on page */
 p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: azure;
 }
 
 /* Navbar at the top of the page */
@@ -23,6 +25,7 @@ p {
   background-color: #323234;
   text-align: center;
 }
+
 /* Dropdown container */
  .dropdown {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -79,6 +82,24 @@ p {
 .dropdown:hover .dropbtn {
   background-color: #626264;
 }
+
+/* Welcome/discription text on page */
+#paragraph {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer at the bottom of the page */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #323234;
+  color: azure;
+  text-align: center;
+}
+
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,10 +116,16 @@ p {
             <a href="interactive.html">Interactive</a>
           </div>
       </div>
-    </div>  
-  <p>Welcome to CYOA (Choose your own adventure). This is a website designed for you to create your own adventure story
-    with the help of our own CYOA AI to help you create or choose your stories. This website was created for ease-of-use 
-    in mind with a simple interface for new and original users.
-  </p>
+    </div>
+
+  <div id="paragraph">
+    <p>
+      Welcome to CYOA (Choose your own adventure). This is a website designed for you to create your own adventure story
+      with the help of our own CYOA AI to help you create or choose your stories. This website was created for ease-of-use 
+      in mind with a simple interface for new and original users.
+    </p>
+  </div>
+
+  <footer>2026 CYOA</footer>
 </body>
 </html>
