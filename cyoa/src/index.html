@@ -8,22 +8,33 @@
   <meta name="description" content="An interactive adventure story with branching paths and a live history panel.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
+
+/* Page body. Page and all elements in page made with flexbox. */
 body {
   background-color: black;
   color: azure;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-/* Welcome/discription text on page */
+/* Welcome, discription text on page */
 p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: azure;
+  min-width: 100%;
+  min-height: 100vh;
+  text-align: center;
 }
 
 /* Navbar at the top of the page */
 .container {
   background-color: #323234;
   text-align: center;
+  min-width: 100%;
 }
 
 /* Dropdown container */
@@ -94,7 +105,7 @@ p {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  min-width: 100vw;
   background-color: #323234;
   color: azure;
   text-align: center;
