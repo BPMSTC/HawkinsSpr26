@@ -1,7 +1,17 @@
 <div class="story-shell" [ngClass]="'theme-' + activeTheme">
-
+  
   <!-- Theme Bar -->
   <div class="theme-bar">
+    <div class="container">
+      <div class="dropdown">
+        <button class="dropbtn">☰</button>
+          <div class="dropdown-content">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="interactive.html">Interactive</a>
+          </div>
+      </div>
+    </div>
     <span class="theme-bar-label">Colour</span>
 
     <button
