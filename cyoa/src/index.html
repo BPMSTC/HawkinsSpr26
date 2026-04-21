@@ -26,15 +26,12 @@ p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: azure;
   min-width: 100%;
-  min-height: 100vh;
   text-align: center;
 }
 
 /* Navbar at the top of the page */
 .container {
-  background-color: #323234;
-  text-align: center;
-  min-width: 100%;
+  text-align: left;
 }
 
 /* Dropdown container */
@@ -62,7 +59,7 @@ p {
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
-  text-align: center;
+  text-align: left;
   position: absolute;
   background-color: azure;
   min-width: 160px;
@@ -118,25 +115,6 @@ p {
 </head>
 <body>
   <app-root></app-root>
-    <div class="container">
-      <div class="dropdown">
-        <button class="dropbtn">☰</button>
-          <div class="dropdown-content">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="interactive.html">Interactive</a>
-          </div>
-      </div>
-    </div>
-
-  <div id="paragraph">
-    <p>
-      Welcome to CYOA (Choose your own adventure). This is a website designed for you to create your own adventure story
-      with the help of our own CYOA AI to help you create or choose your stories. This website was created for ease-of-use 
-      in mind with a simple interface for new and original users.
-    </p>
-  </div>
-
   <footer>2026 CYOA</footer>
 </body>
 </html>
