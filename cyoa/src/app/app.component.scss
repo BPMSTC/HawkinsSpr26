@@ -499,104 +499,63 @@
   &:hover {
     color: #ffffff;
   }
-
-  /* Page body. Page and all elements in page made with flexbox. */
-body {
-  background-color: black;
-  color: azure;
-  text-align: center;
+/* AI Section */
+.ai-panel {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  padding: 3rem 1rem;
 }
 
-/* Welcome, discription text on page */
-p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: azure;
-  min-width: 100%;
-  text-align: center;
-}
-
-/* Navbar at the top of the page */
-.container {
-  text-align: left;
-
-}
-
-/* Dropdown container */
- .dropdown {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  padding: 6px;
-}
-
-/* Dropdown button */
-.dropbtn {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: azure;
-  color: black;
-  padding: 12px 24px;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  text-align: left;
-  position: absolute;
-  background-color: azure;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  border-radius: 6px;
-  z-index: 1;
-}
-
-/* Links inside dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 10px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-  background-color: #626264;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change button color on hover */
-.dropdown:hover .dropbtn {
-  background-color: #626264;
-}
-
-/* Welcome/discription text on page */
-#paragraph {
+.ai-box {
   width: 100%;
-  height: 100%;
-}
-
-/* Footer at the bottom of the page */
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  min-width: 100vw;
-  background-color: #323234;
-  color: azure;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
+
+.ai-textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: 18px 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.ai-textarea:focus {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.12);
+}
+
+.ai-textarea::placeholder {
+  color: #888;
+}
+
+.ai-box .choice-btn {
+  margin-top: 1rem;
+  min-width: 180px;
+}
+
+.ai-response {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.ai-response h3 {
+  margin-bottom: 1rem;
+}
+
 }
