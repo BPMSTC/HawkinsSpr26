@@ -30,6 +30,7 @@
           Login / Register
         </button>
       </div>
+
       <div *ngIf="currentUser" class="user-info">
         <span class="welcome-text">Welcome, {{ currentUser.username }}!</span>
         <button class="auth-btn logout-btn" (click)="onLogout()">
@@ -99,6 +100,59 @@
 
   </main>
 
+  <!-- AI Assistant Section -->
+  <section class="story-panel ai-panel">
+
+    <div class="scene-content fade-in">
+
+      <h2 class="scene-title">
+        AI Story Assistant
+      </h2>
+
+      <div class="scene-divider">
+        <span>◆</span>
+      </div>
+
+      <p class="narrative-para">
+        Need help deciding your next move? Ask the AI assistant for story ideas,
+        hints, or help building your own adventure.
+      </p>
+
+      <div class="ai-box">
+
+        <textarea
+          [(ngModel)]="aiPrompt"
+          rows="6"
+          placeholder="Ask the AI something..."
+          class="ai-textarea">
+        </textarea>
+
+        <button
+          class="choice-btn"
+          (click)="sendAiMessage()"
+          [disabled]="aiLoading">
+
+          {{ aiLoading ? 'Thinking...' : 'Ask AI' }}
+
+        </button>
+
+        <p *ngIf="aiError" class="auth-error">
+          {{ aiError }}
+        </p>
+
+        <div *ngIf="aiReply" class="ai-response">
+          <h3>AI Response</h3>
+          <p class="narrative-para">
+            {{ aiReply }}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
   <!-- Company Overview -->
   <section id="about" class="story-panel company-panel">
 
@@ -113,11 +167,16 @@
       </div>
 
       <p class="narrative-para">
-        Welcome to The Cake Cart, your go-to bakery for interactive adventures! As a joke-turned-reality, this company bakes up branching narratives instead of bread. Founded and primarily owned by The Founder, we specialize in Choose-Your-Own-Adventure stories that let you explore mysteries, make tough choices, and forge your own legend.
+        Welcome to The Cake Cart, your go-to bakery for interactive adventures!
+        As a joke-turned-reality, this company bakes up branching narratives instead of bread.
+        Founded and primarily owned by The Founder, we specialize in Choose-Your-Own-Adventure
+        stories that let you explore mysteries, make tough choices, and forge your own legend.
       </p>
 
       <p class="narrative-para">
-        <strong>Services:</strong> Immersive story experiences with multiple endings, theme customization, and endless replayability. Perfect for adventurers who prefer their tales with a side of consequence.
+        <strong>Services:</strong> Immersive story experiences with multiple endings,
+        theme customization, and endless replayability. Perfect for adventurers who
+        prefer their tales with a side of consequence.
       </p>
 
       <p class="narrative-para">
@@ -131,14 +190,17 @@
   <!-- Authentication Modal -->
   <div *ngIf="showAuthForm" class="auth-modal-overlay" (click)="toggleAuthForm()">
     <div class="auth-modal" (click)="$event.stopPropagation()">
+
       <div class="auth-modal-header">
         <h3>{{ isLoginMode ? 'Login' : 'Register' }}</h3>
         <button class="close-btn" (click)="toggleAuthForm()">×</button>
       </div>
 
       <div class="auth-modal-body">
+
         <!-- Login Form -->
         <form *ngIf="isLoginMode" (ngSubmit)="onLogin()" class="auth-form">
+
           <div class="form-group">
             <label for="login-email">Email (from registration)</label>
             <input
@@ -147,7 +209,8 @@
               [(ngModel)]="loginData.email"
               name="email"
               required
-              placeholder="Enter the email you used to register">          </div>
+              placeholder="Enter the email you used to register">
+          </div>
 
           <div class="form-group">
             <label for="login-password">Password</label>
@@ -160,13 +223,20 @@
               placeholder="Enter your password">
           </div>
 
-          <button type="submit" class="auth-submit-btn" [disabled]="isLoading">
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+
             {{ isLoading ? 'Logging in...' : 'Login' }}
+
           </button>
+
         </form>
 
         <!-- Register Form -->
         <form *ngIf="!isLoginMode" (ngSubmit)="onRegister()" class="auth-form">
+
           <div class="form-group">
             <label for="register-username">Username</label>
             <input
@@ -211,9 +281,15 @@
               placeholder="Confirm your password">
           </div>
 
-          <button type="submit" class="auth-submit-btn" [disabled]="isLoading">
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+
             {{ isLoading ? 'Registering...' : 'Register' }}
+
           </button>
+
         </form>
 
         <div *ngIf="authError" class="auth-error">
@@ -221,10 +297,16 @@
         </div>
 
         <div class="auth-switch">
-          <button type="button" class="switch-btn" (click)="switchMode()">
+          <button
+            type="button"
+            class="switch-btn"
+            (click)="switchMode()">
+
             {{ isLoginMode ? 'Need an account? Register' : 'Already have an account? Login' }}
+
           </button>
         </div>
+
       </div>
     </div>
   </div>
