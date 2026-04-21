@@ -8,21 +8,32 @@
   <meta name="description" content="An interactive adventure story with branching paths and a live history panel.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
+
+/* Page body. Page and all elements in page made with flexbox. */
 body {
   background-color: black;
   color: azure;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
+/* Welcome, discription text on page */
 p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: azure;
+  min-width: 100%;
+  text-align: center;
 }
 
 /* Navbar at the top of the page */
 .container {
-  background-color: #323234;
-  text-align: center;
+  text-align: left;
 }
+
 /* Dropdown container */
  .dropdown {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,7 +59,7 @@ p {
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
-  text-align: center;
+  text-align: left;
   position: absolute;
   background-color: azure;
   min-width: 160px;
@@ -79,6 +90,24 @@ p {
 .dropdown:hover .dropbtn {
   background-color: #626264;
 }
+
+/* Welcome/discription text on page */
+#paragraph {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer at the bottom of the page */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  background-color: #323234;
+  color: azure;
+  text-align: center;
+}
+
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,19 +115,6 @@ p {
 </head>
 <body>
   <app-root></app-root>
-    <div class="container">
-      <div class="dropdown">
-        <button class="dropbtn">☰</button>
-          <div class="dropdown-content">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="interactive.html">Interactive</a>
-          </div>
-      </div>
-    </div>  
-  <p>Welcome to CYOA (Choose your own adventure). This is a website designed for you to create your own adventure story
-    with the help of our own CYOA AI to help you create or choose your stories. This website was created for ease-of-use 
-    in mind with a simple interface for new and original users.
-  </p>
+  <footer>2026 CYOA</footer>
 </body>
 </html>
