@@ -1,3 +1,4 @@
 # Ignore non-Angular folder in this repository
 bakery/
 backend/.env
+.env
