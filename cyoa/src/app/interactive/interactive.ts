@@ -5,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { StoryService } from './story.service';
 import { Scene, StoryMeta, HistoryEntry } from './story.model';
 import { AuthService } from '../auth.service';
+import { StorageService } from '../storage.service';
 
 export type ThemeName = 'cyan' | 'amber' | 'green' | 'magenta' | 'lavender' | 'silver';
 export interface ThemeSwatch { name: ThemeName; label: string; }
@@ -44,6 +45,7 @@ export class InteractiveComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private storyService: StoryService,
     private authService: AuthService,
+    private storageService: StorageService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -85,9 +87,17 @@ export class InteractiveComponent implements OnInit, OnDestroy {
     this.route.paramMap
       .pipe(takeUntil(this.destroy$))
       .subscribe(params => {
-        const storyPath = params.get('storyPath');
+        let storyPath = params.get('storyPath');
+        
+        // If no story path in route params, try to load from storage
+        if (!storyPath) {
+          storyPath = this.storageService.getSelectedStory();
+        }
+        
         if (storyPath) {
           this.storyId = storyPath;
+          // Save the current story to storage
+          this.storageService.saveSelectedStory(storyPath);
           this.loadStoryWithProgress(storyPath);
         } else {
           this.error = 'No story was selected. Please return to the home page and choose a story.';
@@ -110,10 +120,15 @@ export class InteractiveComponent implements OnInit, OnDestroy {
   restart(): void {
     this.storyService.restart();
     // Clear saved progress when restarting
+    this.storageService.clearProgress(this.storyId);
+    
     if (this.authService.isLoggedIn()) {
       this.authService.saveProgress(this.storyId, '', []).subscribe({
         next: () => console.log('Progress cleared'),
-        error: (err) => console.error('Failed to clear progress:', err)
+        error: (err: any) => {
+          // Silently handle errors - don't disrupt restart
+          console.log('Could not clear backend progress (continuing)');
+        }
       });
     }
   }
@@ -122,22 +137,40 @@ export class InteractiveComponent implements OnInit, OnDestroy {
     let startSceneId: string | undefined;
     let initialHistory: HistoryEntry[] = [];
 
-    // If user is logged in, try to load their progress
+    // First, try to load progress from localStorage (works for both logged in and offline)
+    const localProgress = this.storageService.loadProgress(this.storyId);
+    if (localProgress && localProgress.currentScene) {
+      startSceneId = localProgress.currentScene;
+      initialHistory = localProgress.history.map(choiceText => ({
+        sceneTitle: 'Previous Scene',
+        sceneNarrative: 'Continued from saved progress...',
+        choiceMade: choiceText
+      }));
+    }
+
+    // If logged in, also check backend for potentially more recent progress
     if (this.authService.isLoggedIn()) {
       try {
-        const progress = await this.authService.loadProgress(this.storyId).toPromise();
-        if (progress && progress.currentScene) {
-          startSceneId = progress.currentScene;
-          // Convert history strings back to HistoryEntry objects
-          initialHistory = progress.history.map(choiceText => ({
-            sceneTitle: 'Previous Scene',
-            sceneNarrative: 'Continued from saved progress...',
-            choiceMade: choiceText
-          }));
+        const backendProgress = await this.authService.loadProgress(this.storyId).toPromise();
+        if (backendProgress && backendProgress.currentScene) {
+          // Prefer backend progress if it exists and is more recent
+          startSceneId = backendProgress.currentScene;
+          if (backendProgress.history && Array.isArray(backendProgress.history)) {
+            initialHistory = backendProgress.history.map(choiceText => ({
+              sceneTitle: 'Previous Scene',
+              sceneNarrative: 'Continued from saved progress...',
+              choiceMade: choiceText
+            }));
+          }
         }
-      } catch (error) {
-        // Network error or invalid token - just start fresh, don't show error to user
-        console.log('Could not load saved progress, starting fresh:', error);
+      } catch (error: any) {
+        // Handle 401 unauthorized - token is invalid or expired
+        if (error?.status === 401) {
+          console.log('Session expired, logging out');
+          this.authService.logout();
+        }
+        // Network error or other issues - just use local progress, don't show error to user
+        console.log('Could not load backend progress, using local progress');
       }
     }
 
@@ -146,21 +179,32 @@ export class InteractiveComponent implements OnInit, OnDestroy {
   }
 
   private saveProgress(): void {
-    if (!this.authService.isLoggedIn() || !this.currentScene || !this.storyId) return;
+    if (!this.currentScene || !this.storyId) return;
 
     const historyStrings = this.history.map(entry => entry.choiceMade);
 
-    this.authService.saveProgress(
-      this.storyId,
-      this.currentScene.id,
-      historyStrings
-    ).subscribe({
-      next: () => console.log('Progress saved'),
-      error: (err) => {
-        // Silently handle save errors - don't disrupt user experience
-        console.warn('Failed to save progress (continuing):', err);
-      }
-    });
+    // Always save to localStorage for immediate offline access
+    this.storageService.saveProgress(this.storyId, this.currentScene.id, historyStrings);
+
+    // Also save to backend if logged in
+    if (this.authService.isLoggedIn()) {
+      this.authService.saveProgress(
+        this.storyId,
+        this.currentScene.id,
+        historyStrings
+      ).subscribe({
+        next: () => console.log('Progress saved to backend'),
+        error: (err: any) => {
+          // Handle 401 unauthorized - token is invalid or expired
+          if (err?.status === 401) {
+            console.log('Session expired, logging out');
+            this.authService.logout();
+          }
+          // Silently handle save errors - local progress is already saved
+          console.log('Background save to backend skipped (local save preserved)');
+        }
+      });
+    }
   }
 
   isLoggedIn(): boolean {
