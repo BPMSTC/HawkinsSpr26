@@ -109,7 +109,8 @@
               "buildTarget": "story-app:build:production"
             },
             "development": {
-              "buildTarget": "story-app:build:development"
+              "buildTarget": "story-app:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

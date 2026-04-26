@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService, User } from './auth.service';
 import { ChatService, ChatResponse } from './chat.service';
+import { StorageService } from './storage.service';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private chatService: ChatService
+    private chatService: ChatService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -82,6 +84,10 @@ export class AppComponent implements OnInit {
         }
       });
     }
+  }
+
+  selectStory(storyPath: string): void {
+    this.storageService.saveSelectedStory(storyPath);
   }
 
   toggleAuthForm(): void {
