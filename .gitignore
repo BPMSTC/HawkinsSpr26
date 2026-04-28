@@ -1,3 +1,6 @@
 # Ignore non-Angular folder in this repository
-bakery/
+node_modules/
+backend/node_modules/
+cyoa/node_modules/
+.env
 backend/.env
