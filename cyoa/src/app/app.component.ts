@@ -33,13 +33,17 @@ export class AppComponent implements OnInit {
   isLoading = false;
 
   aiPrompt = '';
-  aiReply = '';
-  aiError: string | null = null;
-  aiLoading = false;
+aiReply = '';
+aiError: string | null = null;
+aiLoading = false;
 
-  requestsUsed = 0;
-  requestsRemaining = 20;
-  dailyLimit = 20;
+requestsUsed = 0;
+requestsRemaining = 20;
+dailyLimit = 20;
+
+promptTokens = 0;
+responseTokens = 0;
+totalTokens = 0;
 
   loginData = {
     email: '',
@@ -198,11 +202,16 @@ export class AppComponent implements OnInit {
       console.log('AI response received:', res);
 
       this.aiReply = res.reply;
+
       this.requestsUsed = res.requestsUsed;
       this.requestsRemaining = res.requestsRemaining;
       this.dailyLimit = res.dailyLimit;
-      this.aiLoading = false;
 
+      this.promptTokens = res.promptTokens;
+      this.responseTokens = res.responseTokens;
+      this.totalTokens = res.totalTokens;
+
+      this.aiLoading = false;
       this.cdr.detectChanges();
     },
     error: (err: HttpErrorResponse) => {
@@ -216,8 +225,12 @@ export class AppComponent implements OnInit {
       this.requestsUsed = err.error?.requestsUsed ?? this.requestsUsed;
       this.requestsRemaining = err.error?.requestsRemaining ?? this.requestsRemaining;
       this.dailyLimit = err.error?.dailyLimit ?? this.dailyLimit;
-      this.aiLoading = false;
 
+      this.promptTokens = err.error?.promptTokens ?? this.promptTokens;
+      this.responseTokens = err.error?.responseTokens ?? this.responseTokens;
+      this.totalTokens = err.error?.totalTokens ?? this.totalTokens;
+
+      this.aiLoading = false;
       this.cdr.detectChanges();
     },
     complete: () => {

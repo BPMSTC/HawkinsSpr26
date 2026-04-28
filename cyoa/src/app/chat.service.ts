@@ -7,6 +7,9 @@ export interface ChatResponse {
   requestsUsed: number;
   requestsRemaining: number;
   dailyLimit: number;
+  promptTokens: number;
+  responseTokens: number;
+  totalTokens: number;
 }
 
 @Injectable({
@@ -31,13 +34,8 @@ export class ChatService {
   sendMessage(message: string): Observable<ChatResponse> {
     const apiUrl = 'http://localhost:3000/api/openai/chat';
 
-    const requestPayload = {
+    return this.http.post<ChatResponse>(apiUrl, {
       message
-    };
-
-    return this.http.post<ChatResponse>(
-      apiUrl,
-      requestPayload
-    );
+    });
   }
 }

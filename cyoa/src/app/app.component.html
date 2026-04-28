@@ -150,8 +150,16 @@
       </button>
 
       <p class="ai-limit-text">
-        AI Requests Remaining Today:
+        Requests Remaining Today:
         {{ requestsRemaining }} / {{ dailyLimit }}
+      </p>
+
+      <p class="ai-limit-text">
+        Prompt Tokens: {{ promptTokens }}
+        |
+        Response Tokens: {{ responseTokens }}
+        |
+        Total Tokens: {{ totalTokens }}
       </p>
 
       <p *ngIf="aiLoading" class="thinking-text">
