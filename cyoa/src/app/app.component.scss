@@ -1,14 +1,11 @@
 // ═══════════════════════════════════════════════
 //  THE CROSSROADS CHRONICLE — Component Styles
-//  NOTE: All :root vars + theme classes live in
-//  src/styles.scss (global) so Angular's
-//  ViewEncapsulation does not scope them away.
 // ═══════════════════════════════════════════════
 
-// ── Base reset ─────────────────────────────────
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-// ── Shell ──────────────────────────────────────
 .story-shell {
   min-height: 100vh;
   background: var(--shell-bg);
@@ -18,7 +15,6 @@
   color: var(--text-primary);
 }
 
-// ── Theme switcher bar ─────────────────────────
 .theme-bar {
   display: flex;
   align-items: center;
@@ -49,7 +45,9 @@
   padding: 0;
   background-clip: padding-box;
 
-  &:hover { transform: scale(1.25); }
+  &:hover {
+    transform: scale(1.25);
+  }
 
   &.active {
     border-color: #fff;
@@ -57,15 +55,14 @@
     transform: scale(1.2);
   }
 
-  &.swatch-cyan     { background: #00e5ff; }
-  &.swatch-amber    { background: #ffb830; }
-  &.swatch-green    { background: #39ff14; }
-  &.swatch-magenta  { background: #ff3af0; }
+  &.swatch-cyan { background: #00e5ff; }
+  &.swatch-amber { background: #ffb830; }
+  &.swatch-green { background: #39ff14; }
+  &.swatch-magenta { background: #ff3af0; }
   &.swatch-lavender { background: #c0a0ff; }
-  &.swatch-silver   { background: #e8e8e8; }
+  &.swatch-silver { background: #e8e8e8; }
 }
 
-// ── Header ──────────────────────────────────────
 .story-header {
   text-align: center;
   padding: 2rem 1rem 1.25rem;
@@ -76,9 +73,11 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 50%;
+    bottom: 0;
+    left: 50%;
     transform: translateX(-50%);
-    width: 120px; height: 1px;
+    width: 120px;
+    height: 1px;
     background: var(--accent);
     opacity: 0.4;
     box-shadow: 0 0 12px var(--accent);
@@ -116,7 +115,6 @@
   letter-spacing: 0.04em;
 }
 
-// ── Layout ──────────────────────────────────────
 .story-layout {
   flex: 1;
   padding-top: 1.5rem;
@@ -126,7 +124,6 @@
   width: 100%;
 }
 
-// ── Story Panel ─────────────────────────────────
 .story-panel {
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
@@ -179,10 +176,13 @@
     padding: 0 1rem;
     opacity: 0.5;
   }
+
   &::before {
     content: '';
     position: absolute;
-    top: 50%; left: 0; right: 0;
+    top: 50%;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
   }
@@ -194,10 +194,12 @@
   line-height: 1.95;
   color: #e8e8e8;
   margin-bottom: 1.15em;
-  &:last-child { margin-bottom: 0; }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
-// ── Choices ─────────────────────────────────────
 .choices-list {
   display: flex;
   flex-direction: column;
@@ -234,22 +236,22 @@
     border-color: var(--accent-border);
     box-shadow: 0 0 16px var(--accent-glow), inset 0 0 20px var(--accent-subtle);
     transform: translateX(4px);
-    .choice-arrow { color: var(--accent); }
   }
-  &:active { transform: translateX(2px) scale(0.995); }
-  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  &:active {
+    transform: translateX(2px) scale(0.995);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 
   &.secondary {
     background: var(--panel-bg);
     border-color: var(--panel-border);
     border-left-color: var(--accent-dim);
     color: #d0d0d0;
-
-    &:hover {
-      background: var(--accent-subtle);
-      border-color: var(--accent-border);
-      border-left-color: var(--accent);
-    }
   }
 }
 
@@ -259,18 +261,17 @@
   font-weight: bold;
   flex-shrink: 0;
   margin-top: 0.06rem;
-  transition: color 0.18s ease;
 }
 
-.choice-text { flex: 1; }
+.choice-text {
+  flex: 1;
+}
 
-// ── Landing specific ────────────────────────────
 .landing-para {
   max-width: 600px;
   margin: 0 auto 2rem;
 }
 
-// ── Footer ──────────────────────────────────────
 .story-footer {
   text-align: center;
   padding: 0.85rem 1rem;
@@ -282,15 +283,27 @@
   text-transform: uppercase;
 }
 
-// ── Mobile ──────────────────────────────────────
 @media (max-width: 575px) {
-  .story-panel  { padding: 1.4rem 1rem 1.8rem; }
-  .choice-btn   { padding: 0.75rem 0.9rem; font-size: 0.92rem; }
-  .theme-bar    { gap: 0.45rem; padding: 0.5rem 0.9rem; }
-  .theme-swatch { width: 16px; height: 16px; }
+  .story-panel {
+    padding: 1.4rem 1rem 1.8rem;
+  }
+
+  .choice-btn {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.92rem;
+  }
+
+  .theme-bar {
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .theme-swatch {
+    width: 16px;
+    height: 16px;
+  }
 }
 
-// ── Authentication ──────────────────────────────
 .auth-section {
   position: absolute;
   top: 1rem;
@@ -298,7 +311,8 @@
   z-index: 10;
 }
 
-.auth-buttons, .user-info {
+.auth-buttons,
+.user-info {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -340,10 +354,7 @@
 
 .auth-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
@@ -385,19 +396,6 @@
   color: #888;
   font-size: 1.5rem;
   cursor: pointer;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  transition: background 0.15s ease, color 0.15s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ccc;
-  }
 }
 
 .auth-modal-body {
@@ -453,18 +451,11 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s ease, transform 0.1s ease;
   margin-top: 0.5rem;
-
-  &:hover:not(:disabled) {
-    background: var(--accent-btn-bg);
-    transform: translateY(-1px);
-  }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    transform: none;
   }
 }
 
@@ -499,6 +490,8 @@
   &:hover {
     color: #ffffff;
   }
+}
+
 /* AI Section */
 .ai-panel {
   display: flex;
@@ -542,20 +535,42 @@
 .ai-box .choice-btn {
   margin-top: 1rem;
   min-width: 180px;
+  justify-content: center;
+  text-align: center;
 }
 
-.ai-response {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+.thinking-text {
+  margin-top: 12px;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  color: #e8e8e8;
+}
+
+.ai-response-box {
+  margin-top: 20px;
+  padding: 24px;
+  border: 2px solid #00e5ff;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #111111;
   text-align: left;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+  display: block;
+  width: 100%;
 }
 
-.ai-response h3 {
-  margin-bottom: 1rem;
+.ai-response-box h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
 }
 
+.ai-response-box p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #111111;
+  white-space: pre-wrap;
 }

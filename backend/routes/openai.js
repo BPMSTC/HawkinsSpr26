@@ -1,13 +1,13 @@
 const express = require('express');
-const OpenAI = require('openai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const router = express.Router();
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 router.post('/chat', async (req, res) => {
+  console.log('AI route hit:', req.body);
+
   try {
     const { message } = req.body;
 
@@ -17,19 +17,44 @@ router.post('/chat', async (req, res) => {
       });
     }
 
-    const response = await client.responses.create({
-      model: 'gpt-5.4',
-      instructions: 'You are a helpful assistant for website users.',
-      input: message,
-    });
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({
+        error: 'Missing GEMINI_API_KEY in .env file.',
+      });
+    }
+
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-2.5-flash',
+      systemInstruction: 'You are a helpful assistant for website users.',
+      }
+    );
+console.log('Before Gemini call');
+
+const timeout = new Promise((_, reject) =>
+  setTimeout(() => reject(new Error('Gemini request timed out')), 15000)
+);
+
+const result = await Promise.race([
+  model.generateContent(message),
+  timeout
+]);
+
+console.log('After Gemini call');
+
+const reply = result.response.text();
+
+console.log("FULL GEMINI RESPONSE:", JSON.stringify(result, null, 2));
+console.log("FINAL REPLY:", reply);
 
     return res.json({
-      reply: response.output_text,
+      reply,
     });
   } catch (error) {
-    console.error('OpenAI route error:', error);
+    console.error('Gemini route error:', error);
+
     return res.status(500).json({
-      error: 'Failed to get a response from OpenAI.',
+      error: 'Failed to get a response from Gemini.',
+      details: error.message,
     });
   }
 });

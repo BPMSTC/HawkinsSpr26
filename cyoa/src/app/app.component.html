@@ -111,57 +111,61 @@
   </main>
 
   <!-- AI Assistant Section -->
-  <section class="story-panel ai-panel">
+<section class="story-panel ai-panel">
 
-    <div class="scene-content fade-in">
+  <div class="scene-content fade-in">
 
-      <h2 class="scene-title">
-        AI Story Assistant
-      </h2>
+    <h2 class="scene-title">
+      AI Story Assistant
+    </h2>
 
-      <div class="scene-divider">
-        <span>◆</span>
-      </div>
+    <div class="scene-divider">
+      <span>◆</span>
+    </div>
 
-      <p class="narrative-para">
-        Need help deciding your next move? Ask the AI assistant for story ideas,
-        hints, or help building your own adventure.
+    <p class="narrative-para">
+      Need help deciding your next move? Ask the AI assistant for story ideas,
+      hints, or help building your own adventure.
+    </p>
+
+    <div class="ai-box">
+
+      <textarea
+        [(ngModel)]="aiPrompt"
+        rows="6"
+        placeholder="Ask the AI something..."
+        class="ai-textarea">
+      </textarea>
+
+      <button
+        class="choice-btn"
+        (click)="sendAiMessage()"
+        [disabled]="aiLoading">
+
+        Ask AI
+
+      </button>
+
+      <p *ngIf="aiLoading" class="thinking-text">
+        Thinking...
       </p>
 
-      <div class="ai-box">
+      <p *ngIf="aiError" class="auth-error">
+        {{ aiError }}
+      </p>
 
-        <textarea
-          [(ngModel)]="aiPrompt"
-          rows="6"
-          placeholder="Ask the AI something..."
-          class="ai-textarea">
-        </textarea>
-
-        <button
-          class="choice-btn"
-          (click)="sendAiMessage()"
-          [disabled]="aiLoading">
-
-          {{ aiLoading ? 'Thinking...' : 'Ask AI' }}
-
-        </button>
-
-        <p *ngIf="aiError" class="auth-error">
-          {{ aiError }}
+      <div *ngIf="aiReply" class="ai-response-box">
+        <h3>AI Response</h3>
+        <p>
+          {{ aiReply }}
         </p>
-
-        <div *ngIf="aiReply" class="ai-response">
-          <h3>AI Response</h3>
-          <p class="narrative-para">
-            {{ aiReply }}
-          </p>
-        </div>
-
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
   <!-- Company Overview -->
   <section id="about" class="story-panel company-panel">
