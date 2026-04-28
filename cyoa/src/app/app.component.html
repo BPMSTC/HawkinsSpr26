@@ -77,7 +77,8 @@
 
           <button
             class="choice-btn"
-            [routerLink]="['/interactive', 'IceStory.json']">
+            [routerLink]="['/interactive', 'IceStory.json']"
+            (click)="selectStory('IceStory.json')">
 
             <span class="choice-arrow">›</span>
             <span class="choice-text">The Signal Beneath the Ice</span>
@@ -86,7 +87,8 @@
 
           <button
             class="choice-btn secondary"
-            [routerLink]="['/interactive', 'HuntingStory.json']">
+            [routerLink]="['/interactive', 'HuntingStory.json']"
+            (click)="selectStory('HuntingStory.json')">
 
             <span class="choice-arrow">›</span>
             <span class="choice-text">Black Ridge Hunt</span>
@@ -95,7 +97,8 @@
 
           <button
             class="choice-btn secondary"
-            [routerLink]="['/interactive', 'DesertStory.json']">
+            [routerLink]="['/interactive', 'DesertStory.json']"
+            (click)="selectStory('DesertStory.json')">
 
             <span class="choice-arrow">›</span>
             <span class="choice-text">The Desert Treasure</span>
