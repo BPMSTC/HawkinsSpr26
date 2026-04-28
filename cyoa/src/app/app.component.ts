@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private chatService: ChatService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
     private storageService: StorageService
   ) {}
 
