@@ -3,8 +3,6 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const router = express.Router();
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
 router.post('/chat', async (req, res) => {
   console.log('AI route hit:', req.body);
 
@@ -18,33 +16,28 @@ router.post('/chat', async (req, res) => {
     }
 
     if (!process.env.GEMINI_API_KEY) {
+      console.log('Missing Gemini API key');
       return res.status(500).json({
-        error: 'Missing GEMINI_API_KEY in .env file.',
+        error: 'Missing GEMINI_API_KEY in backend/.env',
       });
     }
+
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
     const model = genAI.getGenerativeModel({
       model: 'gemini-2.5-flash',
       systemInstruction: 'You are a helpful assistant for website users.',
-      }
-    );
-console.log('Before Gemini call');
+    });
 
-const timeout = new Promise((_, reject) =>
-  setTimeout(() => reject(new Error('Gemini request timed out')), 15000)
-);
+    console.log('Before Gemini call');
 
-const result = await Promise.race([
-  model.generateContent(message),
-  timeout
-]);
+    const result = await model.generateContent(message);
 
-console.log('After Gemini call');
+    console.log('After Gemini call');
 
-const reply = result.response.text();
+    const reply = result.response.text();
 
-console.log("FULL GEMINI RESPONSE:", JSON.stringify(result, null, 2));
-console.log("FINAL REPLY:", reply);
+    console.log('Final reply:', reply);
 
     return res.json({
       reply,
