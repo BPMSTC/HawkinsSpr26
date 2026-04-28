@@ -172,23 +172,38 @@ export class AppComponent implements OnInit {
   }
 
   sendAiMessage(): void {
+    // Check if the AI prompt is empty or only whitespace
     if (!this.aiPrompt.trim()) {
+      // Set the error message for empty prompt
       this.aiError = 'Please enter a message.';
+      // Exit the function early
       return;
     }
 
+    // Set the loading state to true to show spinner or loading indicator
     this.aiLoading = true;
+    // Clear any previous error messages
     this.aiError = null;
+    // Clear any previous AI reply
     this.aiReply = '';
 
+    // Call the chat service to send the message
+    // This returns an Observable, and we subscribe to handle the response
     this.chatService.sendMessage(this.aiPrompt).subscribe({
+      // Handle successful response
       next: (res: ChatResponse) => {
+        // Extract the reply from the response object
         this.aiReply = res.reply;
+        // Set loading state to false to hide spinner
         this.aiLoading = false;
       },
+      // Handle error response
       error: (err: HttpErrorResponse) => {
+        // Log the error to the console for debugging
         console.error('AI request failed:', err);
+        // Set the error message, using the error from response or a default message
         this.aiError = err.error?.error || 'Failed to get AI response.';
+        // Set loading state to false to hide spinner
         this.aiLoading = false;
       }
     });
