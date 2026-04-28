@@ -149,6 +149,11 @@
 
       </button>
 
+      <p class="ai-limit-text">
+        AI Requests Remaining Today:
+        {{ requestsRemaining }} / {{ dailyLimit }}
+      </p>
+
       <p *ngIf="aiLoading" class="thinking-text">
         Thinking...
       </p>
