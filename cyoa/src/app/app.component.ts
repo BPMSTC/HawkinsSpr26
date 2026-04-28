@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -52,10 +52,12 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private chatService: ChatService,
+    private cdr: ChangeDetectorRef
     private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
+    
     const savedTheme = localStorage.getItem('activeTheme');
     if (savedTheme) {
       this.activeTheme = savedTheme;
@@ -178,27 +180,35 @@ export class AppComponent implements OnInit {
   }
 
   sendAiMessage(): void {
-    if (!this.aiPrompt.trim()) {
-      this.aiError = 'Please enter a message.';
-      return;
-    }
-
-    this.aiLoading = true;
-    this.aiError = null;
-    this.aiReply = '';
-
-    this.chatService.sendMessage(this.aiPrompt).subscribe({
-      next: (res: ChatResponse) => {
-        this.aiReply = res.reply;
-        this.aiLoading = false;
-      },
-      error: (err: HttpErrorResponse) => {
-        console.error('AI request failed:', err);
-        this.aiError = err.error?.error || 'Failed to get AI response.';
-        this.aiLoading = false;
-      }
-    });
+  if (!this.aiPrompt.trim()) {
+    this.aiError = 'Please enter a message.';
+    return;
   }
+
+  this.aiLoading = true;
+  this.aiError = null;
+  this.aiReply = '';
+
+  this.chatService.sendMessage(this.aiPrompt).subscribe({
+    next: (res: ChatResponse) => {
+  console.log('AI response received:', res);
+
+  this.aiReply = res.reply;
+  this.aiLoading = false;
+
+  this.cdr.detectChanges();
+},
+    error: (err: HttpErrorResponse) => {
+      console.error('AI request failed:', err);
+
+      this.aiError = err.error?.details || err.error?.error || 'Failed to get AI response.';
+      this.aiLoading = false;
+    },
+    complete: () => {
+      this.aiLoading = false;
+    }
+  });
+}
 
   private resetForms(): void {
     this.loginData = { email: '', password: '' };

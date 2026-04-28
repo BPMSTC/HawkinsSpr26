@@ -22,7 +22,7 @@ npx ng build
 
 **Step 3 — Start the server:**
 ```
-node serve.js
+node server.js
 ```
 
 **Step 4 — Open your browser at:**
