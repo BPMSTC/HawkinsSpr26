@@ -43,13 +43,13 @@ router.post('/chat', async (req, res) => {
       reply,
     });
   } catch (error) {
-    console.error('Gemini route error:', error);
+  console.error('Gemini route error:', error);
 
-    return res.status(500).json({
-      error: 'Failed to get a response from Gemini.',
-      details: error.message,
-    });
-  }
+  return res.status(500).json({
+    error: 'AI limit reached. Please wait a bit and try again.',
+    details: error.message,
+  });
+}
 });
 
 module.exports = router;
