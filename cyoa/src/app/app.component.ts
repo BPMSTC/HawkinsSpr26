@@ -1,252 +1,31 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
-import { AuthService, User } from './auth.service';
-import { ChatService, ChatResponse } from './chat.service';
-import { StorageService } from './storage.service';
+
+type ThemeName = 'cyan' | 'amber' | 'green' | 'magenta' | 'lavender' | 'silver';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [RouterOutlet, RouterModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  activeTheme = 'cyan';
+export class AppComponent {
+  activeTheme: ThemeName =
+    (localStorage.getItem('activeTheme') as ThemeName) || 'cyan';
 
-  themes = [
+  themes: { name: ThemeName; label: string }[] = [
     { name: 'cyan', label: 'Cyan' },
     { name: 'amber', label: 'Amber' },
     { name: 'green', label: 'Green' },
     { name: 'magenta', label: 'Magenta' },
     { name: 'lavender', label: 'Lavender' },
-    { name: 'silver', label: 'Silver' },
+    { name: 'silver', label: 'Silver' }
   ];
 
-  currentUser: User | null = null;
-  showAuthForm = false;
-  isLoginMode = true;
-  authError: string | null = null;
-  isLoading = false;
-
-  aiPrompt = '';
-aiReply = '';
-aiError: string | null = null;
-aiLoading = false;
-
-requestsUsed = 0;
-requestsRemaining = 20;
-dailyLimit = 20;
-
-promptTokens = 0;
-responseTokens = 0;
-totalTokens = 0;
-
-  loginData = {
-    email: '',
-    password: ''
-  };
-
-  registerData = {
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  };
-
-  constructor(
-    private authService: AuthService,
-    private chatService: ChatService,
-    private cdr: ChangeDetectorRef,
-    private storageService: StorageService
-  ) {}
-
-  ngOnInit(): void {
-    
-    const savedTheme = localStorage.getItem('activeTheme');
-    if (savedTheme) {
-      this.activeTheme = savedTheme;
-    }
-
-    this.authService.currentUser$.subscribe((user: User | null) => {
-      this.currentUser = user;
-      if (user?.accentColor) {
-        this.activeTheme = user.accentColor;
-        localStorage.setItem('activeTheme', user.accentColor);
-      }
-    });
-  }
-
-  setTheme(theme: string): void {
+  setTheme(theme: ThemeName): void {
     this.activeTheme = theme;
     localStorage.setItem('activeTheme', theme);
-
-    if (this.currentUser) {
-      this.authService.updateAccentColor(theme).subscribe({
-        next: (user: User) => {
-          this.currentUser = user;
-        },
-        error: (err: HttpErrorResponse) => {
-          console.error('Failed to save accent color', err);
-        }
-      });
-    }
-  }
-
-  selectStory(storyPath: string): void {
-    this.storageService.saveSelectedStory(storyPath);
-  }
-
-  toggleAuthForm(): void {
-    this.showAuthForm = !this.showAuthForm;
-    this.authError = null;
-
-    if (!this.showAuthForm) {
-      this.resetForms();
-    }
-  }
-
-  switchMode(): void {
-    this.isLoginMode = !this.isLoginMode;
-    this.authError = null;
-    this.resetForms();
-  }
-
-  async onLogin(): Promise<void> {
-    if (!this.loginData.email || !this.loginData.password) {
-      this.authError = 'Please fill in all fields';
-      return;
-    }
-
-    this.isLoading = true;
-    this.authError = null;
-
-    try {
-      await this.authService.login(
-        this.loginData.email,
-        this.loginData.password
-      ).toPromise();
-
-      this.showAuthForm = false;
-      this.resetForms();
-    } catch (error: unknown) {
-      const err = error as HttpErrorResponse;
-      console.error('Login error:', err);
-      this.authError = err.error?.message || 'Login failed';
-    } finally {
-      this.isLoading = false;
-    }
-  }
-
-  async onRegister(): Promise<void> {
-    if (
-      !this.registerData.username ||
-      !this.registerData.email ||
-      !this.registerData.password ||
-      !this.registerData.confirmPassword
-    ) {
-      this.authError = 'Please fill in all fields';
-      return;
-    }
-
-    if (this.registerData.password !== this.registerData.confirmPassword) {
-      this.authError = 'Passwords do not match';
-      return;
-    }
-
-    if (this.registerData.password.length < 6) {
-      this.authError = 'Password must be at least 6 characters';
-      return;
-    }
-
-    this.isLoading = true;
-    this.authError = null;
-
-    try {
-      await this.authService.register(
-        this.registerData.username,
-        this.registerData.email,
-        this.registerData.password
-      ).toPromise();
-
-      this.showAuthForm = false;
-      this.resetForms();
-    } catch (error: unknown) {
-      const err = error as HttpErrorResponse;
-      console.error('Registration error:', err);
-      this.authError = err.error?.message || 'Registration failed';
-    } finally {
-      this.isLoading = false;
-    }
-  }
-
-  onLogout(): void {
-    this.authService.logout();
-  }
-
-  sendAiMessage(): void {
-  if (!this.aiPrompt.trim()) {
-    this.aiError = 'Please enter a message.';
-    return;
-  }
-
-  this.aiLoading = true;
-  this.aiError = null;
-  this.aiReply = '';
-
-  this.chatService.sendMessage(this.aiPrompt).subscribe({
-    next: (res: ChatResponse) => {
-      console.log('AI response received:', res);
-
-      this.aiReply = res.reply;
-
-      this.requestsUsed = res.requestsUsed;
-      this.requestsRemaining = res.requestsRemaining;
-      this.dailyLimit = res.dailyLimit;
-
-      this.promptTokens = res.promptTokens;
-      this.responseTokens = res.responseTokens;
-      this.totalTokens = res.totalTokens;
-
-      this.aiLoading = false;
-      this.cdr.detectChanges();
-    },
-    error: (err: HttpErrorResponse) => {
-      console.error('AI request failed:', err);
-
-      this.aiError =
-        err.error?.error ||
-        err.error?.details ||
-        'Failed to get AI response.';
-
-      this.requestsUsed = err.error?.requestsUsed ?? this.requestsUsed;
-      this.requestsRemaining = err.error?.requestsRemaining ?? this.requestsRemaining;
-      this.dailyLimit = err.error?.dailyLimit ?? this.dailyLimit;
-
-      this.promptTokens = err.error?.promptTokens ?? this.promptTokens;
-      this.responseTokens = err.error?.responseTokens ?? this.responseTokens;
-      this.totalTokens = err.error?.totalTokens ?? this.totalTokens;
-
-      this.aiLoading = false;
-      this.cdr.detectChanges();
-    },
-    complete: () => {
-      this.aiLoading = false;
-      this.cdr.detectChanges();
-    }
-  });
-}
-
-  private resetForms(): void {
-    this.loginData = { email: '', password: '' };
-    this.registerData = {
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    };
   }
 }
