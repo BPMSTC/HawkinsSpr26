@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
   aiError: string | null = null;
   aiLoading = false;
 
+  requestsUsed = 0;
+  requestsRemaining = 20;
+  dailyLimit = 20;
+
   loginData = {
     email: '',
     password: ''
@@ -191,21 +195,34 @@ export class AppComponent implements OnInit {
 
   this.chatService.sendMessage(this.aiPrompt).subscribe({
     next: (res: ChatResponse) => {
-  console.log('AI response received:', res);
+      console.log('AI response received:', res);
 
-  this.aiReply = res.reply;
-  this.aiLoading = false;
+      this.aiReply = res.reply;
+      this.requestsUsed = res.requestsUsed;
+      this.requestsRemaining = res.requestsRemaining;
+      this.dailyLimit = res.dailyLimit;
+      this.aiLoading = false;
 
-  this.cdr.detectChanges();
-},
+      this.cdr.detectChanges();
+    },
     error: (err: HttpErrorResponse) => {
       console.error('AI request failed:', err);
 
-      this.aiError = err.error?.details || err.error?.error || 'Failed to get AI response.';
+      this.aiError =
+        err.error?.error ||
+        err.error?.details ||
+        'Failed to get AI response.';
+
+      this.requestsUsed = err.error?.requestsUsed ?? this.requestsUsed;
+      this.requestsRemaining = err.error?.requestsRemaining ?? this.requestsRemaining;
+      this.dailyLimit = err.error?.dailyLimit ?? this.dailyLimit;
       this.aiLoading = false;
+
+      this.cdr.detectChanges();
     },
     complete: () => {
       this.aiLoading = false;
+      this.cdr.detectChanges();
     }
   });
 }

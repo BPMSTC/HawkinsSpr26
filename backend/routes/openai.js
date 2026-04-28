@@ -3,6 +3,19 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const router = express.Router();
 
+let aiRequestCount = 0;
+const DAILY_LIMIT = 20;
+let lastResetDate = new Date().toDateString();
+
+function resetCounterIfNewDay() {
+  const today = new Date().toDateString();
+
+  if (today !== lastResetDate) {
+    aiRequestCount = 0;
+    lastResetDate = today;
+  }
+}
+
 router.post('/chat', async (req, res) => {
   console.log('AI route hit:', req.body);
 
@@ -12,6 +25,17 @@ router.post('/chat', async (req, res) => {
     if (!message || typeof message !== 'string') {
       return res.status(400).json({
         error: 'A valid message string is required.',
+      });
+    }
+
+    resetCounterIfNewDay();
+
+    if (aiRequestCount >= DAILY_LIMIT) {
+      return res.status(429).json({
+        error: 'AI request limit reached for today. Please try again tomorrow.',
+        requestsUsed: aiRequestCount,
+        requestsRemaining: 0,
+        dailyLimit: DAILY_LIMIT,
       });
     }
 
@@ -37,17 +61,28 @@ router.post('/chat', async (req, res) => {
 
     const reply = result.response.text();
 
+    aiRequestCount++;
+
     console.log('Final reply:', reply);
+    console.log(`AI requests used: ${aiRequestCount}/${DAILY_LIMIT}`);
 
     return res.json({
       reply,
+      requestsUsed: aiRequestCount,
+      requestsRemaining: DAILY_LIMIT - aiRequestCount,
+      dailyLimit: DAILY_LIMIT,
     });
   } catch (error) {
     console.error('Gemini route error:', error);
 
     return res.status(500).json({
-      error: 'Failed to get a response from Gemini.',
+      error: error.message?.includes('429')
+        ? 'AI limit reached through Gemini. Please wait and try again later.'
+        : 'Failed to get a response from Gemini.',
       details: error.message,
+      requestsUsed: aiRequestCount,
+      requestsRemaining: DAILY_LIMIT - aiRequestCount,
+      dailyLimit: DAILY_LIMIT,
     });
   }
 });
