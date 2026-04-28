@@ -26,13 +26,30 @@ export class StoryService {
     this.metaSubject.next(null);
     this.currentSceneSubject.next(null);
     this.errorSubject.next(null);
-    const filePath = storyPath.startsWith('/') ? storyPath : `/${storyPath}`;
+    // Normalize path for loading from public folder
+    // Files are served at root level (/HuntingStory.json, /IceStory.json, etc)
+    let filePath = storyPath;
+    // Remove any path prefixes that might be added
+    if (filePath.startsWith('/public/')) {
+      filePath = filePath.substring(8); // Remove '/public/'
+    } else if (filePath.startsWith('public/')) {
+      filePath = filePath.substring(7); // Remove 'public/'
+    }
+    if (filePath.startsWith('./')) {
+      filePath = filePath.substring(2); // Remove './'
+    }
+    if (filePath.startsWith('/')) {
+      filePath = filePath.substring(1); // Remove leading /
+    }
+    // Use absolute path from app root
+    filePath = `/${filePath}`;
     this.loadStoryData(filePath, startSceneId);
   }
 
   private loadStoryData(filePath: string, startSceneId?: string): void {
     this.loadingSubject.next(true);
     this.errorSubject.next(null);
+    console.log('Loading story from path:', filePath);
 
     this.http.get<StoryData>(filePath).subscribe({
       next: (data) => {
@@ -51,7 +68,8 @@ export class StoryService {
         this.loadingSubject.next(false);
         this.navigateTo(startSceneId || data.meta.startSceneId);
       },
-      error: () => {
+      error: (err) => {
+        console.error('Failed to load story from:', filePath, err);
         this.errorSubject.next('The story data could not be loaded. Please check that story.json is present and try refreshing.');
         this.loadingSubject.next(false);
       }
