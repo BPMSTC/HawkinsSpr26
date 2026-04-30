@@ -91,7 +91,7 @@ router.post('/chat', async (req, res) => {
       totalTokens,
     });
   } catch (error) {
-    console.error('Gemini route error:', error);
+  console.error('Gemini route error:', error);
 
     return res.status(500).json({
       error: error.message?.includes('429')
