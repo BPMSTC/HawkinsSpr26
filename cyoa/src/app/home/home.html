@@ -1,0 +1,330 @@
+<div class="story-shell page-content">
+  
+  <!-- Header -->
+  <header class="story-header">
+    <div class="header-inner">
+      <div class="header-ornament">✦</div>
+      <h1 class="story-title-main">Choose Your Own Adventure</h1>
+      <div class="header-ornament">✦</div>
+    </div>
+
+    <div class="auth-section">
+      <div *ngIf="!currentUser" class="auth-buttons">
+        <button class="auth-btn login-btn" (click)="toggleAuthForm()">
+          Login / Register
+        </button>
+      </div>
+
+      <div *ngIf="currentUser" class="user-info">
+        <span class="welcome-text">Welcome, {{ currentUser.username }}!</span>
+        <button class="auth-btn logout-btn" (click)="onLogout()">
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <p class="story-subtitle">
+      Step into a world of branching paths, mystery, and consequence.
+    </p>
+  </header>
+
+  <!-- Landing Panel -->
+  <main class="story-layout container-fluid px-2 px-md-4">
+
+    <section class="story-panel home-hero-panel">
+
+      <div class="home-hero-content fade-in">
+
+        <div class="home-hero-left">
+
+          <div class="gateway-runes">
+            ✦ ◈ ✦
+          </div>
+
+          <p class="home-kicker">
+            Interactive Storytelling
+          </p>
+
+          <h2 class="home-hero-title">
+            Step Into Stories That Change With You
+          </h2>
+
+          <p class="home-hero-text">
+            Explore a growing collection of choice-driven adventures where every
+            decision matters, every path branches, and every ending is earned.
+          </p>
+
+          <button
+            class="home-primary-cta"
+            [routerLink]="['/interactive']">
+
+            <span>Enter the Interactive Library</span>
+            <span class="cta-arrow">›</span>
+
+          </button>
+
+        </div>
+
+        <div class="home-hero-right">
+
+          <div class="portal-orb">
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-core">◆</div>
+          </div>
+
+          <div class="portal-caption">
+            Choose a world. Make a choice. Change the ending.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- AI Assistant Section -->
+  <section class="story-panel ai-panel">
+
+    <div class="scene-content fade-in">
+
+      <h2 class="scene-title">
+        AI Story Assistant
+      </h2>
+
+      <div class="scene-divider">
+        <span>◆</span>
+      </div>
+
+      <p class="narrative-para">
+        Need help deciding your next move? Ask the AI assistant for story ideas,
+        hints, or help building your own adventure.
+      </p>
+
+      <div class="ai-box">
+
+        <textarea
+          [(ngModel)]="aiPrompt"
+          rows="6"
+          placeholder="Ask the AI something..."
+          class="ai-textarea">
+        </textarea>
+
+        <button
+          class="choice-btn"
+          (click)="sendAiMessage()"
+          [disabled]="aiLoading">
+          Ask AI
+        </button>
+
+        <p class="ai-limit-text">
+          Requests Remaining Today:
+          {{ requestsRemaining }} / {{ dailyLimit }}
+        </p>
+
+        <p class="ai-limit-text">
+          Prompt Tokens: {{ promptTokens }}
+          |
+          Response Tokens: {{ responseTokens }}
+          |
+          Total Tokens: {{ totalTokens }}
+        </p>
+
+        <p *ngIf="aiLoading" class="thinking-text">
+          Thinking...
+        </p>
+
+        <p *ngIf="aiError" class="auth-error">
+          {{ aiError }}
+        </p>
+
+        <div *ngIf="aiReply" class="ai-response-box">
+          <h3>AI Response</h3>
+          <p>{{ aiReply }}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="story-panel about-section">
+
+    <div class="about-content fade-in">
+
+      <div class="about-header">
+
+        <p class="about-kicker">
+          Built for Branching Stories
+        </p>
+
+        <h2 class="about-title">
+          About This Website
+        </h2>
+
+        <p class="about-intro">
+          This website is an interactive storytelling experience where users
+          explore different worlds, make meaningful choices, and unlock endings
+          based on the paths they take.
+        </p>
+
+      </div>
+
+      <div class="about-card-grid">
+
+        <div class="about-card">
+          <div class="about-card-icon">◇</div>
+          <h3>Choice Driven</h3>
+          <p>
+            Every story is built around decisions that shape what happens next.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">✦</div>
+          <h3>Replayable Paths</h3>
+          <p>
+            Return to stories, choose differently, and discover alternate endings.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">◆</div>
+          <h3>AI Assisted</h3>
+          <p>
+            Use the AI assistant for hints, ideas, or help creating new adventures.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Authentication Modal -->
+  <div *ngIf="showAuthForm" class="auth-modal-overlay" (click)="toggleAuthForm()">
+    <div class="auth-modal" (click)="$event.stopPropagation()">
+
+      <div class="auth-modal-header">
+        <h3>{{ isLoginMode ? 'Login' : 'Register' }}</h3>
+        <button class="close-btn" (click)="toggleAuthForm()">×</button>
+      </div>
+
+      <div class="auth-modal-body">
+
+        <form *ngIf="isLoginMode" (ngSubmit)="onLogin()" class="auth-form">
+
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input
+              id="login-email"
+              type="email"
+              [(ngModel)]="loginData.email"
+              name="email"
+              required
+              placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              type="password"
+              [(ngModel)]="loginData.password"
+              name="password"
+              required
+              placeholder="Enter your password">
+          </div>
+
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+
+        </form>
+
+        <form *ngIf="!isLoginMode" (ngSubmit)="onRegister()" class="auth-form">
+
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input
+              id="register-username"
+              type="text"
+              [(ngModel)]="registerData.username"
+              name="username"
+              required
+              placeholder="Choose a username">
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input
+              id="register-email"
+              type="email"
+              [(ngModel)]="registerData.email"
+              name="email"
+              required
+              placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input
+              id="register-password"
+              type="password"
+              [(ngModel)]="registerData.password"
+              name="password"
+              required
+              placeholder="Create a password">
+          </div>
+
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input
+              id="register-confirm"
+              type="password"
+              [(ngModel)]="registerData.confirmPassword"
+              name="confirmPassword"
+              required
+              placeholder="Confirm your password">
+          </div>
+
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+            {{ isLoading ? 'Registering...' : 'Register' }}
+          </button>
+
+        </form>
+
+        <div *ngIf="authError" class="auth-error">
+          {{ authError }}
+        </div>
+
+        <div class="auth-switch">
+          <button
+            type="button"
+            class="switch-btn"
+            (click)="switchMode()">
+            {{ isLoginMode ? 'Need an account? Register' : 'Already have an account? Login' }}
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="story-footer">
+    Forge your legend one choice at a time.
+  </footer>
+
+</div>

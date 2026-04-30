@@ -1,8 +1,16 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  { path: '', component: AppComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./home/home').then(m => m.HomeComponent),
+  },
+  {
+    path: 'interactive',
+    loadComponent: () =>
+      import('./interactive/interactive').then(m => m.InteractiveComponent),
+  },
   {
     path: 'interactive/:storyPath',
     loadComponent: () =>
