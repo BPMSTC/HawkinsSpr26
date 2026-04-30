@@ -36,11 +36,15 @@ router.post('/chat', async (req, res) => {
         requestsUsed: aiRequestCount,
         requestsRemaining: 0,
         dailyLimit: DAILY_LIMIT,
+        promptTokens: 0,
+        responseTokens: 0,
+        totalTokens: 0,
       });
     }
 
     if (!process.env.GEMINI_API_KEY) {
       console.log('Missing Gemini API key');
+
       return res.status(500).json({
         error: 'Missing GEMINI_API_KEY in backend/.env',
       });
@@ -61,16 +65,30 @@ router.post('/chat', async (req, res) => {
 
     const reply = result.response.text();
 
+    const usage = result.response.usageMetadata;
+
+    const promptTokens = usage?.promptTokenCount || 0;
+    const responseTokens = usage?.candidatesTokenCount || 0;
+    const totalTokens = usage?.totalTokenCount || 0;
+
     aiRequestCount++;
 
     console.log('Final reply:', reply);
     console.log(`AI requests used: ${aiRequestCount}/${DAILY_LIMIT}`);
+    console.log('Token usage:', {
+      promptTokens,
+      responseTokens,
+      totalTokens,
+    });
 
     return res.json({
       reply,
       requestsUsed: aiRequestCount,
       requestsRemaining: DAILY_LIMIT - aiRequestCount,
       dailyLimit: DAILY_LIMIT,
+      promptTokens,
+      responseTokens,
+      totalTokens,
     });
   } catch (error) {
     console.error('Gemini route error:', error);
@@ -83,6 +101,9 @@ router.post('/chat', async (req, res) => {
       requestsUsed: aiRequestCount,
       requestsRemaining: DAILY_LIMIT - aiRequestCount,
       dailyLimit: DAILY_LIMIT,
+      promptTokens: 0,
+      responseTokens: 0,
+      totalTokens: 0,
     });
   }
 });

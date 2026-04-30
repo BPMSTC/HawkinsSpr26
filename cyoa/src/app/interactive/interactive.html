@@ -1,69 +1,135 @@
-<div class="story-shell" [ngClass]="'theme-' + activeTheme">
+<div class="story-shell page-content">
 
-  <!-- ── Theme switcher bar ── -->
-  <div class="theme-bar">
-    <span class="theme-bar-label">Colour</span>
-    <button
-      *ngFor="let t of themes"
-      class="theme-swatch"
-      [ngClass]="['swatch-' + t.name, activeTheme === t.name ? 'active' : '']"
-      (click)="setTheme(t.name)"
-      [attr.aria-label]="'Switch to ' + t.label + ' theme'"
-      [attr.title]="t.label">
-    </button>
-
-    <!-- Progress indicator for logged-in users -->
-    <div *ngIf="isLoggedIn()" class="progress-indicator">
-      <span class="progress-icon" title="Progress automatically saved">💾</span>
-    </div>
-  </div>
-
-  <!-- ── Header — driven entirely by meta ── -->
   <header class="story-header">
     <div class="header-inner">
       <div class="header-ornament">✦</div>
-      <h1 class="story-title-main">{{ meta?.title }}</h1>
+      <h1 class="story-title-main">
+        {{ selectedStoryPath ? meta?.title : 'Choose Your Adventure' }}
+      </h1>
       <div class="header-ornament">✦</div>
     </div>
-    <p class="story-subtitle">{{ meta?.subtitle }}</p>
+
+    <p class="story-subtitle">
+      {{
+        selectedStoryPath
+          ? meta?.subtitle
+          : 'Three worlds await — frozen mysteries, mountain hunts, and desert treasure.'
+      }}
+    </p>
   </header>
 
-  <!-- ── Two-panel layout ── -->
   <main class="story-layout container-fluid px-2 px-md-4">
     <div class="row g-0 g-md-3 align-items-start">
 
-      <!-- ═══════════════ MAIN STORY PANEL ═══════════════ -->
       <div class="col-12 col-lg-7 col-xl-8">
         <section class="story-panel" aria-label="Current story scene">
 
-          <!-- Loading state -->
-          <div *ngIf="loading" class="loading-card">
+          <div *ngIf="!selectedStoryPath" class="scene-content fade-in landing-hero">
+
+            <div class="portal-runes">
+              ✦ ✧ ◈ ✧ ✦
+            </div>
+
+            <h1 class="hero-main-title">
+              The Archive of Paths
+            </h1>
+
+            <div class="scene-divider">
+              <span>◆</span>
+            </div>
+
+            <p class="hero-subtitle">
+              Every choice opens a different world.
+            </p>
+
+            <p class="narrative-para landing-para">
+              Before you stand three sealed stories — each one alive with mystery,
+              danger, and consequence.
+
+              A frozen signal whispers beneath ancient ice.
+              A hunter climbs the shadowed ridges of Black Ridge.
+              A hidden treasure waits beneath the burning desert sun.
+
+              Choose carefully.
+
+              Once a path is opened, it begins to shape you.
+            </p>
+
+            <div class="portal-preview-grid">
+
+              <div class="portal-card">
+                <div class="portal-icon">❄</div>
+                <h3>Frozen Signal</h3>
+                <p>Ancient ice. Buried secrets. Something is calling.</p>
+              </div>
+
+              <div class="portal-card">
+                <div class="portal-icon">🏹</div>
+                <h3>Black Ridge</h3>
+                <p>The mountain watches. Patience decides everything.</p>
+              </div>
+
+              <div class="portal-card">
+                <div class="portal-icon">☀</div>
+                <h3>Desert Treasure</h3>
+                <p>Goldwind Desert hides more than treasure.</p>
+              </div>
+
+            </div>
+
+            <div class="choices-list landing-choices">
+
+              <button class="choice-btn" [routerLink]="['/interactive', 'IceStory.json']">
+                <span class="choice-arrow">›</span>
+                <span class="choice-text">The Signal Beneath the Ice</span>
+              </button>
+
+              <button class="choice-btn secondary" [routerLink]="['/interactive', 'HuntingStory.json']">
+                <span class="choice-arrow">›</span>
+                <span class="choice-text">Black Ridge Hunt</span>
+              </button>
+
+              <button class="choice-btn secondary" [routerLink]="['/interactive', 'DesertStory.json']">
+                <span class="choice-arrow">›</span>
+                <span class="choice-text">The Desert Treasure</span>
+              </button>
+
+            </div>
+          </div>
+
+          <div *ngIf="selectedStoryPath && loading" class="loading-card">
             <div class="loading-rune">◈</div>
             <p>{{ meta?.loadingText || 'Loading story…' }}</p>
           </div>
 
-          <!-- Error state -->
-          <div *ngIf="!loading && error" class="error-card" role="alert">
+          <div *ngIf="selectedStoryPath && !loading && error" class="error-card" role="alert">
             <div class="error-icon">⚠</div>
             <p class="error-message">{{ error }}</p>
-            <button class="btn-restart mt-3" (click)="restart()">
-              ↺ &nbsp;{{ meta?.restartLabel || 'Restart' }}
+
+            <button class="btn-restart mt-3" [routerLink]="['/interactive']">
+              ↺ Return to Story Selection
             </button>
           </div>
 
-          <!-- Active scene -->
-          <div *ngIf="!loading && !error && currentScene" class="scene-content" [class.fade-in]="animatingIn">
+          <div
+            *ngIf="selectedStoryPath && !loading && !error && currentScene"
+            class="scene-content"
+            [class.fade-in]="animatingIn">
 
             <div class="scene-breadcrumb">
               <span class="breadcrumb-label">{{ meta?.currentSceneLabel }}</span>
             </div>
 
             <h2 class="scene-title">{{ currentScene.title }}</h2>
-            <div class="scene-divider"><span>◆</span></div>
+
+            <div class="scene-divider">
+              <span>◆</span>
+            </div>
 
             <div class="scene-narrative">
-              <p *ngFor="let para of currentScene.narrative.split('\n\n'); trackBy: trackByIndex"
-                 class="narrative-para">
+              <p
+                *ngFor="let para of currentScene.narrative.split('\n\n'); trackBy: trackByIndex"
+                class="narrative-para">
                 {{ para }}
               </p>
             </div>
@@ -74,12 +140,14 @@
 
             <div *ngIf="currentScene.choices.length > 0" class="choices-area">
               <p class="choices-label">{{ meta?.choicesPrompt }}</p>
+
               <div class="choices-list">
                 <button
                   *ngFor="let choice of currentScene.choices; let i = index; trackBy: trackByIndex"
                   class="choice-btn"
                   (click)="makeChoice(choice.id)"
                   [attr.aria-label]="'Choose: ' + choice.text">
+
                   <span class="choice-arrow">›</span>
                   <span class="choice-text">{{ choice.text }}</span>
                 </button>
@@ -87,57 +155,62 @@
             </div>
 
             <div *ngIf="currentScene.isEnding" class="restart-area">
-              <button class="btn-restart" (click)="restart()">
-                ↺ &nbsp;{{ meta?.restartLabel }}
+              <button class="btn-restart" [routerLink]="['/interactive']">
+                ↺ Choose Another Story
               </button>
             </div>
 
           </div>
+
         </section>
       </div>
 
-      <!-- ═══════════════ HISTORY PANEL ═══════════════ -->
-      <div class="col-12 col-lg-5 col-xl-4">
-        <aside class="history-panel" aria-label="Story history">
+      <div
+        *ngIf="selectedStoryPath"
+        class="col-12 col-lg-5 col-xl-4">
 
-          <div class="history-header" (click)="toggleHistory()">
+        <aside class="history-panel" aria-label="Story history">
+          <div class="history-header">
             <div class="history-title-row">
               <span class="history-icon">📜</span>
-              <h3 class="history-heading">{{ meta?.historyHeading }}</h3>
-              <span class="history-count" *ngIf="history.length > 0">{{ history.length }}</span>
+              <h3 class="history-heading">
+                {{ meta?.historyHeading || 'Your Journey' }}
+              </h3>
+
+              <span class="history-count" *ngIf="history.length > 0">
+                {{ history.length }}
+              </span>
             </div>
-            <button class="history-toggle"
-                    [attr.aria-expanded]="!isHistoryCollapsed"
-                    aria-label="Toggle history panel">
-              <span [class.rotated]="isHistoryCollapsed">▾</span>
-            </button>
           </div>
 
-          <div class="history-body" [class.collapsed]="isHistoryCollapsed" #historyPanel>
+          <div class="history-body">
 
             <div *ngIf="history.length === 0" class="history-empty">
               <p class="empty-rune">◈</p>
-              <p class="empty-text">{{ meta?.historyEmptyText }}</p>
+              <p class="empty-text">
+                {{ meta?.historyEmptyText || 'Your path will be recorded here as you make choices.' }}
+              </p>
             </div>
 
-            <div *ngFor="let entry of history; let i = index; trackBy: trackByIndex"
-                 class="history-entry">
+            <div
+              *ngFor="let entry of history; let i = index; trackBy: trackByIndex"
+              class="history-entry">
+
               <div class="entry-step">
                 <span class="step-number">{{ i + 1 }}</span>
               </div>
+
               <div class="entry-body">
-                <div class="entry-scene-title">{{ entry.sceneTitle }}</div>
+                <div class="entry-scene-title">
+                  {{ entry.sceneTitle }}
+                </div>
+
                 <div class="entry-choice">
                   <span class="choice-marker">›</span>
                   {{ entry.choiceMade }}
                 </div>
               </div>
-            </div>
 
-            <div *ngIf="history.length > 0 && currentScene && !currentScene.isEnding"
-                 class="current-position-indicator">
-              <div class="position-dot"></div>
-              <span>Now: <em>{{ currentScene.title }}</em></span>
             </div>
 
           </div>
@@ -148,7 +221,11 @@
   </main>
 
   <footer class="story-footer">
-    {{ meta?.footerText }}
+    {{
+      selectedStoryPath
+        ? meta?.footerText
+        : 'Every choice shapes the path ahead.'
+    }}
   </footer>
 
 </div>

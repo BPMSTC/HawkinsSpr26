@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { StoryService } from './story.service';
@@ -13,7 +13,7 @@ export interface ThemeSwatch { name: ThemeName; label: string; }
 @Component({
   selector: 'app-interactive',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './interactive.html',
   styleUrl: './interactive.scss',
 })
@@ -25,9 +25,9 @@ export class InteractiveComponent implements OnInit, OnDestroy {
   history: HistoryEntry[] = [];
   error: string | null = null;
   loading = true;
+  selectedStoryPath: string | null = null;
   isHistoryCollapsed = false;
   animatingIn = false;
-  activeTheme: ThemeName = 'cyan';
   storyId: string = '';
 
   themes: ThemeSwatch[] = [
@@ -85,26 +85,28 @@ export class InteractiveComponent implements OnInit, OnDestroy {
       .subscribe(err => { this.error = err; this.cdr.detectChanges(); });
 
     this.route.paramMap
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(params => {
-        let storyPath = params.get('storyPath');
-        
-        // If no story path in route params, try to load from storage
-        if (!storyPath) {
-          storyPath = this.storageService.getSelectedStory();
-        }
-        
-        if (storyPath) {
-          this.storyId = storyPath;
-          // Save the current story to storage
-          this.storageService.saveSelectedStory(storyPath);
-          this.loadStoryWithProgress(storyPath);
-        } else {
-          this.error = 'No story was selected. Please return to the home page and choose a story.';
-          this.loading = false;
-          this.cdr.detectChanges();
-        }
-      });
+  .pipe(takeUntil(this.destroy$))
+  .subscribe(params => {
+    const storyPath = params.get('storyPath');
+
+    this.selectedStoryPath = storyPath;
+
+    if (!storyPath) {
+      this.storyId = '';
+      this.currentScene = null;
+      this.history = [];
+      this.error = null;
+      this.loading = false;
+      this.meta = null;
+      this.cdr.detectChanges();
+      return;
+    }
+
+    this.storyId = storyPath;
+
+    this.storageService.saveSelectedStory(storyPath);
+    this.loadStoryWithProgress(storyPath);
+  });
   }
 
   ngOnDestroy(): void {
@@ -209,10 +211,6 @@ export class InteractiveComponent implements OnInit, OnDestroy {
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
-  }
-
-  setTheme(theme: ThemeName): void {
-    this.activeTheme = theme;
   }
 
   toggleHistory(): void {
