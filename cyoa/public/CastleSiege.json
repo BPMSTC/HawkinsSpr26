@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "title": "The Siege of Blackstone Keep",
+    "subtitle": "An enemy army surrounds the castle. You must decide how to survive the siege.",
+    "chapterLabel": "Chapter One",
+    "currentSceneLabel": "Current Scene",
+    "choicesPrompt": "What do you do?",
+    "endingLabel": "Fate Decided",
+    "restartLabel": "Begin again",
+    "historyHeading": "Your Story",
+    "historyEmptyText": "Your path will be recorded here as you make choices.",
+    "footerText": "Blackstone Keep · Chapter One",
+    "loadingText": "Loading Story…",
+    "startSceneId": "start"
+  },
+  "scenes": [
+    {
+      "id": "start",
+      "title": "The Siege Begins",
+      "narrative": "You stand atop the walls of Blackstone Keep.\n\nAn enemy army stretches across the horizon. Banners wave. War drums echo.\n\nThey have surrounded the castle.\n\nA massive trebuchet is being assembled in the distance.\n\nThe siege has begun.",
+      "choices": [
+        { "id": "c1", "text": "Join the archers on the wall", "nextSceneId": "archer_post" },
+        { "id": "c2", "text": "Head to the courtyard", "nextSceneId": "courtyard" },
+        { "id": "c3", "text": "Speak with the commander", "nextSceneId": "commander" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "archer_post",
+      "title": "The Walls",
+      "narrative": "You take position with the archers.\n\nEnemy soldiers begin advancing with shields raised.\n\nThe trebuchet launches its first stone.",
+      "choices": [
+        { "id": "c4", "text": "Fire arrows at advancing troops", "nextSceneId": "battle_push" },
+        { "id": "c5", "text": "Take cover from the trebuchet", "nextSceneId": "wall_damage" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "courtyard",
+      "title": "Castle Courtyard",
+      "narrative": "Soldiers rush to prepare defenses.\n\nBlacksmiths work quickly, and supplies are being distributed.\n\nYou can help prepare—or do something riskier.",
+      "choices": [
+        { "id": "c6", "text": "Help reinforce the gates", "nextSceneId": "gate_defense" },
+        { "id": "c7", "text": "Grab armor and join the fight", "nextSceneId": "battle_push" },
+        { "id": "c8", "text": "Search for a secret way out", "nextSceneId": "hidden_passage" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "commander",
+      "title": "The War Room",
+      "narrative": "The commander studies a map.\n\n'We cannot hold forever,' they say. 'We must either break the siege… or outlast it.'",
+      "choices": [
+        { "id": "c9", "text": "Suggest a night raid on the trebuchet", "nextSceneId": "night_raid" },
+        { "id": "c10", "text": "Prepare for a long siege", "nextSceneId": "siege_life" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "wall_damage",
+      "title": "Walls Crumbling",
+      "narrative": "The trebuchet strikes the wall.\n\nStone explodes outward. A section weakens.\n\nAnother hit like that and the enemy will breach.",
+      "choices": [
+        { "id": "c11", "text": "Help repair the wall", "nextSceneId": "repair_wall" },
+        { "id": "c12", "text": "Fall back inside", "nextSceneId": "courtyard" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "battle_push",
+      "title": "Clash at the Walls",
+      "narrative": "The enemy reaches the walls with ladders.\n\nSteel clashes. The air fills with shouting.\n\nYou are in the middle of the fight.",
+      "choices": [
+        { "id": "c13", "text": "Fight aggressively", "nextSceneId": "victory_push" },
+        { "id": "c14", "text": "Defend carefully", "nextSceneId": "wounded" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "gate_defense",
+      "title": "The Gate",
+      "narrative": "You reinforce the gates with beams and iron.\n\nA battering ram slams into it.\n\nAgain.\n\nAnd again.",
+      "choices": [
+        { "id": "c15", "text": "Hold the gate", "nextSceneId": "hold_gate" },
+        { "id": "c16", "text": "Fall back", "nextSceneId": "breach_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "hidden_passage",
+      "title": "Secret Tunnel",
+      "narrative": "You find an old passage beneath the castle.\n\nIt leads outside the walls… near the enemy camp.",
+      "choices": [
+        { "id": "c17", "text": "Use it to escape", "nextSceneId": "escape_ending" },
+        { "id": "c18", "text": "Use it to sabotage the trebuchet", "nextSceneId": "night_raid" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "night_raid",
+      "title": "The Night Raid",
+      "narrative": "Under darkness, you sneak toward the trebuchet.\n\nGuards patrol nearby.\n\nOne wrong move and you’re caught.",
+      "choices": [
+        { "id": "c19", "text": "Sneak past guards", "nextSceneId": "trebuchet_destroyed" },
+        { "id": "c20", "text": "Attack directly", "nextSceneId": "death_raid" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "trebuchet_destroyed",
+      "title": "Sabotage",
+      "narrative": "You successfully destroy the trebuchet.\n\nThe massive machine collapses into flames.\n\nThe enemy loses its greatest weapon.",
+      "choices": [
+        { "id": "c21", "text": "Return to castle", "nextSceneId": "victory_push" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "siege_life",
+      "title": "Endurance",
+      "narrative": "Days pass. Food runs low.\n\nMorale weakens.\n\nBut the enemy grows tired too.",
+      "choices": [
+        { "id": "c22", "text": "Hold out longer", "nextSceneId": "survival_ending" },
+        { "id": "c23", "text": "Attempt a breakout", "nextSceneId": "breakout" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "repair_wall",
+      "title": "Repair Effort",
+      "narrative": "You work quickly to reinforce the damaged wall.\n\nAnother strike hits—but holds.\n\nYou may have bought time.",
+      "choices": [
+        { "id": "c24", "text": "Return to battle", "nextSceneId": "battle_push" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "victory_push",
+      "title": "Turning the Tide",
+      "narrative": "With the trebuchet gone and defenses holding, the enemy begins to falter.\n\nTheir lines weaken.",
+      "choices": [
+        { "id": "c25", "text": "Lead a final push", "nextSceneId": "victory_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "hold_gate",
+      "title": "Unbreakable",
+      "narrative": "The gate holds.\n\nThe ram breaks apart.\n\nThe enemy retreats from the entrance.",
+      "choices": [
+        { "id": "c26", "text": "Join the wall defense", "nextSceneId": "victory_push" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "wounded",
+      "title": "Wounded",
+      "narrative": "You are struck in the fight.\n\nYou fall back, injured but alive.",
+      "choices": [
+        { "id": "c27", "text": "Recover and return", "nextSceneId": "victory_push" },
+        { "id": "c28", "text": "Stay back", "nextSceneId": "survival_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "breakout",
+      "title": "Breakout",
+      "narrative": "You attempt to break through enemy lines.\n\nIt’s chaos outside the walls.",
+      "choices": [
+        { "id": "c29", "text": "Push through", "nextSceneId": "escape_ending" },
+        { "id": "c30", "text": "Retreat", "nextSceneId": "breach_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "death_raid",
+      "title": "Caught",
+      "narrative": "You attack too soon.\n\nGuards overwhelm you in seconds.\n\nThe raid fails.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "breach_ending",
+      "title": "The Breach",
+      "narrative": "The walls collapse.\n\nThe enemy floods into the castle.\n\nBlackstone Keep falls.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "escape_ending",
+      "title": "Escape",
+      "narrative": "You escape the siege.\n\nThe castle’s fate remains unknown.\n\nYou live—but at a cost.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "survival_ending",
+      "title": "Survivor",
+      "narrative": "The siege ends after weeks.\n\nThe enemy withdraws.\n\nYou endured.\n\nThe castle still stands.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "victory_ending",
+      "title": "Victory",
+      "narrative": "The enemy breaks.\n\nYou drive them away from Blackstone Keep.\n\nThe siege is over.\n\nYou are victorious.",
+      "choices": [],
+      "isEnding": true
+    }
+  ]
+}

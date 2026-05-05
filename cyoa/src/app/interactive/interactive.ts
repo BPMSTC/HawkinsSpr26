@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Subject, takeUntil } from 'rxjs';
 import { StoryService } from './story.service';
 import { Scene, StoryMeta, HistoryEntry } from './story.model';
-import { AuthService } from '../auth.service';
+import { AuthService, User } from '../auth.service';
 import { StorageService } from '../storage.service';
 
 export type ThemeName = 'cyan' | 'amber' | 'green' | 'magenta' | 'lavender' | 'silver';
@@ -13,7 +15,7 @@ export interface ThemeSwatch { name: ThemeName; label: string; }
 @Component({
   selector: 'app-interactive',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './interactive.html',
   styleUrl: './interactive.scss',
 })
@@ -23,6 +25,12 @@ export class InteractiveComponent implements OnInit, OnDestroy {
   meta: StoryMeta | null = null;
   currentScene: Scene | null = null;
   history: HistoryEntry[] = [];
+  currentUser: User | null = null;
+  showAuthForm = false;
+  isLoginMode = true;
+  authError: string | null = null;
+  isLoading = false;
+
   error: string | null = null;
   loading = true;
   selectedStoryPath: string | null = null;
@@ -83,6 +91,13 @@ export class InteractiveComponent implements OnInit, OnDestroy {
     this.storyService.error$
       .pipe(takeUntil(this.destroy$))
       .subscribe(err => { this.error = err; this.cdr.detectChanges(); });
+
+    this.authService.currentUser$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(user => {
+        this.currentUser = user;
+        this.cdr.detectChanges();
+      });
 
     this.route.paramMap
   .pipe(takeUntil(this.destroy$))
@@ -209,8 +224,121 @@ export class InteractiveComponent implements OnInit, OnDestroy {
     }
   }
 
+  loginData = {
+    email: '',
+    password: ''
+  };
+
+  registerData = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
+  }
+
+  toggleAuthForm(): void {
+    this.showAuthForm = !this.showAuthForm;
+    this.authError = null;
+
+    if (!this.showAuthForm) {
+      this.resetForms();
+    }
+  }
+
+  switchMode(): void {
+    this.isLoginMode = !this.isLoginMode;
+    this.authError = null;
+    this.resetForms();
+  }
+
+  async onLogin(): Promise<void> {
+    if (!this.loginData.email || !this.loginData.password) {
+      this.authError = 'Please fill in all fields';
+      return;
+    }
+
+    this.isLoading = true;
+    this.authError = null;
+
+    try {
+      await this.authService.login(
+        this.loginData.email,
+        this.loginData.password
+      ).toPromise();
+
+      this.showAuthForm = false;
+      this.resetForms();
+    } catch (error: unknown) {
+      const err = error as HttpErrorResponse;
+      console.error('Login error:', err);
+      this.authError = err.error?.message || 'Login failed';
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  async onRegister(): Promise<void> {
+    if (
+      !this.registerData.username ||
+      !this.registerData.email ||
+      !this.registerData.password ||
+      !this.registerData.confirmPassword
+    ) {
+      this.authError = 'Please fill in all fields';
+      return;
+    }
+
+    if (this.registerData.password !== this.registerData.confirmPassword) {
+      this.authError = 'Passwords do not match';
+      return;
+    }
+
+    if (this.registerData.password.length < 6) {
+      this.authError = 'Password must be at least 6 characters';
+      return;
+    }
+
+    this.isLoading = true;
+    this.authError = null;
+
+    try {
+      await this.authService.register(
+        this.registerData.username,
+        this.registerData.email,
+        this.registerData.password
+      ).toPromise();
+
+      this.showAuthForm = false;
+      this.resetForms();
+    } catch (error: unknown) {
+      const err = error as HttpErrorResponse;
+      console.error('Registration error:', err);
+      this.authError = err.error?.message || 'Registration failed';
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  onLogout(): void {
+    this.authService.logout();
+  }
+
+  private resetForms(): void {
+    this.loginData = {
+      email: '',
+      password: ''
+    };
+
+    this.registerData = {
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    };
   }
 
   toggleHistory(): void {

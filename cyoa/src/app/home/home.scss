@@ -185,6 +185,103 @@
   min-height: auto;
 }
 
+.ai-box {
+  display: grid;
+  gap: 1rem;
+  background: linear-gradient(180deg, rgba(15, 19, 31, 0.96), rgba(12, 16, 26, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+.ai-textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f3f4f6;
+  font-size: 1rem;
+  line-height: 1.7;
+  resize: vertical;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.ai-textarea:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.9);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+}
+
+.choice-btn {
+  align-self: start;
+  width: fit-content;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: #061b2b;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background 0.2s ease;
+}
+
+.choice-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 16px 32px var(--accent-glow);
+}
+
+.choice-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.choice-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ai-limit-text,
+.thinking-text {
+  margin: 0;
+  color: #bbc2d0;
+  font-size: 0.94rem;
+}
+
+.ai-response-box {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.2rem 1.3rem;
+  border-radius: 1rem;
+  color: #eef2ff;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.03);
+}
+
+.ai-response-box h3 {
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.ai-response-box p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+  .ai-box {
+    padding: 1.25rem;
+  }
+
+  .choice-btn {
+    width: 100%;
+  }
+}
+
 .about-card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -277,6 +374,141 @@
 }
 
 @media (max-width: 900px) {
+  .about-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.72);
+  padding: 1.5rem;
+  z-index: 1200;
+}
+
+.auth-modal {
+  width: min(100%, 440px);
+  max-height: min(95vh, 720px);
+  overflow-y: auto;
+  border-radius: 1rem;
+  background: rgba(10, 14, 22, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  padding: 1.5rem;
+}
+
+.auth-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-modal-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #f7f7f7;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  color: #f7f7f7;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.auth-modal-body {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f5f5;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.9);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 0.85rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  color: #ff8b8b;
+  background: rgba(255, 75, 75, 0.08);
+  border: 1px solid rgba(255, 75, 75, 0.18);
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  font-size: 0.95rem;
+}
+
+.auth-switch {
+  text-align: center;
+}
+
+.switch-btn {
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.94rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 540px) {
+  .auth-modal {
+    padding: 1rem;
+  }
+
+  .auth-modal-header {
+    gap: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-hero-content,
   .about-card-grid {
     grid-template-columns: 1fr;
   }

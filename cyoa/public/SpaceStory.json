@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "title": "The Broken Starship",
+    "subtitle": "Your ship crashes on a strange moon after receiving a mysterious signal from deep space.",
+    "chapterLabel": "Chapter One",
+    "currentSceneLabel": "Current Scene",
+    "choicesPrompt": "What do you do?",
+    "endingLabel": "Mission Complete",
+    "restartLabel": "Begin again",
+    "historyHeading": "Your Journey",
+    "historyEmptyText": "Your path will be recorded here as you make choices.",
+    "footerText": "The Broken Starship · Chapter One",
+    "loadingText": "Loading Story…",
+    "startSceneId": "start"
+  },
+  "scenes": [
+    {
+      "id": "start",
+      "title": "Emergency Landing",
+      "narrative": "Red warning lights flash across the control room as your starship shakes violently.\n\nA mysterious signal pulled your ship out of course, and now you have crash-landed on a cold, silver moon. Outside the cracked window, you see three possible places to investigate: a glowing cave, a ruined station, and your damaged engine room.",
+      "choices": [
+        { "id": "c1", "text": "Go to the glowing cave", "nextSceneId": "glowing_cave" },
+        { "id": "c2", "text": "Search the ruined station", "nextSceneId": "ruined_station" },
+        { "id": "c3", "text": "Check the engine room", "nextSceneId": "engine_room" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "glowing_cave",
+      "title": "The Glowing Cave",
+      "narrative": "The cave walls glow with blue crystals. The air feels warm, even though the moon outside is freezing.\n\nDeep inside, you hear a low humming sound. A trail of strange footprints leads farther into the darkness.",
+      "choices": [
+        { "id": "c4", "text": "Follow the footprints", "nextSceneId": "alien_nest" },
+        { "id": "c5", "text": "Collect some crystals", "nextSceneId": "crystal_power" },
+        { "id": "c6", "text": "Leave the cave and go to the station", "nextSceneId": "ruined_station" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "ruined_station",
+      "title": "The Ruined Station",
+      "narrative": "The station looks abandoned, but the doors still have power. Inside, dust floats through the air and old computer screens flicker.\n\nOne screen shows the same signal that caused your crash.",
+      "choices": [
+        { "id": "c7", "text": "Read the computer logs", "nextSceneId": "computer_logs" },
+        { "id": "c8", "text": "Search the storage room", "nextSceneId": "storage_room" },
+        { "id": "c9", "text": "Follow a strange noise down the hall", "nextSceneId": "security_drone" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "engine_room",
+      "title": "The Engine Room",
+      "narrative": "Smoke pours from the engine core. Sparks jump from broken wires, and the ship's computer warns that power is almost gone.\n\nYou might be able to repair the ship, but you need a new energy source.",
+      "choices": [
+        { "id": "c10", "text": "Try to repair the engine now", "nextSceneId": "bad_repair_ending" },
+        { "id": "c11", "text": "Search for an energy source outside", "nextSceneId": "glowing_cave" },
+        { "id": "c12", "text": "Send a distress signal", "nextSceneId": "distress_signal" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "computer_logs",
+      "title": "The Old Logs",
+      "narrative": "The logs explain that the station crew discovered an alien artifact buried under the moon. The artifact sends out a signal to pull ships toward it.\n\nThe final log says: Do not activate the core.",
+      "choices": [
+        { "id": "c13", "text": "Look for the artifact", "nextSceneId": "artifact_chamber" },
+        { "id": "c14", "text": "Search the storage room first", "nextSceneId": "storage_room" },
+        { "id": "c15", "text": "Return to your ship", "nextSceneId": "engine_room" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "storage_room",
+      "title": "The Storage Room",
+      "narrative": "You find a survival pack, a laser cutter, and an old access card.\n\nThese tools could help you reach places that were locked before.",
+      "choices": [
+        { "id": "c16", "text": "Use the access card on the lower elevator", "nextSceneId": "artifact_chamber" },
+        { "id": "c17", "text": "Use the laser cutter to open a sealed door", "nextSceneId": "hidden_lab" },
+        { "id": "c18", "text": "Take the survival pack and leave", "nextSceneId": "glowing_cave" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "security_drone",
+      "title": "Security Drone",
+      "narrative": "A damaged security drone rolls out from the shadows. Its red scanner locks onto you.\n\nIt asks for station identification, but you do not have any.",
+      "choices": [
+        { "id": "c19", "text": "Run away", "nextSceneId": "drone_escape" },
+        { "id": "c20", "text": "Try to fight it", "nextSceneId": "drone_death_ending" },
+        { "id": "c21", "text": "Say you are here to fix the signal", "nextSceneId": "drone_help" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "drone_escape",
+      "title": "Narrow Escape",
+      "narrative": "You sprint through the hallway as laser blasts hit the walls behind you.\n\nYou barely escape by diving through a broken doorway.",
+      "choices": [
+        { "id": "c22", "text": "Hide in the storage room", "nextSceneId": "storage_room" },
+        { "id": "c23", "text": "Run back to your ship", "nextSceneId": "engine_room" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "drone_help",
+      "title": "Unexpected Help",
+      "narrative": "The drone pauses. Its scanner turns green.\n\nIt believes you are a repair worker and opens a secure elevator for you. The elevator leads deep underground.",
+      "choices": [
+        { "id": "c24", "text": "Take the elevator down", "nextSceneId": "artifact_chamber" },
+        { "id": "c25", "text": "Ask the drone about the artifact", "nextSceneId": "computer_logs" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "alien_nest",
+      "title": "The Nest",
+      "narrative": "You follow the footprints into a wide chamber filled with glowing eggs.\n\nSomething moves above you. A tall alien creature watches silently from the ceiling.",
+      "choices": [
+        { "id": "c26", "text": "Back away slowly", "nextSceneId": "glowing_cave" },
+        { "id": "c27", "text": "Touch one of the eggs", "nextSceneId": "alien_attack_ending" },
+        { "id": "c28", "text": "Offer a crystal as a sign of peace", "nextSceneId": "alien_ally" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "crystal_power",
+      "title": "Crystal Power",
+      "narrative": "You carefully break off a glowing crystal. It pulses with energy in your hand.\n\nThis could power your ship, but it also seems connected to the strange signal.",
+      "choices": [
+        { "id": "c29", "text": "Bring the crystal back to the ship", "nextSceneId": "repair_ship" },
+        { "id": "c30", "text": "Study the crystal more", "nextSceneId": "artifact_chamber" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "alien_ally",
+      "title": "The Silent Ally",
+      "narrative": "The alien lowers itself from the ceiling and gently takes the crystal.\n\nInstead of attacking, it points toward a hidden tunnel beneath the cave. It seems to want you to stop the signal.",
+      "choices": [
+        { "id": "c31", "text": "Follow the hidden tunnel", "nextSceneId": "artifact_chamber" },
+        { "id": "c32", "text": "Return to your ship", "nextSceneId": "engine_room" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "hidden_lab",
+      "title": "The Hidden Lab",
+      "narrative": "Behind the sealed door is a secret laboratory. Notes cover the walls.\n\nThe scientists were trying to control the artifact, but it became unstable. A warning flashes on a monitor: Core overload possible.",
+      "choices": [
+        { "id": "c33", "text": "Download the research files", "nextSceneId": "research_ending" },
+        { "id": "c34", "text": "Go shut down the artifact", "nextSceneId": "artifact_chamber" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "artifact_chamber",
+      "title": "The Artifact Chamber",
+      "narrative": "You enter a huge underground chamber. A black metal artifact floats above the floor, spinning slowly.\n\nEvery few seconds, it releases a pulse of energy. This is what pulled your ship here.",
+      "choices": [
+        { "id": "c35", "text": "Shut down the artifact", "nextSceneId": "hero_ending" },
+        { "id": "c36", "text": "Activate the artifact core", "nextSceneId": "void_ending" },
+        { "id": "c37", "text": "Take a piece of the artifact", "nextSceneId": "cursed_ending" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "repair_ship",
+      "title": "One Last Repair",
+      "narrative": "You place the crystal inside the engine core. The ship roars back to life.\n\nThe moon trembles as the strange signal grows louder. You can leave now, or you can stay and stop whatever is causing it.",
+      "choices": [
+        { "id": "c38", "text": "Escape the moon", "nextSceneId": "escape_ending" },
+        { "id": "c39", "text": "Stay and find the signal source", "nextSceneId": "artifact_chamber" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "distress_signal",
+      "title": "The Distress Signal",
+      "narrative": "You send a distress signal into space.\n\nFor a moment, there is only static. Then something answers. It is not human.",
+      "choices": [
+        { "id": "c40", "text": "Respond to the voice", "nextSceneId": "strange_rescue" },
+        { "id": "c41", "text": "Turn off the radio", "nextSceneId": "engine_room" }
+      ],
+      "isEnding": false
+    },
+    {
+      "id": "strange_rescue",
+      "title": "Strange Rescue",
+      "narrative": "A massive alien ship appears above the moon.\n\nA beam of light surrounds your broken ship. You are rescued, but you are taken somewhere far beyond known space.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "hero_ending",
+      "title": "Signal Destroyed",
+      "narrative": "You shut down the artifact. The chamber goes silent.\n\nAbove you, the storm around the moon fades. Your ship is damaged, but the moon is safe, and no more ships will be pulled into danger.\n\nYou survive as the explorer who ended the signal.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "escape_ending",
+      "title": "Escape",
+      "narrative": "You launch your repaired ship and blast away from the moon.\n\nBehind you, the signal continues to pulse. You survived, but something on that moon is still waiting.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "research_ending",
+      "title": "The Discovery",
+      "narrative": "You download the research files and escape with proof of alien technology.\n\nThe discovery changes human history forever, but part of you wonders if the artifact should have stayed hidden.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "bad_repair_ending",
+      "title": "Engine Failure",
+      "narrative": "You try to repair the engine without the right parts.\n\nThe core overheats, sparks fly, and the ship loses power completely. You are stranded on the moon with no way home.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "drone_death_ending",
+      "title": "Security Override",
+      "narrative": "You attack the drone, but its armor is too strong.\n\nIt fires once. The hallway flashes red, and your mission ends there.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "alien_attack_ending",
+      "title": "The Nest Awakens",
+      "narrative": "The moment you touch the egg, the entire nest comes alive.\n\nThe alien above you screeches, and more shadows move in the dark.\n\nYou do not make it out.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "void_ending",
+      "title": "The Void Opens",
+      "narrative": "You activate the artifact core.\n\nA black portal tears open in the air. Stars appear inside it, but they are not stars from your universe.\n\nThe portal pulls you in, and the chamber vanishes behind you.",
+      "choices": [],
+      "isEnding": true
+    },
+    {
+      "id": "cursed_ending",
+      "title": "The Cursed Fragment",
+      "narrative": "You break off a piece of the artifact and hide it in your pack.\n\nAt first, nothing happens. Then the voices begin whispering inside your helmet.\n\nYou leave the moon, but the artifact leaves with you.",
+      "choices": [],
+      "isEnding": true
+    }
+  ]
+}

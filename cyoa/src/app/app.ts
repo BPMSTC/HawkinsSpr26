@@ -16,7 +16,6 @@ type ThemeName = 'cyan' | 'amber' | 'green' | 'magenta' | 'lavender' | 'silver';
             <button class="dropbtn">☰</button>
             <div class="dropdown-content">
               <a [routerLink]="['/']">Home</a>
-              <a [routerLink]="['/']" fragment="about">About</a>
               <a [routerLink]="['/interactive']">Interactive</a>
             </div>
           </div>

@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "The Cursed Island",
+    "subtitle": "A lost island filled with treasure… and something far worse.",
+    "chapterLabel": "Chapter One",
+    "currentSceneLabel": "Current Scene",
+    "choicesPrompt": "What do you do?",
+    "endingLabel": "Voyage Complete",
+    "restartLabel": "Begin again",
+    "historyHeading": "Your Journey",
+    "historyEmptyText": "Your path will be recorded here as you make choices.",
+    "footerText": "The Cursed Island · Chapter One",
+    "loadingText": "Loading Story…",
+    "startSceneId": "start"
+  },
+  "scenes": [
+    {
+      "id": "start",
+      "title": "Land Ho",
+      "narrative": "Your ship creaks as it approaches a fog-covered island.\n\nLegends say no crew that has landed here ever returned… but also that unimaginable treasure lies hidden deep within.\n\nYour crew looks to you for a decision.",
+      "choices": [
+        { "id": "c1", "text": "Dock at the beach", "nextSceneId": "beach" },
+        { "id": "c2", "text": "Circle the island first", "nextSceneId": "cliffs" },
+        { "id": "c3", "text": "Send a small scouting boat", "nextSceneId": "scout" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "beach",
+      "title": "The Silent Shore",
+      "narrative": "You step onto the beach. The sand is undisturbed, no footprints, no birds, no sound.\n\nA dense jungle waits ahead, and a broken shipwreck lies to your left.",
+      "choices": [
+        { "id": "c4", "text": "Enter the jungle", "nextSceneId": "jungle" },
+        { "id": "c5", "text": "Search the shipwreck", "nextSceneId": "shipwreck" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "cliffs",
+      "title": "Jagged Cliffs",
+      "narrative": "You sail around the island and discover sharp cliffs with a hidden cave entrance at water level.\n\nThe tide is low enough to enter—for now.",
+      "choices": [
+        { "id": "c6", "text": "Sail into the cave", "nextSceneId": "sea_cave" },
+        { "id": "c7", "text": "Turn back to the beach", "nextSceneId": "beach" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "scout",
+      "title": "Scouting Party",
+      "narrative": "You send a small crew ahead.\n\nMinutes pass. Then an hour. The boat returns… empty.\n\nSomething is wrong.",
+      "choices": [
+        { "id": "c8", "text": "Go investigate yourself", "nextSceneId": "beach" },
+        { "id": "c9", "text": "Leave the island", "nextSceneId": "coward_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "shipwreck",
+      "title": "The Wreck",
+      "narrative": "The remains of an old ship are scattered across the sand.\n\nInside, you find a journal and a rusted key.",
+      "choices": [
+        { "id": "c10", "text": "Read the journal", "nextSceneId": "journal" },
+        { "id": "c11", "text": "Take the key and head inland", "nextSceneId": "jungle" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "journal",
+      "title": "The Warning",
+      "narrative": "The journal tells of a cursed treasure guarded by something that cannot die.\n\nThe last entry reads: DO NOT TAKE THE GOLD.",
+      "choices": [
+        { "id": "c12", "text": "Ignore the warning", "nextSceneId": "jungle" },
+        { "id": "c13", "text": "Return to ship", "nextSceneId": "coward_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "jungle",
+      "title": "The Jungle Path",
+      "narrative": "The jungle is thick and humid. Strange sounds echo all around.\n\nYou find a split path: one leads to ancient ruins, the other to a dark cave.",
+      "choices": [
+        { "id": "c14", "text": "Go to the ruins", "nextSceneId": "ruins" },
+        { "id": "c15", "text": "Enter the cave", "nextSceneId": "dark_cave" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "sea_cave",
+      "title": "The Sea Cave",
+      "narrative": "Inside the cave, glowing algae lights the walls.\n\nYou dock your ship and find a hidden tunnel leading deeper into the island.",
+      "choices": [
+        { "id": "c16", "text": "Follow the tunnel", "nextSceneId": "treasure_chamber" },
+        { "id": "c17", "text": "Return to open sea", "nextSceneId": "escape_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "ruins",
+      "title": "Ancient Ruins",
+      "narrative": "Massive stone structures stand covered in vines.\n\nAt the center is a locked stone door.",
+      "choices": [
+        { "id": "c18", "text": "Use the rusted key", "nextSceneId": "treasure_chamber" },
+        { "id": "c19", "text": "Force the door open", "nextSceneId": "trap_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "dark_cave",
+      "title": "The Dark Cave",
+      "narrative": "The cave is pitch black. You hear breathing… but you are alone.\n\nSuddenly, glowing eyes appear in the darkness.",
+      "choices": [
+        { "id": "c20", "text": "Run", "nextSceneId": "death_ending" },
+        { "id": "c21", "text": "Stand your ground", "nextSceneId": "guardian" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "guardian",
+      "title": "The Guardian",
+      "narrative": "A massive skeletal figure steps forward.\n\nIt does not attack. Instead, it gestures toward a hidden passage.\n\nIt seems to be testing you.",
+      "choices": [
+        { "id": "c22", "text": "Follow the passage", "nextSceneId": "treasure_chamber" },
+        { "id": "c23", "text": "Attack the guardian", "nextSceneId": "death_ending" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "treasure_chamber",
+      "title": "The Treasure",
+      "narrative": "You enter a massive chamber filled with gold, jewels, and ancient artifacts.\n\nAt the center sits a cursed chest glowing faintly.",
+      "choices": [
+        { "id": "c24", "text": "Take the treasure", "nextSceneId": "curse_ending" },
+        { "id": "c25", "text": "Leave it and escape", "nextSceneId": "smart_ending" },
+        { "id": "c26", "text": "Open only the chest", "nextSceneId": "true_treasure" }
+      ],
+      "isEnding": false
+    },
+
+    {
+      "id": "true_treasure",
+      "title": "The True Treasure",
+      "narrative": "Inside the chest is not gold, but a glowing artifact.\n\nIt grants you knowledge and power beyond imagination.\n\nYou leave the island forever changed.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "curse_ending",
+      "title": "The Curse",
+      "narrative": "The moment you grab the gold, the chamber shakes.\n\nYour crew begins turning into skeletons before your eyes.\n\nYou realize too late… the treasure was never meant to be taken.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "smart_ending",
+      "title": "The Smart Pirate",
+      "narrative": "You leave the treasure untouched.\n\nAs you escape, the island begins to disappear into the fog.\n\nYou live to sail another day.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "escape_ending",
+      "title": "The Escape",
+      "narrative": "You leave the island behind.\n\nYou may never know what was hidden there, but you survived.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "coward_ending",
+      "title": "Turning Back",
+      "narrative": "You decide it is not worth the risk.\n\nYou sail away, leaving the mystery unsolved forever.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "trap_ending",
+      "title": "The Trap",
+      "narrative": "You force the door open.\n\nArrows shoot from the walls. The ruins collapse around you.\n\nThe island claims another victim.",
+      "choices": [],
+      "isEnding": true
+    },
+
+    {
+      "id": "death_ending",
+      "title": "Lost to the Island",
+      "narrative": "Whatever was watching you in the darkness attacks.\n\nYou never make it out.",
+      "choices": [],
+      "isEnding": true
+    }
+  ]
+}
