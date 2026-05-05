@@ -1,27 +1,44 @@
 <div class="story-shell page-content">
 
   <header class="story-header">
+    <div class="auth-section">
+      <div *ngIf="!currentUser" class="auth-buttons">
+        <button class="auth-btn login-btn" (click)="toggleAuthForm()">
+          Login / Register
+        </button>
+      </div>
+
+      <div *ngIf="currentUser" class="user-info">
+        <span class="welcome-text">Welcome, {{ currentUser.username }}!</span>
+        <button class="auth-btn logout-btn" (click)="onLogout()">
+          Logout
+        </button>
+      </div>
+    </div>
+
     <div class="header-inner">
-      <div class="header-ornament">✦</div>
+      <div class="header-ornament">✦ ◈ ✦</div>
+
       <h1 class="story-title-main">
         {{ selectedStoryPath ? meta?.title : 'Choose Your Adventure' }}
       </h1>
-      <div class="header-ornament">✦</div>
+
+      <div class="header-ornament">✦ ◈ ✦</div>
     </div>
 
     <p class="story-subtitle">
       {{
         selectedStoryPath
           ? meta?.subtitle
-          : 'Three worlds await — frozen mysteries, mountain hunts, and desert treasure.'
+          : 'Many worlds await... What path will you take?'
       }}
     </p>
   </header>
 
-  <main class="story-layout container-fluid px-2 px-md-4">
-    <div class="row g-0 g-md-3 align-items-start">
+  <main class="story-layout">
+    <div class="story-layout-row">
 
-      <div class="col-12 col-lg-7 col-xl-8">
+      <div class="story-main-column" [class.full-width]="!selectedStoryPath">
         <section class="story-panel" aria-label="Current story scene">
 
           <div *ngIf="!selectedStoryPath" class="scene-content fade-in landing-hero">
@@ -43,12 +60,18 @@
             </p>
 
             <p class="narrative-para landing-para">
-              Before you stand three sealed stories — each one alive with mystery,
+              Before you stand nine sealed stories — each one alive with mystery,
               danger, and consequence.
 
               A frozen signal whispers beneath ancient ice.
               A hunter climbs the shadowed ridges of Black Ridge.
               A hidden treasure waits beneath the burning desert sun.
+              A broken starship calls from a strange moon.
+              The world has fallen, and survival begins.
+              An enemy army besieges the ancient keep.
+              A neon city hides corporate secrets.
+              Time travel strands you with dinosaurs.
+              A cursed island promises pirate gold.
 
               Choose carefully.
 
@@ -57,42 +80,59 @@
 
             <div class="portal-preview-grid">
 
-              <div class="portal-card">
+              <div class="portal-card ice-story" [routerLink]="['/interactive', 'IceStory.json']">
                 <div class="portal-icon">❄</div>
                 <h3>Frozen Signal</h3>
                 <p>Ancient ice. Buried secrets. Something is calling.</p>
               </div>
 
-              <div class="portal-card">
+              <div class="portal-card hunting-story" [routerLink]="['/interactive', 'HuntingStory.json']">
                 <div class="portal-icon">🏹</div>
                 <h3>Black Ridge</h3>
                 <p>The mountain watches. Patience decides everything.</p>
               </div>
 
-              <div class="portal-card">
+              <div class="portal-card desert-story" [routerLink]="['/interactive', 'DesertStory.json']">
                 <div class="portal-icon">☀</div>
                 <h3>Desert Treasure</h3>
                 <p>Goldwind Desert hides more than treasure.</p>
               </div>
 
-            </div>
+              <div class="portal-card space-story" [routerLink]="['/interactive', 'SpaceStory.json']">
+                <div class="portal-icon">🚀</div>
+                <h3>The Broken Starship</h3>
+                <p>A crashed ship on a mysterious moon.</p>
+              </div>
 
-            <div class="choices-list landing-choices">
+              <div class="portal-card apocalypse-story" [routerLink]="['/interactive', 'ApocalypseStory.json']">
+                <div class="portal-icon">☢</div>
+                <h3>The Last Days</h3>
+                <p>The world has fallen. Survival begins now.</p>
+              </div>
 
-              <button class="choice-btn" [routerLink]="['/interactive', 'IceStory.json']">
-                <span class="choice-arrow">›</span>
-                <span class="choice-text">The Signal Beneath the Ice</span>
-              </button>
+              <div class="portal-card castle-story" [routerLink]="['/interactive', 'CastleSiege.json']">
+                <div class="portal-icon">🏰</div>
+                <h3>The Siege of Blackstone Keep</h3>
+                <p>Defend the castle against overwhelming odds.</p>
+              </div>
 
-              <button class="choice-btn secondary" [routerLink]="['/interactive', 'HuntingStory.json']">
-                <span class="choice-arrow">›</span>
-                <span class="choice-text">Black Ridge Hunt</span>
-              </button>
+              <div class="portal-card city-story" [routerLink]="['/interactive', 'CityStory.json']">
+                <div class="portal-icon">🏙</div>
+                <h3>The Neon Heist</h3>
+                <p>Infiltrate the corporation's high-tech fortress.</p>
+              </div>
 
-              <button class="choice-btn secondary" [routerLink]="['/interactive', 'DesertStory.json']">
-                <span class="choice-arrow">›</span>
-                <span class="choice-text">The Desert Treasure</span>
-              </button>
+              <div class="portal-card dino-story" [routerLink]="['/interactive', 'DinoStory.json']">
+                <div class="portal-icon">🦕</div>
+                <h3>Stranded in Prehistory</h3>
+                <p>Survive in a world of prehistoric giants.</p>
+              </div>
+
+              <div class="portal-card pirate-story" [routerLink]="['/interactive', 'PirateStory.json']">
+                <div class="portal-icon">🏴‍☠️</div>
+                <h3>The Cursed Island</h3>
+                <p>Seek fortune on a haunted pirate island.</p>
+              </div>
 
             </div>
           </div>
@@ -165,10 +205,7 @@
         </section>
       </div>
 
-      <div
-        *ngIf="selectedStoryPath"
-        class="col-12 col-lg-5 col-xl-4">
-
+      <div *ngIf="selectedStoryPath" class="story-history-column">
         <aside class="history-panel" aria-label="Story history">
           <div class="history-header">
             <div class="history-title-row">
@@ -219,6 +256,121 @@
 
     </div>
   </main>
+
+  <div *ngIf="showAuthForm" class="auth-modal-overlay" (click)="toggleAuthForm()">
+    <div class="auth-modal" (click)="$event.stopPropagation()">
+
+      <div class="auth-modal-header">
+        <h3>{{ isLoginMode ? 'Login' : 'Register' }}</h3>
+        <button class="close-btn" (click)="toggleAuthForm()">×</button>
+      </div>
+
+      <div class="auth-modal-body">
+
+        <form *ngIf="isLoginMode" (ngSubmit)="onLogin()" class="auth-form">
+
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input
+              id="login-email"
+              type="email"
+              [(ngModel)]="loginData.email"
+              name="email"
+              required
+              placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              type="password"
+              [(ngModel)]="loginData.password"
+              name="password"
+              required
+              placeholder="Enter your password">
+          </div>
+
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+
+        </form>
+
+        <form *ngIf="!isLoginMode" (ngSubmit)="onRegister()" class="auth-form">
+
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input
+              id="register-username"
+              type="text"
+              [(ngModel)]="registerData.username"
+              name="username"
+              required
+              placeholder="Choose a username">
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input
+              id="register-email"
+              type="email"
+              [(ngModel)]="registerData.email"
+              name="email"
+              required
+              placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input
+              id="register-password"
+              type="password"
+              [(ngModel)]="registerData.password"
+              name="password"
+              required
+              placeholder="Create a password">
+          </div>
+
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input
+              id="register-confirm"
+              type="password"
+              [(ngModel)]="registerData.confirmPassword"
+              name="confirmPassword"
+              required
+              placeholder="Confirm your password">
+          </div>
+
+          <button
+            type="submit"
+            class="auth-submit-btn"
+            [disabled]="isLoading">
+            {{ isLoading ? 'Registering...' : 'Register' }}
+          </button>
+
+        </form>
+
+        <div *ngIf="authError" class="auth-error">
+          {{ authError }}
+        </div>
+
+        <div class="auth-switch">
+          <button
+            type="button"
+            class="switch-btn"
+            (click)="switchMode()">
+            {{ isLoginMode ? 'Need an account? Register' : 'Already have an account? Login' }}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <footer class="story-footer">
     {{
