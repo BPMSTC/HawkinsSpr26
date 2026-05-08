@@ -195,7 +195,10 @@
             </div>
 
             <div *ngIf="currentScene.isEnding" class="restart-area">
-              <button class="btn-restart" [routerLink]="['/interactive']">
+              <button class="btn-restart btn-restart-primary" (click)="restart()">
+                ↻ Restart Story
+              </button>
+              <button class="btn-restart btn-restart-secondary" [routerLink]="['/interactive']">
                 ↺ Choose Another Story
               </button>
             </div>

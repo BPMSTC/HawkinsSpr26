@@ -16,7 +16,7 @@
     "scenes": [
       {
         "id": "start",
-        "title": "Arrival at Black Ridge",
+        "title": "🏔 Arrival at Black Ridge",
         "narrative": "Your truck grinds to a stop at the edge of an old logging road just as the last light fades behind the mountains.\n\nBlack Ridge is quiet in a way that feels deep and ancient. Pine trees crowd the slopes. A creek runs somewhere below camp. The air smells like wet bark, cold earth, and wood smoke from hunters who passed through years before.\n\nYou unload your gear beside a small clearing that will be home for the weekend. Tomorrow is opening morning.\n\nYou have enough daylight left to make one good decision before darkness settles fully over the ridge.",
         "choices": [
           {
@@ -44,7 +44,7 @@
       },
       {
         "id": "scene_2",
-        "title": "Camp in Good Order",
+        "title": "⛺ Camp in Good Order",
         "narrative": "You work methodically. Tent first. Then lantern. Then food hung high and away from where you will sleep. You stack your pack, check your rifle, and note the direction of the wind as it moves through the clearing.\n\nAs darkness thickens, you spot tracks pressed into the soft mud near camp — fresh enough to hold shape, deep enough to suggest a decent-sized deer, maybe even a buck.\n\nThe woods beyond camp are almost black now, but the ridge still feels active.",
         "choices": [
           {
@@ -67,7 +67,7 @@
       },
       {
         "id": "scene_3",
-        "title": "Scouting the Trail",
+        "title": "🥾 Scouting the Trail",
         "narrative": "You ease along a narrow trail winding between pine and fir. The ground is damp, and the last light catches in patches on stone and wet needles.\n\nA few hundred yards from camp, the trail splits. One fork climbs toward a rocky overlook. The other drops into thick timber where visibility disappears fast.\n\nOn a sapling near the fork, you notice bark rubbed raw — a sign that a buck has passed through recently.",
         "choices": [
           {
@@ -95,7 +95,7 @@
       },
       {
         "id": "scene_4",
-        "title": "Tracks by the Creek",
+        "title": "🌊 Tracks by the Creek",
         "narrative": "You make your way down toward the sound of moving water. The creek curves between stones and roots, its banks pressed with sign.\n\nYou kneel and inspect the mud. Deer tracks. Small ones. A larger set too. Then, farther off near a bend in the bank, a sharper print — hoof marks running, as if something had been startled.\n\nThe wind shifts colder. Somewhere up the drainage, a branch snaps once, then all goes quiet.",
         "choices": [
           {
@@ -123,7 +123,7 @@
       },
       {
         "id": "scene_5",
-        "title": "Firelight and Planning",
+        "title": "🔥 Firelight and Planning",
         "narrative": "You build a careful fire and keep it small. Soon the clearing glows with warm orange light, and the cold begins to settle into a more manageable kind of quiet.\n\nAs you eat, you think through the morning. Hunt the ridge high where visibility is good. Sit the creek crossing at first light. Slip through the timber and still-hunt slowly. Every choice has tradeoffs.\n\nIn the dark beyond the firelight, the woods crack once and then go still again.",
         "choices": [
           {
@@ -151,7 +151,7 @@
       },
       {
         "id": "scene_6",
-        "title": "Fresh Sign",
+        "title": "👁 Fresh Sign",
         "narrative": "The sign is better than you first thought. Tracks overlap near a scrape beneath low branches. A buck has been here, and recently.\n\nThe ground tells a story if you know how to read it: movement at dawn, circling in the timber, maybe bedding higher on the slope.\n\nBut daylight is nearly gone, and pushing too far now could bump whatever you hope to find in the morning.",
         "choices": [
           {
@@ -174,7 +174,7 @@
       },
       {
         "id": "scene_7",
-        "title": "Before First Light",
+        "title": "🌅 Before First Light",
         "narrative": "The cold wakes you before your alarm. Frost clings to the tent. The world outside is blue-black and silent, the kind of silence that belongs only to the hour before dawn.\n\nYou shoulder your pack, sip something hot, and decide where to begin opening morning.",
         "choices": [
           {
@@ -202,7 +202,7 @@
       },
       {
         "id": "scene_8",
-        "title": "The Ridge Overlook",
+        "title": "📋 The Ridge Overlook",
         "narrative": "You reach a rocky shelf that looks out over folds of timber, brush pockets, and a narrow meadow cut into the slope below. Even in fading light, it is obvious why deer would move through here.\n\nThe wind is steady in your face. Visibility is excellent. You can glass the lower openings at first light or use the ridge to move quietly above them.\n\nFar below, something tan slips between the trees — too quick to identify for certain.",
         "choices": [
           {
@@ -225,7 +225,7 @@
       },
       {
         "id": "scene_9",
-        "title": "The Thick Timber",
+        "title": "🌲 The Thick Timber",
         "narrative": "The woods swallow light fast here. Trees stand close together, and brush tangles around your boots. You move slowly, careful not to snap deadfall underfoot.\n\nThen you smell it — that musky, sharp scent of deer close by.\n\nA shadow slips between trunks ahead. Not a clear shot. Not even a clear shape. Just the certainty that you are no longer alone in the timber.",
         "choices": [
           {
@@ -248,7 +248,7 @@
       },
       {
         "id": "scene_10",
-        "title": "Following the Creek Upstream",
+        "title": "⛰ Following the Creek Upstream",
         "narrative": "You stay close to the bank, stepping where stone breaks your outline and sound. The larger tracks weave along the water, then angle toward a willow-choked bend.\n\nThere you find where something paused: churned mud, droplets on leaves, and the clean print of a heavy hoof.\n\nThe animal is using this drainage with confidence. This could be a strong morning route.",
         "choices": [
           {
@@ -271,7 +271,7 @@
       },
       {
         "id": "scene_11",
-        "title": "The Creek Crossing",
+        "title": "🏞 The Creek Crossing",
         "narrative": "You settle near the crossing while the world slowly brightens. Fog hangs low over the water. Frost glitters on the grass. The kind of morning hunters remember.\n\nYou wait. A squirrel chatters. A raven crosses the drainage. Then, just after sunrise, movement.\n\nA doe steps into the crossing first. Behind her, deeper in the timber, antlers catch the light for a moment and vanish.",
         "choices": [
           {
@@ -299,7 +299,7 @@
       },
       {
         "id": "scene_12",
-        "title": "First Light on the Overlook",
+        "title": "☀ First Light on the Overlook",
         "narrative": "You reach the overlook before sunrise and settle behind a rock outcrop. As the world wakes, the ridge below opens into pockets of gold and shadow.\n\nYou glass slowly. Brush. Meadow edge. Fallen log. Then you see it: a buck feeding at the edge of a small clearing below, unaware of you for the moment.\n\nThe distance is manageable, but the angle is not perfect and the wind could betray you if it shifts.",
         "choices": [
           {
@@ -327,7 +327,7 @@
       },
       {
         "id": "scene_13",
-        "title": "Sounds in the Night",
+        "title": "🦌 Sounds in the Night",
         "narrative": "You sit awake beside the low fire while the temperature drops. The ridge settles into darkness.\n\nThen the woods begin to speak.\n\nA distant grunt. Hooves moving somewhere beyond camp. The faint rattle of antlers brushing saplings. Whatever is out there is active tonight.\n\nIf you play this right, you may have a real advantage by morning.",
         "choices": [
           {
@@ -350,7 +350,7 @@
       },
       {
         "id": "scene_14",
-        "title": "Still-Hunting the Timber",
+        "title": "🏹 Still-Hunting the Timber",
         "narrative": "You move one deliberate step at a time through the thick timber. Every pause is longer than feels natural. Every glance matters.\n\nThis style of hunting demands patience, and the woods reward patience slowly.\n\nThen, ahead through brush and trunks, you see horizontal movement that does not belong to the trees. A deer. Maybe two. One heavier-bodied than the other.",
         "choices": [
           {
@@ -373,7 +373,7 @@
       },
       {
         "id": "scene_15",
-        "title": "Above the Bedding Area",
+        "title": "🛤 Above the Bedding Area",
         "narrative": "You circle high and come in with the wind in your favor. From here you can see into a pocket of brush and young pines where deer have clearly been bedding.\n\nThe ground is pressed flat in several places. Fresh droppings. Broken stems. Warm sign.\n\nAnd then, downwind and half-hidden behind brush, the curve of a back and a flick of an ear.\n\nA deer is bedded below you. Maybe more than one.",
         "choices": [
           {
@@ -401,7 +401,7 @@
       },
       {
         "id": "scene_16",
-        "title": "Hold Still",
+        "title": "🎯 Hold Still",
         "narrative": "You become part of the timber. Seconds feel like minutes. Minutes feel like longer.\n\nAt last the brush opens just enough. A buck steps forward, cautious and broadside for only a moment. Not huge, but mature. Calm. Close.\n\nThis is the kind of opportunity that comes only if you do not rush it.",
         "choices": [
           {
@@ -424,7 +424,7 @@
       },
       {
         "id": "scene_17",
-        "title": "One Step Too Many",
+        "title": "⚠ One Step Too Many",
         "narrative": "You try to improve your position, but the timber is unforgiving. Your boot lands on a hidden branch.\n\nThe crack echoes louder than it should.\n\nBrush explodes. White tails flash. Hooves thunder away through the trees.\n\nThe woods go empty in an instant, leaving only drifting scent and the hard lesson of impatience.",
         "choices": [
           {
@@ -447,7 +447,7 @@
       },
       {
         "id": "scene_18",
-        "title": "Patience at the Crossing",
+        "title": "✨ Patience at the Crossing",
         "narrative": "You hold still and let the woods decide the pace. The doe crosses. A minute later, the buck steps into the opening she left behind.\n\nHe is bigger than you expected. Heavy neck. Good frame. Calm but alert.\n\nThe shot window is clean, but it will not last long.",
         "choices": [
           {
@@ -470,7 +470,7 @@
       },
       {
         "id": "scene_19",
-        "title": "A Better Angle",
+        "title": "📐 A Better Angle",
         "narrative": "You inch to one side, careful and measured, but the frost under your boot whispers louder than expected.\n\nThe doe jerks her head up. The buck freezes behind the brush. For a heartbeat everything hangs in balance.\n\nThen he turns, giving you one narrow opportunity before vanishing into the timber.",
         "choices": [
           {
@@ -493,7 +493,7 @@
       },
       {
         "id": "scene_20",
-        "title": "Following the Buck",
+        "title": "👣 Following the Buck",
         "narrative": "You move along the line of travel the deer used, watching for fresh prints, clipped stems, and the subtle clues that separate hope from direction.\n\nThe trail leads into mixed cover, then opens toward a patch of sun on the hillside. Midmorning warmth is beginning to lift the cold from the ridge.\n\nThis is often the hour when hunters rush. The ridge seems to ask you not to.",
         "choices": [
           {

@@ -16,7 +16,7 @@
   "scenes": [
     {
       "id": "start",
-      "title": "Rooftop Entry",
+      "title": "🌌 Rooftop Entry",
       "narrative": "Rain falls across neon-lit rooftops as you crouch above the target building.\n\nBelow you is Helix Corp, a megacorporation rumored to be hiding something massive. Your contact said the data inside could change everything.\n\nYou have three ways in.",
       "choices": [
         { "id": "c1", "text": "Enter through the rooftop vent", "nextSceneId": "vent_entry" },
@@ -28,7 +28,7 @@
 
     {
       "id": "vent_entry",
-      "title": "Vent System",
+      "title": "🗑 Vent System",
       "narrative": "You slide into the narrow vent system. The metal creaks under your weight.\n\nVoices echo from below. Guards are talking about a lockdown protocol.",
       "choices": [
         { "id": "c4", "text": "Drop into the room below", "nextSceneId": "security_room" },
@@ -39,7 +39,7 @@
 
     {
       "id": "front_entry",
-      "title": "Main Entrance",
+      "title": "🚪 Main Entrance",
       "narrative": "You connect your device to the security panel.\n\nThe system fights back with heavy encryption. You can force it open, but it might trigger alarms.",
       "choices": [
         { "id": "c6", "text": "Force the hack", "nextSceneId": "alarm_triggered" },
@@ -50,7 +50,7 @@
 
     {
       "id": "side_entry",
-      "title": "Fire Escape",
+      "title": "🏧 Fire Escape",
       "narrative": "You climb down quietly and reach a side window.\n\nInside is a dark office space with only a few lights still on.",
       "choices": [
         { "id": "c8", "text": "Break in through the window", "nextSceneId": "office_area" },
@@ -61,7 +61,7 @@
 
     {
       "id": "security_room",
-      "title": "Security Room",
+      "title": "💹 Security Room",
       "narrative": "You drop into a room filled with monitors.\n\nOne guard sits watching the screens, unaware of you.",
       "choices": [
         { "id": "c10", "text": "Knock out the guard", "nextSceneId": "control_access" },
@@ -72,7 +72,7 @@
 
     {
       "id": "server_room",
-      "title": "Server Room",
+      "title": "🖥 Server Room",
       "narrative": "You reach a massive room filled with glowing servers.\n\nThis is where the data is stored. You can start downloading now, or explore further.",
       "choices": [
         { "id": "c12", "text": "Download the data", "nextSceneId": "data_download" },
@@ -83,7 +83,7 @@
 
     {
       "id": "lobby_entry",
-      "title": "Lobby",
+      "title": "🏮 Lobby",
       "narrative": "The doors slide open silently.\n\nThe lobby is empty, but cameras track every movement.",
       "choices": [
         { "id": "c14", "text": "Disable cameras", "nextSceneId": "control_access" },
@@ -94,7 +94,7 @@
 
     {
       "id": "office_area",
-      "title": "Office Floor",
+      "title": "📄 Office Floor",
       "narrative": "Cubicles stretch across the room. Computers glow faintly.\n\nYou find employee credentials on a desk.",
       "choices": [
         { "id": "c16", "text": "Use credentials", "nextSceneId": "control_access" },
@@ -105,7 +105,7 @@
 
     {
       "id": "basement_entry",
-      "title": "Basement Access",
+      "title": "🔑 Basement Access",
       "narrative": "You drop into the basement.\n\nIt’s darker here. You hear machinery... and something else.",
       "choices": [
         { "id": "c18", "text": "Investigate the noise", "nextSceneId": "experiment_room" },
@@ -116,7 +116,7 @@
 
     {
       "id": "hallway",
-      "title": "Hallway",
+      "title": "🦤 Hallway",
       "narrative": "You move through a long hallway.\n\nFootsteps echo nearby. Security is getting closer.",
       "choices": [
         { "id": "c20", "text": "Hide", "nextSceneId": "escape_route" },
@@ -127,7 +127,7 @@
 
     {
       "id": "control_access",
-      "title": "Control Access",
+      "title": "🌹 Control Access",
       "narrative": "You gain access to the building systems.\n\nYou can now control cameras, locks, and alarms.",
       "choices": [
         { "id": "c22", "text": "Unlock server room", "nextSceneId": "server_room" },
@@ -138,7 +138,7 @@
 
     {
       "id": "data_download",
-      "title": "Downloading...",
+      "title": "⏳ Downloading...",
       "narrative": "The data begins transferring.\n\nSuddenly, a warning flashes: TRACE DETECTED.",
       "choices": [
         { "id": "c24", "text": "Stop and escape", "nextSceneId": "escape_route" },
@@ -149,7 +149,7 @@
 
     {
       "id": "lab_area",
-      "title": "Hidden Lab",
+      "title": "🔌 Hidden Lab",
       "narrative": "You discover a secret lab.\n\nInside are experiments... not human. Helix Corp is hiding something alive.",
       "choices": [
         { "id": "c26", "text": "Release the subject", "nextSceneId": "chaos_ending" },
@@ -160,7 +160,7 @@
 
     {
       "id": "experiment_room",
-      "title": "Experiment Room",
+      "title": "🦬 Experiment Room",
       "narrative": "A creature sits inside a containment pod.\n\nIt opens its eyes and looks directly at you.",
       "choices": [
         { "id": "c28", "text": "Open the pod", "nextSceneId": "chaos_ending" },
@@ -171,7 +171,7 @@
 
     {
       "id": "elevator",
-      "title": "Elevator",
+      "title": "⬆️ Elevator",
       "narrative": "You enter the elevator.\n\nTop floor or basement?",
       "choices": [
         { "id": "c30", "text": "Go to top floor", "nextSceneId": "server_room" },
@@ -182,7 +182,7 @@
 
     {
       "id": "escape_route",
-      "title": "Escape Route",
+      "title": "🚀 Escape Route",
       "narrative": "You find an exit route.\n\nSirens begin to echo through the building.",
       "choices": [
         { "id": "c32", "text": "Escape now", "nextSceneId": "escape_ending" },
@@ -193,7 +193,7 @@
 
     {
       "id": "alarm_triggered",
-      "title": "Alarm Triggered",
+      "title": "🚨 Alarm Triggered",
       "narrative": "Red lights flash. Alarms scream.\n\nSecurity is closing in fast.",
       "choices": [
         { "id": "c34", "text": "Run for exit", "nextSceneId": "escape_ending" },
@@ -204,7 +204,7 @@
 
     {
       "id": "clean_heist_ending",
-      "title": "Perfect Heist",
+      "title": "👏 Perfect Heist",
       "narrative": "You disable security completely.\n\nYou walk out with full access and no one ever knows you were there.\n\nA perfect job.",
       "choices": [],
       "isEnding": true
@@ -212,7 +212,7 @@
 
     {
       "id": "escape_ending",
-      "title": "Escape",
+      "title": "🌜 Escape",
       "narrative": "You escape into the neon night.\n\nYou didn’t get everything, but you made it out alive.",
       "choices": [],
       "isEnding": true
@@ -220,7 +220,7 @@
 
     {
       "id": "caught_ending",
-      "title": "Trace Complete",
+      "title": "🛑 Trace Complete",
       "narrative": "The download finishes...\n\nBut so does the trace.\n\nSecurity bursts in.\n\nYou’re caught.",
       "choices": [],
       "isEnding": true

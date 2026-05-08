@@ -16,7 +16,7 @@
   "scenes": [
     {
       "id": "start",
-      "title": "The Desert Intersection",
+      "title": "X The Desert Intersection",
       "narrative": "The wind howls softly as grains of sand slide across the cracked road beneath your boots. Ahead of you lies an intersection, long abandoned, marked only by a broken wooden sign barely hanging on.\n\nTo the left, the road stretches toward towering dunes. Straight ahead, the land dips slightly, and faint heat waves ripple in the distance. To the right, jagged rocks rise like teeth from the sand.\n\nSomewhere out there lies the treasure.",
       "choices": [
         { "id": "c1", "text": "Head left toward the dunes", "nextSceneId": "dunes_path" },
@@ -28,7 +28,7 @@
 
     {
       "id": "dunes_path",
-      "title": "The Endless Dunes",
+      "title": "~ The Endless Dunes",
       "narrative": "The dunes stretch endlessly, each one taller than the last. Your legs grow heavy as the sand shifts beneath you.\n\nAfter what feels like hours, you spot a small structure half-buried in sand. A rusted ladder leads up its side.",
       "choices": [
         { "id": "c4", "text": "Enter the building", "nextSceneId": "building_entry" },
@@ -40,7 +40,7 @@
 
     {
       "id": "roof_view",
-      "title": "Above the Sands",
+      "title": ". Above the Sands",
       "narrative": "You climb the ladder carefully. At the top, you find a flat rooftop with an open hatch leading inside.\n\nFrom here, you can see far across the desert. In the distance, a faint shimmer reveals what looks like an oasis... or maybe something else.",
       "choices": [
         { "id": "c7", "text": "Climb down into the building", "nextSceneId": "hidden_room" },
@@ -52,7 +52,7 @@
 
     {
       "id": "building_entry",
-      "title": "The Forgotten Outpost",
+      "title": "@ The Forgotten Outpost",
       "narrative": "Inside the building, dust covers everything. Old crates, broken furniture, and faded markings line the walls.\n\nOn a table sits a worn map. Across the room is a sealed metal door, slightly ajar.",
       "choices": [
         { "id": "c10", "text": "Examine the map", "nextSceneId": "map_reading" },
@@ -64,7 +64,7 @@
 
     {
       "id": "map_reading",
-      "title": "The Map",
+      "title": "# The Map",
       "narrative": "The map is detailed, far more than expected. It marks a hidden chamber beneath the desert, accessible only through an entrance near a false oasis.\n\nYou now know where to go.",
       "choices": [
         { "id": "c13", "text": "Head to the oasis location", "nextSceneId": "true_oasis" },
@@ -75,7 +75,7 @@
 
     {
       "id": "supply_find",
-      "title": "Supplies",
+      "title": "$ Supplies",
       "narrative": "You dig through the crates and find old but usable supplies—water, tools, and a flare gun.\n\nThis might come in handy.",
       "choices": [
         { "id": "c15", "text": "Take supplies and leave", "nextSceneId": "true_oasis" },
@@ -86,7 +86,7 @@
 
     {
       "id": "creature_room",
-      "title": "The Guardian",
+      "title": "& The Guardian",
       "narrative": "The door creaks open.\n\nInside, something moves. A twisted, mechanical creature—part machine, part bone—lurks in the shadows.\n\nIt notices you instantly.",
       "choices": [
         { "id": "c17", "text": "Run", "nextSceneId": "death_run" },
@@ -97,7 +97,7 @@
 
     {
       "id": "escape_guardian",
-      "title": "Escape",
+      "title": "* Escape",
       "narrative": "The flare explodes in light, blinding the creature. It recoils, screeching.\n\nYou escape the building, heart racing. You now know this place is connected to something bigger.",
       "choices": [
         { "id": "c19", "text": "Head to the oasis", "nextSceneId": "true_oasis" }
@@ -107,7 +107,7 @@
 
     {
       "id": "oasis_path",
-      "title": "The Mirage",
+      "title": "+ The Mirage",
       "narrative": "You walk toward the shimmering oasis. The closer you get, the more it flickers.\n\nWhen you arrive, it vanishes completely.\n\nBut beneath the sand, you notice a hidden hatch.",
       "choices": [
         { "id": "c20", "text": "Open the hatch", "nextSceneId": "true_oasis" },
@@ -118,7 +118,7 @@
 
     {
       "id": "true_oasis",
-      "title": "The Hidden Chamber",
+      "title": "^ The Hidden Chamber",
       "narrative": "You descend into darkness.\n\nBelow the desert lies a vast underground chamber lit by glowing crystals. At its center stands a massive chest.",
       "choices": [
         { "id": "c22", "text": "Open the chest", "nextSceneId": "treasure_ending" },
@@ -129,7 +129,7 @@
 
     {
       "id": "hidden_room",
-      "title": "The Balcony Vault",
+      "title": "! The Balcony Vault",
       "narrative": "You drop into the building from above and land on a hidden balcony.\n\nBelow you sits a massive chest untouched by time.",
       "choices": [
         { "id": "c24", "text": "Jump down and open it", "nextSceneId": "treasure_ending" }

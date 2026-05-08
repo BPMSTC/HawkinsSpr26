@@ -16,7 +16,7 @@
   "scenes": [
     {
       "id": "start",
-      "title": "The Siege Begins",
+      "title": "🏰 The Siege Begins",
       "narrative": "You stand atop the walls of Blackstone Keep.\n\nAn enemy army stretches across the horizon. Banners wave. War drums echo.\n\nThey have surrounded the castle.\n\nA massive trebuchet is being assembled in the distance.\n\nThe siege has begun.",
       "choices": [
         { "id": "c1", "text": "Join the archers on the wall", "nextSceneId": "archer_post" },
@@ -28,7 +28,7 @@
 
     {
       "id": "archer_post",
-      "title": "The Walls",
+      "title": "🏹 The Walls",
       "narrative": "You take position with the archers.\n\nEnemy soldiers begin advancing with shields raised.\n\nThe trebuchet launches its first stone.",
       "choices": [
         { "id": "c4", "text": "Fire arrows at advancing troops", "nextSceneId": "battle_push" },
@@ -39,7 +39,7 @@
 
     {
       "id": "courtyard",
-      "title": "Castle Courtyard",
+      "title": "⚔️ Castle Courtyard",
       "narrative": "Soldiers rush to prepare defenses.\n\nBlacksmiths work quickly, and supplies are being distributed.\n\nYou can help prepare—or do something riskier.",
       "choices": [
         { "id": "c6", "text": "Help reinforce the gates", "nextSceneId": "gate_defense" },
@@ -51,7 +51,7 @@
 
     {
       "id": "commander",
-      "title": "The War Room",
+      "title": "👑 The War Room",
       "narrative": "The commander studies a map.\n\n'We cannot hold forever,' they say. 'We must either break the siege… or outlast it.'",
       "choices": [
         { "id": "c9", "text": "Suggest a night raid on the trebuchet", "nextSceneId": "night_raid" },
@@ -62,7 +62,7 @@
 
     {
       "id": "wall_damage",
-      "title": "Walls Crumbling",
+      "title": "💥 Walls Crumbling",
       "narrative": "The trebuchet strikes the wall.\n\nStone explodes outward. A section weakens.\n\nAnother hit like that and the enemy will breach.",
       "choices": [
         { "id": "c11", "text": "Help repair the wall", "nextSceneId": "repair_wall" },
@@ -73,7 +73,7 @@
 
     {
       "id": "battle_push",
-      "title": "Clash at the Walls",
+      "title": "⚔️ Clash at the Walls",
       "narrative": "The enemy reaches the walls with ladders.\n\nSteel clashes. The air fills with shouting.\n\nYou are in the middle of the fight.",
       "choices": [
         { "id": "c13", "text": "Fight aggressively", "nextSceneId": "victory_push" },
@@ -84,7 +84,7 @@
 
     {
       "id": "gate_defense",
-      "title": "The Gate",
+      "title": "🚪 The Gate",
       "narrative": "You reinforce the gates with beams and iron.\n\nA battering ram slams into it.\n\nAgain.\n\nAnd again.",
       "choices": [
         { "id": "c15", "text": "Hold the gate", "nextSceneId": "hold_gate" },
@@ -95,7 +95,7 @@
 
     {
       "id": "hidden_passage",
-      "title": "Secret Tunnel",
+      "title": "🗝️ Secret Tunnel",
       "narrative": "You find an old passage beneath the castle.\n\nIt leads outside the walls… near the enemy camp.",
       "choices": [
         { "id": "c17", "text": "Use it to escape", "nextSceneId": "escape_ending" },
@@ -106,7 +106,7 @@
 
     {
       "id": "night_raid",
-      "title": "The Night Raid",
+      "title": "🌙 The Night Raid",
       "narrative": "Under darkness, you sneak toward the trebuchet.\n\nGuards patrol nearby.\n\nOne wrong move and you’re caught.",
       "choices": [
         { "id": "c19", "text": "Sneak past guards", "nextSceneId": "trebuchet_destroyed" },
@@ -117,7 +117,7 @@
 
     {
       "id": "trebuchet_destroyed",
-      "title": "Sabotage",
+      "title": "🔥 Sabotage",
       "narrative": "You successfully destroy the trebuchet.\n\nThe massive machine collapses into flames.\n\nThe enemy loses its greatest weapon.",
       "choices": [
         { "id": "c21", "text": "Return to castle", "nextSceneId": "victory_push" }

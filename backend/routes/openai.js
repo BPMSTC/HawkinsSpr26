@@ -54,7 +54,7 @@ router.post('/chat', async (req, res) => {
 
     const model = genAI.getGenerativeModel({
       model: 'gemini-2.5-flash',
-      systemInstruction: 'You are a helpful assistant for website users.',
+      systemInstruction: 'You are a helpful assistant for users. Keep responses concise and brief. Do not include any styling in your responses.',
     });
 
     console.log('Before Gemini call');
