@@ -1,27 +1,27 @@
 {
   "meta": {
     "title": "The Neon Heist",
-    "subtitle": "A powerful corporation controls the city. Tonight, you’re breaking in.",
+    "subtitle": "🌆 A powerful corporation controls the city. Tonight, you're breaking in.",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
-    "choicesPrompt": "What do you do?",
-    "endingLabel": "Operation Complete",
-    "restartLabel": "Begin again",
-    "historyHeading": "Your Run",
+    "choicesPrompt": "👉 What do you do?",
+    "endingLabel": "⚡ Operation Complete",
+    "restartLabel": "🔄 Begin again",
+    "historyHeading": "📖 Your Run",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "Neon City · Chapter One",
-    "loadingText": "Loading Story…",
+    "footerText": "🌃 Neon City · Chapter One",
+    "loadingText": "⏳ Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
     {
       "id": "start",
       "title": "🌌 Rooftop Entry",
-      "narrative": "Rain falls across neon-lit rooftops as you crouch above the target building.\n\nBelow you is Helix Corp, a megacorporation rumored to be hiding something massive. Your contact said the data inside could change everything.\n\nYou have three ways in.",
+      "narrative": "🌧 Rain falls across neon rooftops as you crouch above the target building.\n\nBelow sits Helix Corp, the most feared corporation in the city.\n\n💾 Your contact claims the data inside could change everything.\n\nYou have three ways in.",
       "choices": [
-        { "id": "c1", "text": "Enter through the rooftop vent", "nextSceneId": "vent_entry" },
-        { "id": "c2", "text": "Hack the security door", "nextSceneId": "front_entry" },
-        { "id": "c3", "text": "Climb down the fire escape", "nextSceneId": "side_entry" }
+        { "id": "c1", "text": "🗑 Enter through the rooftop vent", "nextSceneId": "vent_entry" },
+        { "id": "c2", "text": "💻 Hack the security door", "nextSceneId": "front_entry" },
+        { "id": "c3", "text": "🪜 Climb down the fire escape", "nextSceneId": "side_entry" }
       ],
       "isEnding": false
     },
@@ -29,10 +29,10 @@
     {
       "id": "vent_entry",
       "title": "🗑 Vent System",
-      "narrative": "You slide into the narrow vent system. The metal creaks under your weight.\n\nVoices echo from below. Guards are talking about a lockdown protocol.",
+      "narrative": "You slide into the narrow vent system.\n\nThe metal creaks beneath you.\n\n🎧 Voices echo below. Guards mention a lockdown protocol.",
       "choices": [
-        { "id": "c4", "text": "Drop into the room below", "nextSceneId": "security_room" },
-        { "id": "c5", "text": "Keep crawling deeper", "nextSceneId": "server_room" }
+        { "id": "c4", "text": "⬇️ Drop into the room below", "nextSceneId": "security_room" },
+        { "id": "c5", "text": "➡️ Crawl deeper", "nextSceneId": "server_room" }
       ],
       "isEnding": false
     },
@@ -40,32 +40,32 @@
     {
       "id": "front_entry",
       "title": "🚪 Main Entrance",
-      "narrative": "You connect your device to the security panel.\n\nThe system fights back with heavy encryption. You can force it open, but it might trigger alarms.",
+      "narrative": "You connect your device to the security panel.\n\n💻 Heavy encryption pushes back against your hack.\n\nForce it open, or stay quiet?",
       "choices": [
-        { "id": "c6", "text": "Force the hack", "nextSceneId": "alarm_triggered" },
-        { "id": "c7", "text": "Wait and bypass quietly", "nextSceneId": "lobby_entry" }
+        { "id": "c6", "text": "⚡ Force the hack", "nextSceneId": "alarm_triggered" },
+        { "id": "c7", "text": "🫥 Bypass quietly", "nextSceneId": "lobby_entry" }
       ],
       "isEnding": false
     },
 
     {
       "id": "side_entry",
-      "title": "🏧 Fire Escape",
-      "narrative": "You climb down quietly and reach a side window.\n\nInside is a dark office space with only a few lights still on.",
+      "title": "🪜 Fire Escape",
+      "narrative": "You descend the fire escape and reach a side window.\n\nInside is a dark office floor lit only by glowing monitors.",
       "choices": [
-        { "id": "c8", "text": "Break in through the window", "nextSceneId": "office_area" },
-        { "id": "c9", "text": "Climb lower toward the basement", "nextSceneId": "basement_entry" }
+        { "id": "c8", "text": "🪟 Break through the window", "nextSceneId": "office_area" },
+        { "id": "c9", "text": "⬇️ Climb toward the basement", "nextSceneId": "basement_entry" }
       ],
       "isEnding": false
     },
 
     {
       "id": "security_room",
-      "title": "💹 Security Room",
-      "narrative": "You drop into a room filled with monitors.\n\nOne guard sits watching the screens, unaware of you.",
+      "title": "📹 Security Room",
+      "narrative": "Rows of monitors flicker across the room.\n\n👮 One guard watches the screens, unaware you're behind them.",
       "choices": [
-        { "id": "c10", "text": "Knock out the guard", "nextSceneId": "control_access" },
-        { "id": "c11", "text": "Sneak past", "nextSceneId": "hallway" }
+        { "id": "c10", "text": "🥊 Knock out the guard", "nextSceneId": "control_access" },
+        { "id": "c11", "text": "🫥 Sneak past", "nextSceneId": "hallway" }
       ],
       "isEnding": false
     },
@@ -73,10 +73,10 @@
     {
       "id": "server_room",
       "title": "🖥 Server Room",
-      "narrative": "You reach a massive room filled with glowing servers.\n\nThis is where the data is stored. You can start downloading now, or explore further.",
+      "narrative": "Towering servers glow blue in the darkness.\n\n💾 This is where the data is stored.\n\nYou can start the download now… or explore deeper.",
       "choices": [
-        { "id": "c12", "text": "Download the data", "nextSceneId": "data_download" },
-        { "id": "c13", "text": "Search deeper into the building", "nextSceneId": "lab_area" }
+        { "id": "c12", "text": "⬇️ Download the data", "nextSceneId": "data_download" },
+        { "id": "c13", "text": "🔍 Explore deeper", "nextSceneId": "lab_area" }
       ],
       "isEnding": false
     },
@@ -84,10 +84,10 @@
     {
       "id": "lobby_entry",
       "title": "🏮 Lobby",
-      "narrative": "The doors slide open silently.\n\nThe lobby is empty, but cameras track every movement.",
+      "narrative": "The doors slide open silently.\n\n📷 Cameras track every movement as you cross the empty lobby.",
       "choices": [
-        { "id": "c14", "text": "Disable cameras", "nextSceneId": "control_access" },
-        { "id": "c15", "text": "Move quickly to the elevators", "nextSceneId": "elevator" }
+        { "id": "c14", "text": "📡 Disable the cameras", "nextSceneId": "control_access" },
+        { "id": "c15", "text": "🏃 Move to the elevators", "nextSceneId": "elevator" }
       ],
       "isEnding": false
     },
@@ -95,10 +95,10 @@
     {
       "id": "office_area",
       "title": "📄 Office Floor",
-      "narrative": "Cubicles stretch across the room. Computers glow faintly.\n\nYou find employee credentials on a desk.",
+      "narrative": "Cubicles stretch across the floor.\n\n💡 A few monitors still glow in the darkness.\n\nYou spot employee credentials left on a desk.",
       "choices": [
-        { "id": "c16", "text": "Use credentials", "nextSceneId": "control_access" },
-        { "id": "c17", "text": "Ignore and move on", "nextSceneId": "hallway" }
+        { "id": "c16", "text": "🪪 Use the credentials", "nextSceneId": "control_access" },
+        { "id": "c17", "text": "➡️ Ignore them and move on", "nextSceneId": "hallway" }
       ],
       "isEnding": false
     },
@@ -106,32 +106,32 @@
     {
       "id": "basement_entry",
       "title": "🔑 Basement Access",
-      "narrative": "You drop into the basement.\n\nIt’s darker here. You hear machinery... and something else.",
+      "narrative": "You slip into the basement.\n\n⚙️ Machinery hums in the darkness.\n\nThen you hear something else move.",
       "choices": [
-        { "id": "c18", "text": "Investigate the noise", "nextSceneId": "experiment_room" },
-        { "id": "c19", "text": "Find another way up", "nextSceneId": "hallway" }
+        { "id": "c18", "text": "👁 Investigate the noise", "nextSceneId": "experiment_room" },
+        { "id": "c19", "text": "⬆️ Find another way up", "nextSceneId": "hallway" }
       ],
       "isEnding": false
     },
 
     {
       "id": "hallway",
-      "title": "🦤 Hallway",
-      "narrative": "You move through a long hallway.\n\nFootsteps echo nearby. Security is getting closer.",
+      "title": "🚶 Hallway",
+      "narrative": "You move through a long metal hallway.\n\n👣 Footsteps echo nearby.\n\nSecurity is getting closer.",
       "choices": [
-        { "id": "c20", "text": "Hide", "nextSceneId": "escape_route" },
-        { "id": "c21", "text": "Run", "nextSceneId": "alarm_triggered" }
+        { "id": "c20", "text": "🫥 Hide", "nextSceneId": "escape_route" },
+        { "id": "c21", "text": "🏃 Run", "nextSceneId": "alarm_triggered" }
       ],
       "isEnding": false
     },
 
     {
       "id": "control_access",
-      "title": "🌹 Control Access",
-      "narrative": "You gain access to the building systems.\n\nYou can now control cameras, locks, and alarms.",
+      "title": "🎛 Control Access",
+      "narrative": "You gain access to Helix systems.\n\n📡 Cameras, locks, and alarms are now under your control.",
       "choices": [
-        { "id": "c22", "text": "Unlock server room", "nextSceneId": "server_room" },
-        { "id": "c23", "text": "Shut down security", "nextSceneId": "clean_heist_ending" }
+        { "id": "c22", "text": "🔓 Unlock the server room", "nextSceneId": "server_room" },
+        { "id": "c23", "text": "⚡ Shut down security", "nextSceneId": "clean_heist_ending" }
       ],
       "isEnding": false
     },
@@ -139,32 +139,32 @@
     {
       "id": "data_download",
       "title": "⏳ Downloading...",
-      "narrative": "The data begins transferring.\n\nSuddenly, a warning flashes: TRACE DETECTED.",
+      "narrative": "The files begin transferring.\n\n⚠️ Suddenly, a warning flashes across the screen:\n\nTRACE DETECTED.",
       "choices": [
-        { "id": "c24", "text": "Stop and escape", "nextSceneId": "escape_route" },
-        { "id": "c25", "text": "Finish the download", "nextSceneId": "caught_ending" }
+        { "id": "c24", "text": "🚪 Stop and escape", "nextSceneId": "escape_route" },
+        { "id": "c25", "text": "💾 Finish the download", "nextSceneId": "caught_ending" }
       ],
       "isEnding": false
     },
 
     {
       "id": "lab_area",
-      "title": "🔌 Hidden Lab",
-      "narrative": "You discover a secret lab.\n\nInside are experiments... not human. Helix Corp is hiding something alive.",
+      "title": "🧪 Hidden Lab",
+      "narrative": "You discover a hidden laboratory deep inside the building.\n\n👁 Strange experiments line the walls.\n\nSomething alive moves behind the glass.",
       "choices": [
-        { "id": "c26", "text": "Release the subject", "nextSceneId": "chaos_ending" },
-        { "id": "c27", "text": "Leave quietly", "nextSceneId": "data_download" }
+        { "id": "c26", "text": "🔓 Release the subject", "nextSceneId": "chaos_ending" },
+        { "id": "c27", "text": "🚶 Leave quietly", "nextSceneId": "data_download" }
       ],
       "isEnding": false
     },
 
     {
       "id": "experiment_room",
-      "title": "🦬 Experiment Room",
-      "narrative": "A creature sits inside a containment pod.\n\nIt opens its eyes and looks directly at you.",
+      "title": "🧬 Experiment Room",
+      "narrative": "A creature sits inside a containment pod.\n\n👁 It slowly opens its eyes and stares directly at you.",
       "choices": [
-        { "id": "c28", "text": "Open the pod", "nextSceneId": "chaos_ending" },
-        { "id": "c29", "text": "Back away", "nextSceneId": "hallway" }
+        { "id": "c28", "text": "🔓 Open the pod", "nextSceneId": "chaos_ending" },
+        { "id": "c29", "text": "⬅️ Back away slowly", "nextSceneId": "hallway" }
       ],
       "isEnding": false
     },
@@ -172,21 +172,21 @@
     {
       "id": "elevator",
       "title": "⬆️ Elevator",
-      "narrative": "You enter the elevator.\n\nTop floor or basement?",
+      "narrative": "The elevator hums quietly.\n\n🏢 Top floor or basement?",
       "choices": [
-        { "id": "c30", "text": "Go to top floor", "nextSceneId": "server_room" },
-        { "id": "c31", "text": "Go to basement", "nextSceneId": "experiment_room" }
+        { "id": "c30", "text": "⬆️ Go to the top floor", "nextSceneId": "server_room" },
+        { "id": "c31", "text": "⬇️ Go to the basement", "nextSceneId": "experiment_room" }
       ],
       "isEnding": false
     },
 
     {
       "id": "escape_route",
-      "title": "🚀 Escape Route",
-      "narrative": "You find an exit route.\n\nSirens begin to echo through the building.",
+      "title": "🚪 Escape Route",
+      "narrative": "You locate an emergency exit route.\n\n🚨 Sirens begin echoing through the building.",
       "choices": [
-        { "id": "c32", "text": "Escape now", "nextSceneId": "escape_ending" },
-        { "id": "c33", "text": "Go back for the data", "nextSceneId": "server_room" }
+        { "id": "c32", "text": "🏃 Escape now", "nextSceneId": "escape_ending" },
+        { "id": "c33", "text": "💾 Go back for the data", "nextSceneId": "server_room" }
       ],
       "isEnding": false
     },
@@ -194,10 +194,10 @@
     {
       "id": "alarm_triggered",
       "title": "🚨 Alarm Triggered",
-      "narrative": "Red lights flash. Alarms scream.\n\nSecurity is closing in fast.",
+      "narrative": "Red lights flash across the halls.\n\n🚨 Alarms scream as security closes in fast.",
       "choices": [
-        { "id": "c34", "text": "Run for exit", "nextSceneId": "escape_ending" },
-        { "id": "c35", "text": "Fight your way out", "nextSceneId": "death_ending" }
+        { "id": "c34", "text": "🏃 Run for the exit", "nextSceneId": "escape_ending" },
+        { "id": "c35", "text": "⚔️ Fight your way out", "nextSceneId": "death_ending" }
       ],
       "isEnding": false
     },
@@ -205,15 +205,15 @@
     {
       "id": "clean_heist_ending",
       "title": "👏 Perfect Heist",
-      "narrative": "You disable security completely.\n\nYou walk out with full access and no one ever knows you were there.\n\nA perfect job.",
+      "narrative": "You disable the building's security completely.\n\n💾 You walk away with full access and zero traces.\n\nA perfect job.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "escape_ending",
-      "title": "🌜 Escape",
-      "narrative": "You escape into the neon night.\n\nYou didn’t get everything, but you made it out alive.",
+      "title": "🌙 Escape",
+      "narrative": "You disappear into the neon night.\n\n🌆 You didn't get everything… but you made it out alive.",
       "choices": [],
       "isEnding": true
     },
@@ -221,23 +221,23 @@
     {
       "id": "caught_ending",
       "title": "🛑 Trace Complete",
-      "narrative": "The download finishes...\n\nBut so does the trace.\n\nSecurity bursts in.\n\nYou’re caught.",
+      "narrative": "The download finishes.\n\nSo does the trace.\n\n🚪 Security bursts into the room.\n\nYou're caught.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "chaos_ending",
-      "title": "Chaos Unleashed",
-      "narrative": "The creature escapes.\n\nIt tears through the building, causing destruction everywhere.\n\nIn the chaos, you slip away—but the city will never be the same.",
+      "title": "🔥 Chaos Unleashed",
+      "narrative": "The creature escapes containment.\n\n💥 It tears through the building as alarms erupt everywhere.\n\nIn the chaos, you slip away.\n\nNeon City will never be the same.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "death_ending",
-      "title": "Overwhelmed",
-      "narrative": "You try to fight, but security is too strong.\n\nThe mission ends here.",
+      "title": "☠️ Overwhelmed",
+      "narrative": "You try to fight back.\n\nBut Helix security is too strong.\n\nThe mission ends here.",
       "choices": [],
       "isEnding": true
     }

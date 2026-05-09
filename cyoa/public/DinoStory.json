@@ -1,26 +1,26 @@
 {
   "meta": {
     "title": "Stranded in Prehistory",
-    "subtitle": "A time experiment goes wrong, and now you're trapped in the age of dinosaurs.",
+    "subtitle": "🦖 A time experiment goes wrong, and now you're trapped in the age of dinosaurs.",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
-    "choicesPrompt": "What do you do?",
-    "endingLabel": "Journey Complete",
-    "restartLabel": "Begin again",
-    "historyHeading": "Your Timeline",
+    "choicesPrompt": "👉 What do you do?",
+    "endingLabel": "⚡ Journey Complete",
+    "restartLabel": "🔄 Begin again",
+    "historyHeading": "📖 Your Timeline",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "Prehistoric Survival · Chapter One",
-    "loadingText": "Loading Story…",
+    "footerText": "🦕 Prehistoric Survival · Chapter One",
+    "loadingText": "⏳ Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
     {
       "id": "start",
       "title": "🔬 The Experiment",
-      "narrative": "You stand in a research lab staring at a glowing time device.\n\nThe test was supposed to be small… controlled.\n\nInstead, the machine overloads.\n\nA blinding flash.\n\nSilence.\n\nYou wake up in a dense jungle.\n\nSomething massive roars in the distance.",
+      "narrative": "You stand inside a research lab staring at a glowing time device.\n\n⚡ The test was supposed to be controlled.\n\nInstead, the machine overloads.\n\nA blinding flash fills the room.\n\nThen silence.\n\nYou wake up in a dense jungle.\n\n🦖 Something massive roars in the distance.",
       "choices": [
-        { "id": "c1", "text": "Look around carefully", "nextSceneId": "jungle_start" },
-        { "id": "c2", "text": "Run immediately", "nextSceneId": "panic_run" }
+        { "id": "c1", "text": "👀 Look around carefully", "nextSceneId": "jungle_start" },
+        { "id": "c2", "text": "🏃 Run immediately", "nextSceneId": "panic_run" }
       ],
       "isEnding": false
     },
@@ -28,10 +28,10 @@
     {
       "id": "jungle_start",
       "title": "🌳 The Jungle",
-      "narrative": "The air is thick and humid. Giant plants surround you.\n\nFootprints the size of your body press into the mud nearby.\n\nYou are not in your time anymore.",
+      "narrative": "The air is hot and humid.\n\n🌿 Giant plants tower around you.\n\nNearby footprints are larger than your entire body.\n\nYou are definitely not in your own time anymore.",
       "choices": [
-        { "id": "c3", "text": "Follow the footprints", "nextSceneId": "trex_path" },
-        { "id": "c4", "text": "Search for higher ground", "nextSceneId": "cliff_view" }
+        { "id": "c3", "text": "🦖 Follow the footprints", "nextSceneId": "trex_path" },
+        { "id": "c4", "text": "🏔 Search for higher ground", "nextSceneId": "cliff_view" }
       ],
       "isEnding": false
     },
@@ -39,21 +39,21 @@
     {
       "id": "panic_run",
       "title": "😨 Panic",
-      "narrative": "You sprint through the jungle blindly.\n\nBranches snap. The ground shakes.\n\nSomething is chasing you.",
+      "narrative": "You sprint through the jungle blindly.\n\n🌿 Branches snap around you.\n\nThe ground begins to shake.\n\nSomething huge is chasing you.",
       "choices": [
-        { "id": "c5", "text": "Climb a tree", "nextSceneId": "tree_escape" },
-        { "id": "c6", "text": "Keep running", "nextSceneId": "death_chased" }
+        { "id": "c5", "text": "🌳 Climb a tree", "nextSceneId": "tree_escape" },
+        { "id": "c6", "text": "🏃 Keep running", "nextSceneId": "death_chased" }
       ],
       "isEnding": false
     },
 
     {
       "id": "tree_escape",
-      "title": "⚡ Up High",
-      "narrative": "You scramble up a tree just in time.\n\nA massive T-Rex stomps below, sniffing the air.\n\nIt eventually leaves.\n\nYou’re safe… for now.",
+      "title": "🌳 Up High",
+      "narrative": "You scramble up a tree just in time.\n\n🦖 A massive T-Rex stomps beneath you, sniffing the air.\n\nAfter several tense moments, it finally wanders away.\n\nYou survived… barely.",
       "choices": [
-        { "id": "c7", "text": "Climb down", "nextSceneId": "jungle_start" },
-        { "id": "c8", "text": "Stay and observe", "nextSceneId": "herd_scene" }
+        { "id": "c7", "text": "⬇️ Climb down", "nextSceneId": "jungle_start" },
+        { "id": "c8", "text": "👁 Stay and observe", "nextSceneId": "herd_scene" }
       ],
       "isEnding": false
     },
@@ -61,11 +61,11 @@
     {
       "id": "trex_path",
       "title": "🦖 The Predator",
-      "narrative": "You follow the footprints… and immediately regret it.\n\nA T-Rex stands ahead, feeding.\n\nIt hasn’t noticed you yet.",
+      "narrative": "You follow the massive footprints through the jungle.\n\nThen you see it.\n\n🦖 A T-Rex feeds on something in a clearing ahead.\n\nIt hasn't noticed you yet.",
       "choices": [
-        { "id": "c9", "text": "Back away slowly", "nextSceneId": "jungle_start" },
-        { "id": "c10", "text": "Run", "nextSceneId": "death_chased" },
-        { "id": "c11", "text": "Hide nearby", "nextSceneId": "hidden_device" }
+        { "id": "c9", "text": "⬅️ Back away slowly", "nextSceneId": "jungle_start" },
+        { "id": "c10", "text": "🏃 Run", "nextSceneId": "death_chased" },
+        { "id": "c11", "text": "🫥 Hide nearby", "nextSceneId": "hidden_device" }
       ],
       "isEnding": false
     },
@@ -73,66 +73,66 @@
     {
       "id": "cliff_view",
       "title": "🏔 Cliffside",
-      "narrative": "You climb to higher ground.\n\nFrom here, you see herds of dinosaurs moving across the land.\n\nIn the distance… something metallic.\n\nIt looks like part of your machine.",
+      "narrative": "You climb onto a rocky cliff overlooking the jungle.\n\n🦕 Herds of dinosaurs roam across the land below.\n\nFar in the distance, you spot something metallic.\n\nPart of your machine survived the jump through time.",
       "choices": [
-        { "id": "c12", "text": "Head toward the machine piece", "nextSceneId": "device_site" },
-        { "id": "c13", "text": "Watch the herd", "nextSceneId": "herd_scene" }
+        { "id": "c12", "text": "⚙️ Head toward the machine", "nextSceneId": "device_site" },
+        { "id": "c13", "text": "👁 Watch the herd", "nextSceneId": "herd_scene" }
       ],
       "isEnding": false
     },
 
     {
       "id": "herd_scene",
-      "title": "🐢 The Herd",
-      "narrative": "A group of massive herbivores move together peacefully.\n\nThey don’t seem aggressive… but something startles them.\n\nThe ground begins to shake.",
+      "title": "🦕 The Herd",
+      "narrative": "A herd of enormous herbivores moves peacefully across the valley.\n\n🌎 The sight is breathtaking.\n\nSuddenly, something startles them.\n\nThe ground begins to shake violently.",
       "choices": [
-        { "id": "c14", "text": "Stay still", "nextSceneId": "trample_ending" },
-        { "id": "c15", "text": "Run away", "nextSceneId": "device_site" }
+        { "id": "c14", "text": "🫥 Stay still", "nextSceneId": "trample_ending" },
+        { "id": "c15", "text": "🏃 Run away", "nextSceneId": "device_site" }
       ],
       "isEnding": false
     },
 
     {
       "id": "hidden_device",
-      "title": "📽 Hidden Tech",
-      "narrative": "You hide near a strange metal object buried in the dirt.\n\nIt’s part of your time device.\n\nIt’s still active… barely.",
+      "title": "📡 Hidden Tech",
+      "narrative": "Hidden beneath vines and dirt is a glowing piece of metal.\n\n⚡ It's part of your time device.\n\nSomehow… it's still barely active.",
       "choices": [
-        { "id": "c16", "text": "Try to fix it", "nextSceneId": "repair_attempt" },
-        { "id": "c17", "text": "Leave it and move on", "nextSceneId": "jungle_start" }
+        { "id": "c16", "text": "🔧 Try to repair it", "nextSceneId": "repair_attempt" },
+        { "id": "c17", "text": "🚶 Leave it behind", "nextSceneId": "jungle_start" }
       ],
       "isEnding": false
     },
 
     {
       "id": "device_site",
-      "title": "🌥 Crash Site",
-      "narrative": "You find the remains of your time machine.\n\nIt’s damaged, but parts still glow.\n\nThis might be your only way home.",
+      "title": "⚙️ Crash Site",
+      "narrative": "You discover the shattered remains of your machine.\n\n💡 Several pieces still glow faintly.\n\nThis may be your only chance to return home.",
       "choices": [
-        { "id": "c18", "text": "Repair the device", "nextSceneId": "repair_attempt" },
-        { "id": "c19", "text": "Search for supplies first", "nextSceneId": "survival_path" }
+        { "id": "c18", "text": "🔧 Repair the device", "nextSceneId": "repair_attempt" },
+        { "id": "c19", "text": "🎒 Search for supplies first", "nextSceneId": "survival_path" }
       ],
       "isEnding": false
     },
 
     {
       "id": "survival_path",
-      "title": "🎋 Survival",
-      "narrative": "You gather materials: sticks, stones, anything useful.\n\nYou feel slightly more prepared.\n\nBut the jungle is getting louder.",
+      "title": "🏕 Survival",
+      "narrative": "You gather sticks, stones, and anything useful.\n\n💧 Fresh water nearby gives you hope.\n\nBut strange calls echo through the jungle as night approaches.",
       "choices": [
-        { "id": "c20", "text": "Return to machine", "nextSceneId": "repair_attempt" },
-        { "id": "c21", "text": "Build a shelter", "nextSceneId": "survival_ending" }
+        { "id": "c20", "text": "⚙️ Return to the machine", "nextSceneId": "repair_attempt" },
+        { "id": "c21", "text": "🏕 Build a shelter", "nextSceneId": "survival_ending" }
       ],
       "isEnding": false
     },
 
     {
       "id": "repair_attempt",
-      "title": "⚓ Final Choice",
-      "narrative": "You manage to partially repair the device.\n\nIt sparks to life.\n\nYou can go home… or change something.",
+      "title": "⚡ Final Choice",
+      "narrative": "After hours of work, the damaged device sparks back to life.\n\n⚡ Energy crackles through the machine.\n\nYou finally have a choice.\n\nGo home… or stay in the past forever.",
       "choices": [
-        { "id": "c22", "text": "Return to your time", "nextSceneId": "home_ending" },
-        { "id": "c23", "text": "Stay and study dinosaurs", "nextSceneId": "research_ending" },
-        { "id": "c24", "text": "Overload the device", "nextSceneId": "time_break_ending" }
+        { "id": "c22", "text": "🏠 Return to your time", "nextSceneId": "home_ending" },
+        { "id": "c23", "text": "🦖 Stay and study dinosaurs", "nextSceneId": "research_ending" },
+        { "id": "c24", "text": "💥 Overload the device", "nextSceneId": "time_break_ending" }
       ],
       "isEnding": false
     },
@@ -140,47 +140,47 @@
     {
       "id": "death_chased",
       "title": "☠️ Caught",
-      "narrative": "You run, but you are not fast enough.\n\nThe predator catches you.\n\nThis is where your story ends.",
+      "narrative": "You run through the jungle as fast as you can.\n\nBut the predator is faster.\n\n🦖 Heavy footsteps thunder behind you.\n\nThen everything goes dark.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "trample_ending",
-      "title": "🐤 Trampled",
-      "narrative": "The herd panics.\n\nYou are caught in the stampede.\n\nThere is no escape.",
+      "title": "🦕 Trampled",
+      "narrative": "The herd panics and charges across the valley.\n\n🌎 The earth shakes beneath thousands of pounding feet.\n\nThere is nowhere to escape.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "survival_ending",
-      "title": "👑 New Life",
-      "narrative": "You build a shelter and survive.\n\nDays turn into months.\n\nYou adapt to this world.\n\nYou are no longer just a visitor—you belong here now.",
+      "title": "🏕 New Life",
+      "narrative": "You build a shelter deep within the prehistoric jungle.\n\nDays slowly become months.\n\n🌿 You learn the land, the creatures, and the dangers of this ancient world.\n\nYou are no longer just surviving here.\n\nYou belong here now.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "home_ending",
-      "title": "🌈 Back Home",
-      "narrative": "The device activates.\n\nYou are pulled through time.\n\nYou wake up back in your lab.\n\nEverything is normal… except you know what’s out there.",
+      "title": "🌌 Back Home",
+      "narrative": "The repaired device activates.\n\n⚡ Time bends around you.\n\nMoments later, you collapse back inside your laboratory.\n\nEverything appears normal.\n\nBut somewhere in the distant past… dinosaurs still roam.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "research_ending",
-      "title": "🧴 The Scientist",
-      "narrative": "You choose to stay.\n\nYou study dinosaurs firsthand.\n\nYour knowledge could rewrite history… if you ever return.",
+      "title": "📚 The Scientist",
+      "narrative": "You choose to remain in the prehistoric world.\n\n🦖 Day after day, you study creatures no human was ever meant to see.\n\nYour discoveries could rewrite history itself.\n\nIf you ever make it home.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "time_break_ending",
-      "title": "🌫 Time Collapse",
-      "narrative": "You overload the machine.\n\nTime fractures around you.\n\nPast, present, and future collide.\n\nYou exist everywhere… and nowhere.",
+      "title": "🌌 Time Collapse",
+      "narrative": "You overload the machine beyond its limits.\n\n⚡ Reality fractures around you.\n\nPast, present, and future collide into one endless moment.\n\nYou exist everywhere… and nowhere at all.",
       "choices": [],
       "isEnding": true
     }

@@ -1,27 +1,27 @@
 {
   "meta": {
     "title": "The Last Days",
-    "subtitle": "The world has fallen. What you do now decides how your story ends.",
+    "subtitle": "☠️ The world has fallen. What you do now decides how your story ends.",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
-    "choicesPrompt": "What do you do?",
-    "endingLabel": "Fate Decided",
-    "restartLabel": "Begin again",
-    "historyHeading": "Your Survival",
+    "choicesPrompt": "👉 What do you do?",
+    "endingLabel": "⚡ Fate Decided",
+    "restartLabel": "🔄 Begin again",
+    "historyHeading": "📖 Your Survival",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "The Last Days · Chapter One",
-    "loadingText": "Loading Story…",
+    "footerText": "☠️ The Last Days · Chapter One",
+    "loadingText": "⏳ Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
     {
       "id": "start",
       "title": "☠️ Day 1",
-      "narrative": "Sirens echo through the city.\n\nEmergency broadcasts repeat the same message: Stay inside.\n\nBut outside, chaos has already begun.\n\nPeople are running. Fires are spreading.\n\nSomething is very wrong.",
+      "narrative": "🚨 Sirens echo through the city.\n\nEmergency broadcasts repeat the same warning: Stay inside.\n\nOutside, chaos has already begun.\n\n🏃 People run through the streets while 🔥 fires spread in the distance.\n\nSomething is terribly wrong.",
       "choices": [
-        { "id": "c1", "text": "Stay inside your home", "nextSceneId": "home" },
-        { "id": "c2", "text": "Leave and investigate", "nextSceneId": "street" },
-        { "id": "c3", "text": "Call someone", "nextSceneId": "phone_call" }
+        { "id": "c1", "text": "🔒 Stay inside your home", "nextSceneId": "home" },
+        { "id": "c2", "text": "🚶 Leave and investigate", "nextSceneId": "street" },
+        { "id": "c3", "text": "📞 Call someone", "nextSceneId": "phone_call" }
       ],
       "isEnding": false
     },
@@ -29,11 +29,11 @@
     {
       "id": "home",
       "title": "🔒 Locked In",
-      "narrative": "You lock your doors and shut the blinds.\n\nThe TV flickers. Reports mention an outbreak.\n\nFood and supplies are limited.",
+      "narrative": "You lock the doors and shut the blinds.\n\n📺 The TV flickers with reports of an outbreak.\n\n🥫 Supplies are limited, and the city sounds worse every minute.",
       "choices": [
-        { "id": "c4", "text": "Gather supplies", "nextSceneId": "supplies" },
-        { "id": "c5", "text": "Wait it out", "nextSceneId": "wait_ending" },
-        { "id": "c6", "text": "Leave anyway", "nextSceneId": "street" }
+        { "id": "c4", "text": "🛠️ Gather supplies", "nextSceneId": "supplies" },
+        { "id": "c5", "text": "⏳ Wait it out", "nextSceneId": "wait_ending" },
+        { "id": "c6", "text": "🚪 Leave anyway", "nextSceneId": "street" }
       ],
       "isEnding": false
     },
@@ -41,11 +41,11 @@
     {
       "id": "street",
       "title": "🏚️ The Streets",
-      "narrative": "The streets are filled with panic.\n\nYou see abandoned cars, broken glass, and something worse.\n\nA figure stumbles toward you… not normal.",
+      "narrative": "😨 Panic fills the streets.\n\n🚗 Cars sit abandoned. Glass crunches beneath your feet.\n\nThen you see it.\n\nA figure stumbles toward you… moving strangely. 👁️",
       "choices": [
-        { "id": "c7", "text": "Run", "nextSceneId": "alley" },
-        { "id": "c8", "text": "Fight", "nextSceneId": "first_fight" },
-        { "id": "c9", "text": "Hide", "nextSceneId": "store" }
+        { "id": "c7", "text": "🏃 Run", "nextSceneId": "alley" },
+        { "id": "c8", "text": "⚔️ Fight", "nextSceneId": "first_fight" },
+        { "id": "c9", "text": "🫥 Hide", "nextSceneId": "store" }
       ],
       "isEnding": false
     },
@@ -53,10 +53,10 @@
     {
       "id": "phone_call",
       "title": "📵 No Answer",
-      "narrative": "You call friends and family.\n\nMost lines are dead.\n\nOne call connects… then cuts to static and screaming.",
+      "narrative": "You call friends and family.\n\nMost lines are dead.\n\n☎️ One finally connects… then cuts to static and screaming.",
       "choices": [
-        { "id": "c10", "text": "Stay home", "nextSceneId": "home" },
-        { "id": "c11", "text": "Go find them", "nextSceneId": "street" }
+        { "id": "c10", "text": "🏠 Stay home", "nextSceneId": "home" },
+        { "id": "c11", "text": "🔍 Go find them", "nextSceneId": "street" }
       ],
       "isEnding": false
     },
@@ -64,10 +64,10 @@
     {
       "id": "supplies",
       "title": "🛠️ Preparation",
-      "narrative": "You gather food, water, and tools.\n\nYou are better prepared… but staying may not be enough.",
+      "narrative": "You gather food, water, batteries, and tools.\n\n🎒 You're more prepared now… but nowhere feels truly safe.",
       "choices": [
-        { "id": "c12", "text": "Stay", "nextSceneId": "wait_ending" },
-        { "id": "c13", "text": "Leave with supplies", "nextSceneId": "street" }
+        { "id": "c12", "text": "🔒 Stay", "nextSceneId": "wait_ending" },
+        { "id": "c13", "text": "🚶 Leave with supplies", "nextSceneId": "street" }
       ],
       "isEnding": false
     },
@@ -75,10 +75,10 @@
     {
       "id": "first_fight",
       "title": "👹 First Encounter",
-      "narrative": "The infected lunges at you.\n\nYou barely manage to fight it off.\n\nYou realize now—this is real.",
+      "narrative": "The infected lunges at you.\n\n⚡ You barely fight it off.\n\nBreathing heavily, you realize the truth.\n\nThis nightmare is real.",
       "choices": [
-        { "id": "c14", "text": "Search nearby buildings", "nextSceneId": "store" },
-        { "id": "c15", "text": "Keep moving", "nextSceneId": "alley" }
+        { "id": "c14", "text": "🏪 Search nearby buildings", "nextSceneId": "store" },
+        { "id": "c15", "text": "🚶 Keep moving", "nextSceneId": "alley" }
       ],
       "isEnding": false
     },
@@ -86,10 +86,10 @@
     {
       "id": "store",
       "title": "🏪 Abandoned Store",
-      "narrative": "You enter a looted store.\n\nShelves are mostly empty, but you find some supplies.\n\nYou hear voices in the back.",
+      "narrative": "You slip into a looted store.\n\nMost shelves are empty, but you manage to find a few supplies.\n\n👥 Voices whisper somewhere in the back.",
       "choices": [
-        { "id": "c16", "text": "Approach the voices", "nextSceneId": "group" },
-        { "id": "c17", "text": "Stay hidden", "nextSceneId": "alone_path" }
+        { "id": "c16", "text": "👥 Approach the voices", "nextSceneId": "group" },
+        { "id": "c17", "text": "🫥 Stay hidden", "nextSceneId": "alone_path" }
       ],
       "isEnding": false
     },
@@ -97,10 +97,10 @@
     {
       "id": "group",
       "title": "👥 Survivors",
-      "narrative": "A small group of survivors greets you.\n\nThey offer safety—but trust is uncertain.",
+      "narrative": "A nervous group of survivors greets you.\n\n🤝 They offer safety, food, and a place to rest.\n\nBut trust is hard to come by now.",
       "choices": [
-        { "id": "c18", "text": "Join them", "nextSceneId": "group_travel" },
-        { "id": "c19", "text": "Refuse and leave", "nextSceneId": "alone_path" }
+        { "id": "c18", "text": "🤝 Join them", "nextSceneId": "group_travel" },
+        { "id": "c19", "text": "🚶 Refuse and leave", "nextSceneId": "alone_path" }
       ],
       "isEnding": false
     },
@@ -108,10 +108,10 @@
     {
       "id": "alone_path",
       "title": "🚶 Alone",
-      "narrative": "You decide to survive alone.\n\nIt’s quieter… but far more dangerous.",
+      "narrative": "You choose to survive alone.\n\n🌑 The silence is unsettling.\n\nEvery shadow feels dangerous.",
       "choices": [
-        { "id": "c20", "text": "Search for shelter", "nextSceneId": "safehouse" },
-        { "id": "c21", "text": "Keep moving", "nextSceneId": "city_outskirts" }
+        { "id": "c20", "text": "🏠 Search for shelter", "nextSceneId": "safehouse" },
+        { "id": "c21", "text": "🌄 Keep moving", "nextSceneId": "city_outskirts" }
       ],
       "isEnding": false
     },
@@ -119,10 +119,10 @@
     {
       "id": "group_travel",
       "title": "🤝 Traveling Together",
-      "narrative": "You travel with the group.\n\nThey talk about a safe zone outside the city.",
+      "narrative": "You travel with the group through the ruined streets.\n\n📡 They speak of a safe zone beyond the city.",
       "choices": [
-        { "id": "c22", "text": "Follow to safe zone", "nextSceneId": "safe_zone" },
-        { "id": "c23", "text": "Leave at night", "nextSceneId": "alone_path" }
+        { "id": "c22", "text": "✅ Follow to safe zone", "nextSceneId": "safe_zone" },
+        { "id": "c23", "text": "🌙 Leave at night", "nextSceneId": "alone_path" }
       ],
       "isEnding": false
     },
@@ -130,10 +130,10 @@
     {
       "id": "alley",
       "title": "💨 Narrow Escape",
-      "narrative": "You escape into an alley.\n\nIt’s quiet… too quiet.",
+      "narrative": "You sprint into a dark alley.\n\nThe city noise fades behind you.\n\nToo quiet. 👁️",
       "choices": [
-        { "id": "c24", "text": "Search dumpsters", "nextSceneId": "supplies" },
-        { "id": "c25", "text": "Climb fire escape", "nextSceneId": "roof" }
+        { "id": "c24", "text": "🗑️ Search dumpsters", "nextSceneId": "supplies" },
+        { "id": "c25", "text": "🪜 Climb the fire escape", "nextSceneId": "roof" }
       ],
       "isEnding": false
     },
@@ -141,10 +141,10 @@
     {
       "id": "roof",
       "title": "🏢 Rooftop",
-      "narrative": "From above, the city burns.\n\nHelicopters fly overhead—but don’t stop.",
+      "narrative": "From the rooftop, the city burns below.\n\n🚁 Helicopters pass overhead… but none stop.",
       "choices": [
-        { "id": "c26", "text": "Signal for help", "nextSceneId": "helicopter_ending" },
-        { "id": "c27", "text": "Move across rooftops", "nextSceneId": "city_outskirts" }
+        { "id": "c26", "text": "🚨 Signal for help", "nextSceneId": "helicopter_ending" },
+        { "id": "c27", "text": "🏃 Move across rooftops", "nextSceneId": "city_outskirts" }
       ],
       "isEnding": false
     },
@@ -152,10 +152,10 @@
     {
       "id": "safehouse",
       "title": "🏠 Safehouse",
-      "narrative": "You find a defensible building.\n\nIt’s quiet. Secure.\n\nBut supplies won’t last forever.",
+      "narrative": "You find a secure building and barricade the doors.\n\nFor now, it feels safe.\n\nBut supplies won't last forever. 🥫",
       "choices": [
-        { "id": "c28", "text": "Stay long-term", "nextSceneId": "survival_ending" },
-        { "id": "c29", "text": "Leave for safer area", "nextSceneId": "city_outskirts" }
+        { "id": "c28", "text": "🛡️ Stay long-term", "nextSceneId": "survival_ending" },
+        { "id": "c29", "text": "🌄 Leave for safer area", "nextSceneId": "city_outskirts" }
       ],
       "isEnding": false
     },
@@ -163,10 +163,10 @@
     {
       "id": "city_outskirts",
       "title": "🌄 Edge of the City",
-      "narrative": "You reach the outskirts.\n\nThe world beyond looks empty… but safer.",
+      "narrative": "You finally reach the edge of the city.\n\nThe roads ahead are empty.\n\nBroken… but quieter.",
       "choices": [
-        { "id": "c30", "text": "Keep traveling", "nextSceneId": "escape_ending" },
-        { "id": "c31", "text": "Turn back", "nextSceneId": "death_ending" }
+        { "id": "c30", "text": "🚶 Keep traveling", "nextSceneId": "escape_ending" },
+        { "id": "c31", "text": "↩️ Turn back", "nextSceneId": "death_ending" }
       ],
       "isEnding": false
     },
@@ -174,7 +174,7 @@
     {
       "id": "safe_zone",
       "title": "✅ Safe Zone",
-      "narrative": "You reach a guarded checkpoint.\n\nThey scan you.\n\nYou are allowed in.",
+      "narrative": "You reach a guarded checkpoint.\n\n🩺 Soldiers scan you carefully.\n\nThe gates open.\n\nYou made it.",
       "choices": [],
       "isEnding": true
     },
@@ -182,7 +182,7 @@
     {
       "id": "wait_ending",
       "title": "💀 Too Late",
-      "narrative": "You stay inside.\n\nDays pass.\n\nEventually… something breaks in.",
+      "narrative": "You stay inside and wait.\n\nDays pass in silence.\n\nThen one night… something gets in.",
       "choices": [],
       "isEnding": true
     },
@@ -190,7 +190,7 @@
     {
       "id": "helicopter_ending",
       "title": "🚁 Rescue",
-      "narrative": "A helicopter sees you.\n\nYou are lifted out.\n\nYou survived.",
+      "narrative": "A helicopter spots your signal.\n\nMoments later, you're lifted into the sky.\n\nYou survived. ✨",
       "choices": [],
       "isEnding": true
     },
@@ -198,7 +198,7 @@
     {
       "id": "survival_ending",
       "title": "🪦 Lone Survivor",
-      "narrative": "You survive alone.\n\nIt’s not easy.\n\nBut you adapt.\n\nYou endure.",
+      "narrative": "You survive on your own.\n\nIt's harsh. Lonely.\n\nBut day by day… you endure.",
       "choices": [],
       "isEnding": true
     },
@@ -206,7 +206,7 @@
     {
       "id": "escape_ending",
       "title": "🌅 New Beginning",
-      "narrative": "You leave the city behind.\n\nThe world is broken—but you are alive.\n\nA new story begins.",
+      "narrative": "You leave the ruined city behind.\n\nThe world is broken.\n\nBut you're still alive.\n\nAnd that means hope.",
       "choices": [],
       "isEnding": true
     },
@@ -214,7 +214,7 @@
     {
       "id": "death_ending",
       "title": "⚡ Overwhelmed",
-      "narrative": "You return to the city.\n\nYou are surrounded.\n\nThere is no escape.",
+      "narrative": "You return to the city.\n\nShapes emerge from the darkness.\n\nThere is no escape.",
       "choices": [],
       "isEnding": true
     }

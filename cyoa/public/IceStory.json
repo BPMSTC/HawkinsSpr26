@@ -1,102 +1,109 @@
 {
   "meta": {
     "title": "The Signal Beneath the Ice",
-    "subtitle": "A mystrerious signal begins broadcasting from beneath an abandoned Arctic research station. You arrive to investigate — but something below the ice is awake.",
+    "subtitle": "❄️ A mysterious signal begins broadcasting from beneath an abandoned Arctic research station.",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
-    "choicesPrompt": "What do you do?",
-    "endingLabel": "Chapter Complete",
-    "restartLabel": "Begin again",
-    "historyHeading": "Your Journey",
+    "choicesPrompt": "👉 What do you do?",
+    "endingLabel": "⚡ Chapter Complete",
+    "restartLabel": "🔄 Begin again",
+    "historyHeading": "📖 Your Journey",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "The Crossroads Chronicle · Chapter One",
-    "loadingText": "Loading story…",
+    "footerText": "❄️ The Signal Beneath the Ice · Chapter One",
+    "loadingText": "⏳ Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
     {
       "id": "start",
       "title": "📡 The Distress Signal",
-      "narrative": "A harsh wind cuts across the frozen Arctic plain as your snowmobile sputters to a stop outside Outpost Aurora, a research station abandoned five years ago.\n\nThree nights ago, a signal began broadcasting from this location — a repeating pulse that no satellite or radio system can identify.\n\nThe main building stands dark.\nA faint light flickers from the communications tower.\n\nAnd beneath your boots, the ice vibrates... ever so slightly.\n\nYou are the first person to arrive.\n\nSomething here is still active.",
+      "narrative": "A brutal Arctic wind cuts across the frozen plain as your snowmobile sputters to a stop outside Outpost Aurora.\n\n🏔 The research station was abandoned five years ago.\n\nThree nights ago, a strange signal began broadcasting from this exact location.\n\nNo satellite or radio system can identify it.\n\nThe station sits dark beneath the snow.\n\nA faint light flickers from the communications tower.\n\nThen beneath your boots… the ice vibrates.\n\nSomething here is still active.",
       "choices": [
-        { "id": "c1", "text": "Enter the research station.", "nextSceneId": "scene 2" },
-        { "id": "c2", "text": "Climb the communications tower.", "nextSceneId": "scene 3" },
-        { "id": "c3", "text": "Scan the ice with your equipment.", "nextSceneId": "scene 4" }
+        { "id": "c1", "text": "🏢 Enter the research station", "nextSceneId": "scene_2" },
+        { "id": "c2", "text": "📶 Climb the communications tower", "nextSceneId": "scene_3" },
+        { "id": "c3", "text": "🔍 Scan the ice with your equipment", "nextSceneId": "scene_4" }
       ],
       "isEnding": false
     },
+
     {
-      "id": "scene 2",
+      "id": "scene_2",
       "title": "🔬 The Abandoned Laboratory",
-      "narrative": "The station door groans as you push it open.\n\nInside, the power is partially restored. Emergency lights glow red across overturned desks and scattered research notes.\n\nA frozen coffee cup sits beside a terminal that still hums softly.\n\nOne message loops on the screen:\n\n\"It wasn't buried, it was waiting.\"\n\nAt the back of the room is a sealed elevator leading down into the ice.\n\nYou hear a faint metallic scratching sound from below.",
+      "narrative": "The station door groans open.\n\n🚨 Emergency lights glow red across overturned desks and scattered research notes.\n\nA frozen coffee cup still sits beside a humming terminal.\n\nOne message loops endlessly on the screen:\n\n\"It wasn't buried.\nIt was waiting.\"\n\nAt the back of the room, a sealed elevator leads down into the ice.\n\nFrom somewhere below… you hear metallic scratching.",
       "choices": [
-        { "id": "c4", "text": "Use the terminal to read the research logs.", "nextSceneId": "scene 4" },
-        { "id": "c5", "text": "Take the elevator down into the ice chamber.", "nextSceneId": "scene 5" },
-        { "id": "c6", "text": "Leave the station and investigate the tower.", "nextSceneId": "scene 3" }
+        { "id": "c4", "text": "💻 Read the research logs", "nextSceneId": "scene_4" },
+        { "id": "c5", "text": "⬇️ Take the elevator underground", "nextSceneId": "scene_5" },
+        { "id": "c6", "text": "📶 Leave and investigate the tower", "nextSceneId": "scene_3" }
       ],
       "isEnding": false
     },
+
     {
-      "id": "scene 3",
+      "id": "scene_3",
       "title": "📶 The Communications Tower",
-      "narrative": "The tower ladder rattles violently as the Arctic wind howls around you.\n\nAt the top sits a large dish antenna - modified with equipment clearly not part of the original station.\n\nYour radio suddenly crackles.\n\nThen a voice whispers through the static:\n\n\"You shouldn't be here.\"\n\nThe signal is being transmitted from below the ice, but the tower is amplifying it.\n\nYou notice the amplifier controls glowing.\n\nAnd something moves far below in the ice field.",
+      "narrative": "The tower ladder rattles violently in the freezing wind.\n\nAt the top sits a massive antenna dish covered in modified equipment.\n\n📻 Suddenly your radio crackles.\n\nThen a whisper cuts through the static:\n\n\"You shouldn't be here.\"\n\nThe signal is coming from beneath the ice.\n\nThe tower is amplifying it.\n\nFar below, something moves across the frozen surface.",
       "choices": [
-        { "id": "c7", "text": "Disable the amplifier.", "nextSceneId": "ending 2" },
-        { "id": "c8", "text": "Boost the signal strength.", "nextSceneId": "scene 5" },
-        { "id": "c9", "text": "Climb down quickly and leave the tower.", "nextSceneId": "scene 2" }
+        { "id": "c7", "text": "🛑 Disable the amplifier", "nextSceneId": "ending_2" },
+        { "id": "c8", "text": "⚡ Boost the signal strength", "nextSceneId": "scene_5" },
+        { "id": "c9", "text": "⬇️ Climb down quickly", "nextSceneId": "scene_2" }
       ],
       "isEnding": false
     },
+
     {
-      "id": "scene 4",
+      "id": "scene_4",
       "title": "📝 The Research Discovery",
-      "narrative": "You power up the research terminal.\n\nDozens of logs appear — most corrupted.\n\nOne file opens.\n\n\"Day 47 — We drilled too deep. Something ancient is transmitting through the ice. It reacts to sound… and attention.\"\n\nAnother file appears automatically.\n\n\"If anyone finds this: DO NOT AMPLIFY THE SIGNAL.\"\n\nSuddenly the station lights flicker.\n\nOutside, the ice cracks loudly.\n\nThe signal grows stronger.\n\nSomething below knows you are here.",
+      "narrative": "You activate the terminal.\n\nMost of the files are corrupted.\n\nOne surviving log opens automatically:\n\n\"Day 47 — We drilled too deep. Something ancient is transmitting through the ice. It reacts to sound… and attention.\"\n\nAnother warning flashes across the monitor:\n\n\"DO NOT AMPLIFY THE SIGNAL.\"\n\n⚡ Suddenly the lights flicker.\n\nOutside, the ice cracks loudly.\n\nSomething below now knows you are here.",
       "choices": [
-        { "id": "c8", "text": "Shut down all power to the station.", "nextSceneId": "ending 1" },
-        { "id": "c9", "text": "Follow the signal source into the ice elevator.", "nextSceneId": "scene 5" },
-        { "id": "c10", "text": "Panic and run outside onto the ice", "nextSceneId": "death ending" }
+        { "id": "c10", "text": "🔌 Shut down the station power", "nextSceneId": "ending_1" },
+        { "id": "c11", "text": "⬇️ Follow the signal underground", "nextSceneId": "scene_5" },
+        { "id": "c12", "text": "🏃 Panic and run outside", "nextSceneId": "death_ending" }
       ],
       "isEnding": false
     },
+
     {
-      "id": "scene 5",
+      "id": "scene_5",
       "title": "❄️ The Ice Chamber",
-      "narrative": "The elevator descends deep beneath the station.\n\nWhen the doors open, you enter a massive cavern carved into the ice.\n\nAt its center is a black object embedded in the frozen wall, pulsing with dim blue light.\n\nIt isn't metal.\n\nIt isn't stone.\n\nAnd it is broadcasting the signal.\n\nThe surface ripples slowly — like something breathing.\n\nYour radio turns on by itself.\n\n\"Observer detected.\"\n\nThe cavern begins to vibrate.\n\nYou realize something terrifying.\n\nThe signal wasn't a distress call.\n\nIt was a beacon.",
+      "narrative": "The elevator descends deep beneath the station.\n\nWhen the doors open, you step into a massive cavern carved into the ice.\n\nAt its center sits a black object frozen into the wall.\n\n💡 It pulses with dim blue light.\n\nIt isn't metal.\n\nIt isn't stone.\n\nAnd it is broadcasting the signal.\n\nThe surface ripples slowly… like something breathing.\n\n📻 Your radio activates by itself.\n\n\"Observer detected.\"\n\nThe cavern begins to shake.\n\nThen you realize the truth.\n\nThe signal was never a distress call.\n\nIt was a beacon.",
       "choices": [
-        { "id": "c11", "text": "Destroy the object with explosives.", "nextSceneId": "ending 1" },
-        { "id": "c12", "text": "Attempt to communicate with it.", "nextSceneId": "ending 3" },
-        { "id": "c13", "text": "Activate the signal amplifier fully.", "nextSceneId": "death ending" }
+        { "id": "c13", "text": "💥 Destroy the object", "nextSceneId": "ending_1" },
+        { "id": "c14", "text": "📻 Attempt communication", "nextSceneId": "ending_3" },
+        { "id": "c15", "text": "⚡ Fully activate the signal", "nextSceneId": "death_ending" }
       ],
       "isEnding": false
     },
+
     {
-      "id": "ending 1",
+      "id": "ending_1",
       "title": "✅ Humanity Saved",
-      "narrative": "You destroy the object.\n\nThe cavern collapses as the signal abruptly stops.\n\nDays later, satellites confirm the strange transmissions have vanished worldwide.\n\nWhatever was beneath the ice…\n\nis gone.\n\nOr buried again.\n\nTHE END.",
+      "narrative": "You destroy the object.\n\n💥 The cavern collapses as the signal abruptly dies.\n\nDays later, satellites confirm the strange broadcasts have vanished worldwide.\n\nWhatever was beneath the ice…\n\nis gone.\n\nOr buried once more.",
       "choices": [],
       "isEnding": true
     },
+
     {
-      "id": "ending 2",
-      "title": "🤐 Silent Victory",
-      "narrative": "You disable the tower amplifier.\n\nImmediately the signal weakens.\n\nWithout amplification, whatever lies beneath the ice becomes silent once more.\n\nThe world never learns how close it came to awakening.\n\nSome secrets are safer buried.\n\nTHE END.",
+      "id": "ending_2",
+      "title": "🤫 Silent Victory",
+      "narrative": "You disable the tower amplifier.\n\n📡 Immediately the signal weakens.\n\nWithout amplification, whatever lies beneath the ice falls silent once again.\n\nThe world never learns how close it came to awakening.\n\nSome things are safer left buried.",
       "choices": [],
       "isEnding": true
     },
+
     {
-      "id": "ending 3",
-      "title": "👽 The First Contact",
-      "narrative": "You speak into the radio.\n\nThe object pulses.\n\nThen the cavern fills with light.\n\nYour mind floods with images — stars, worlds, civilizations long gone.\n\nThe signal was not a weapon.\n\nIt was a message waiting for someone to answer.\n\nAnd now you have.\n\nHumanity is no longer alone.\n\nBut the world will never be the same.\n\nTHE END",
+      "id": "ending_3",
+      "title": "👽 First Contact",
+      "narrative": "You speak into the radio.\n\n💡 The object pulses violently.\n\nThen the cavern fills with blinding light.\n\nYour mind floods with impossible visions:\n\n🌌 Stars.\nAlien worlds.\nCivilizations long extinct.\n\nThe signal was never a weapon.\n\nIt was a message waiting for someone to answer.\n\nAnd now… you have.\n\nHumanity is no longer alone.",
       "choices": [],
       "isEnding": true
     },
+
     {
-      "id": "death ending",
-      "title": "☠️ Death.",
-      "narrative": "The ice cracks beneath your feet.\n\nSomething massive moves below.\n\nBefore you can react, the surface shatters and a black shape erupts from the depths.\n\nYour radio screams with static.\n\nThen silence.\n\nThe signal continues broadcasting.\n\nWaiting for the next listener.\n\nYOU DIED",
+      "id": "death_ending",
+      "title": "☠️ Beneath the Ice",
+      "narrative": "The frozen ground cracks apart beneath you.\n\n🌊 Something massive moves below the ice.\n\nBefore you can react, the surface shatters.\n\nA black shape erupts from the depths.\n\n📻 Your radio screams with static.\n\nThen silence.\n\nThe signal continues broadcasting.\n\nWaiting for the next listener.",
       "choices": [],
       "isEnding": true
     }
-
   ]
 }

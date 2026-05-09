@@ -1,189 +1,189 @@
 {
   "meta": {
     "title": "The Desert Treasure",
-    "subtitle": "Rumors speak of a hidden fortune buried deep within Goldwind Desert. Many have searched. None have returned with proof.",
+    "subtitle": "🏜 Rumors speak of a hidden fortune buried deep within Goldwind Desert.",
     "chapterLabel": "Chapter One",
     "currentSceneLabel": "Current Scene",
-    "choicesPrompt": "What do you do?",
-    "endingLabel": "Journey Complete",
-    "restartLabel": "Begin again",
-    "historyHeading": "Your Journey",
+    "choicesPrompt": "👉 What do you do?",
+    "endingLabel": "⚡ Journey Complete",
+    "restartLabel": "🔄 Begin again",
+    "historyHeading": "📖 Your Journey",
     "historyEmptyText": "Your path will be recorded here as you make choices.",
-    "footerText": "Goldwind Desert · Chapter One",
-    "loadingText": "Loading Story…",
+    "footerText": "🏜 Goldwind Desert · Chapter One",
+    "loadingText": "⏳ Loading Story…",
     "startSceneId": "start"
   },
   "scenes": [
     {
       "id": "start",
-      "title": "X The Desert Intersection",
-      "narrative": "The wind howls softly as grains of sand slide across the cracked road beneath your boots. Ahead of you lies an intersection, long abandoned, marked only by a broken wooden sign barely hanging on.\n\nTo the left, the road stretches toward towering dunes. Straight ahead, the land dips slightly, and faint heat waves ripple in the distance. To the right, jagged rocks rise like teeth from the sand.\n\nSomewhere out there lies the treasure.",
+      "title": "❌ The Desert Intersection",
+      "narrative": "🌬 Wind sweeps across the cracked road beneath your boots.\n\nAhead lies an abandoned intersection marked by a broken wooden sign.\n\n🏜 Left leads toward towering dunes.\n🔥 Straight ahead, heat waves shimmer in the distance.\n🪨 To the right, jagged rocks rise from the sand.\n\nSomewhere out there lies the treasure.",
       "choices": [
-        { "id": "c1", "text": "Head left toward the dunes", "nextSceneId": "dunes_path" },
-        { "id": "c2", "text": "Go straight into the heat haze", "nextSceneId": "oasis_path" },
-        { "id": "c3", "text": "Take the rocky path to the right", "nextSceneId": "rock_path" }
+        { "id": "c1", "text": "🏜 Head toward the dunes", "nextSceneId": "dunes_path" },
+        { "id": "c2", "text": "🔥 Walk into the heat haze", "nextSceneId": "oasis_path" },
+        { "id": "c3", "text": "🪨 Take the rocky path", "nextSceneId": "rock_path" }
       ],
       "isEnding": false
     },
 
     {
       "id": "dunes_path",
-      "title": "~ The Endless Dunes",
-      "narrative": "The dunes stretch endlessly, each one taller than the last. Your legs grow heavy as the sand shifts beneath you.\n\nAfter what feels like hours, you spot a small structure half-buried in sand. A rusted ladder leads up its side.",
+      "title": "🏜 The Endless Dunes",
+      "narrative": "The dunes stretch endlessly beneath the burning sun.\n\n🥵 Every step sinks into the sand.\n\nEventually, you spot a half-buried structure with a rusted ladder along its side.",
       "choices": [
-        { "id": "c4", "text": "Enter the building", "nextSceneId": "building_entry" },
-        { "id": "c5", "text": "Climb the ladder", "nextSceneId": "roof_view" },
-        { "id": "c6", "text": "Ignore it and keep walking", "nextSceneId": "lost_dunes" }
+        { "id": "c4", "text": "🚪 Enter the building", "nextSceneId": "building_entry" },
+        { "id": "c5", "text": "🪜 Climb the ladder", "nextSceneId": "roof_view" },
+        { "id": "c6", "text": "🚶 Keep walking", "nextSceneId": "lost_dunes" }
       ],
       "isEnding": false
     },
 
     {
       "id": "roof_view",
-      "title": ". Above the Sands",
-      "narrative": "You climb the ladder carefully. At the top, you find a flat rooftop with an open hatch leading inside.\n\nFrom here, you can see far across the desert. In the distance, a faint shimmer reveals what looks like an oasis... or maybe something else.",
+      "title": "🌅 Above the Sands",
+      "narrative": "You climb carefully to the rooftop.\n\n👁 From above, the desert stretches forever.\n\nIn the distance, you spot a faint oasis shimmer… or maybe a mirage.",
       "choices": [
-        { "id": "c7", "text": "Climb down into the building", "nextSceneId": "hidden_room" },
-        { "id": "c8", "text": "Head toward the distant oasis", "nextSceneId": "oasis_path" },
-        { "id": "c9", "text": "Climb back down and leave", "nextSceneId": "dunes_path" }
+        { "id": "c7", "text": "⬇️ Enter through the hatch", "nextSceneId": "hidden_room" },
+        { "id": "c8", "text": "🏝 Head toward the oasis", "nextSceneId": "oasis_path" },
+        { "id": "c9", "text": "🪜 Climb back down", "nextSceneId": "dunes_path" }
       ],
       "isEnding": false
     },
 
     {
       "id": "building_entry",
-      "title": "@ The Forgotten Outpost",
-      "narrative": "Inside the building, dust covers everything. Old crates, broken furniture, and faded markings line the walls.\n\nOn a table sits a worn map. Across the room is a sealed metal door, slightly ajar.",
+      "title": "🏚 The Forgotten Outpost",
+      "narrative": "Dust covers the abandoned building.\n\n📦 Broken crates and faded markings line the walls.\n\nA worn map sits on a table beside a heavy metal door.",
       "choices": [
-        { "id": "c10", "text": "Examine the map", "nextSceneId": "map_reading" },
-        { "id": "c11", "text": "Open the metal door", "nextSceneId": "creature_room" },
-        { "id": "c12", "text": "Search the crates", "nextSceneId": "supply_find" }
+        { "id": "c10", "text": "🗺 Examine the map", "nextSceneId": "map_reading" },
+        { "id": "c11", "text": "🚪 Open the metal door", "nextSceneId": "creature_room" },
+        { "id": "c12", "text": "📦 Search the crates", "nextSceneId": "supply_find" }
       ],
       "isEnding": false
     },
 
     {
       "id": "map_reading",
-      "title": "# The Map",
-      "narrative": "The map is detailed, far more than expected. It marks a hidden chamber beneath the desert, accessible only through an entrance near a false oasis.\n\nYou now know where to go.",
+      "title": "🗺 The Map",
+      "narrative": "The map reveals a hidden chamber beneath the desert.\n\n📍 According to the markings, the entrance lies beneath a false oasis.",
       "choices": [
-        { "id": "c13", "text": "Head to the oasis location", "nextSceneId": "true_oasis" },
-        { "id": "c14", "text": "Stay and explore more", "nextSceneId": "supply_find" }
+        { "id": "c13", "text": "🏝 Head to the oasis", "nextSceneId": "true_oasis" },
+        { "id": "c14", "text": "🔍 Explore more first", "nextSceneId": "supply_find" }
       ],
       "isEnding": false
     },
 
     {
       "id": "supply_find",
-      "title": "$ Supplies",
-      "narrative": "You dig through the crates and find old but usable supplies—water, tools, and a flare gun.\n\nThis might come in handy.",
+      "title": "🎒 Supplies",
+      "narrative": "You search through the crates.\n\n💧 Inside you find water, tools, and a flare gun.\n\nIt might save your life later.",
       "choices": [
-        { "id": "c15", "text": "Take supplies and leave", "nextSceneId": "true_oasis" },
-        { "id": "c16", "text": "Open the metal door", "nextSceneId": "creature_room" }
+        { "id": "c15", "text": "🏝 Leave for the oasis", "nextSceneId": "true_oasis" },
+        { "id": "c16", "text": "🚪 Open the metal door", "nextSceneId": "creature_room" }
       ],
       "isEnding": false
     },
 
     {
       "id": "creature_room",
-      "title": "& The Guardian",
-      "narrative": "The door creaks open.\n\nInside, something moves. A twisted, mechanical creature—part machine, part bone—lurks in the shadows.\n\nIt notices you instantly.",
+      "title": "🤖 The Guardian",
+      "narrative": "The metal door creaks open.\n\n👁 Inside lurks a twisted creature made of bone and machinery.\n\nIt notices you instantly.",
       "choices": [
-        { "id": "c17", "text": "Run", "nextSceneId": "death_run" },
-        { "id": "c18", "text": "Use flare gun (if you have supplies)", "nextSceneId": "escape_guardian" }
+        { "id": "c17", "text": "🏃 Run", "nextSceneId": "death_run" },
+        { "id": "c18", "text": "🔥 Use the flare gun", "nextSceneId": "escape_guardian" }
       ],
       "isEnding": false
     },
 
     {
       "id": "escape_guardian",
-      "title": "* Escape",
-      "narrative": "The flare explodes in light, blinding the creature. It recoils, screeching.\n\nYou escape the building, heart racing. You now know this place is connected to something bigger.",
+      "title": "💨 Escape",
+      "narrative": "The flare erupts in blinding light.\n\n🔥 The creature screeches and recoils.\n\nYou escape into the desert, heart pounding.",
       "choices": [
-        { "id": "c19", "text": "Head to the oasis", "nextSceneId": "true_oasis" }
+        { "id": "c19", "text": "🏝 Head to the oasis", "nextSceneId": "true_oasis" }
       ],
       "isEnding": false
     },
 
     {
       "id": "oasis_path",
-      "title": "+ The Mirage",
-      "narrative": "You walk toward the shimmering oasis. The closer you get, the more it flickers.\n\nWhen you arrive, it vanishes completely.\n\nBut beneath the sand, you notice a hidden hatch.",
+      "title": "🏝 The Mirage",
+      "narrative": "You walk toward the shimmering oasis.\n\nThe closer you get, the more it flickers.\n\nThen it vanishes.\n\nBeneath the sand sits a hidden hatch.",
       "choices": [
-        { "id": "c20", "text": "Open the hatch", "nextSceneId": "true_oasis" },
-        { "id": "c21", "text": "Turn back", "nextSceneId": "start" }
+        { "id": "c20", "text": "🔓 Open the hatch", "nextSceneId": "true_oasis" },
+        { "id": "c21", "text": "↩️ Turn back", "nextSceneId": "start" }
       ],
       "isEnding": false
     },
 
     {
       "id": "true_oasis",
-      "title": "^ The Hidden Chamber",
-      "narrative": "You descend into darkness.\n\nBelow the desert lies a vast underground chamber lit by glowing crystals. At its center stands a massive chest.",
+      "title": "💎 The Hidden Chamber",
+      "narrative": "You descend beneath the desert.\n\n✨ Glowing crystals illuminate a vast underground chamber.\n\nAt its center rests a massive chest.",
       "choices": [
-        { "id": "c22", "text": "Open the chest", "nextSceneId": "treasure_ending" },
-        { "id": "c23", "text": "Look around first", "nextSceneId": "trap_ending" }
+        { "id": "c22", "text": "💰 Open the chest", "nextSceneId": "treasure_ending" },
+        { "id": "c23", "text": "👁 Look around first", "nextSceneId": "trap_ending" }
       ],
       "isEnding": false
     },
 
     {
       "id": "hidden_room",
-      "title": "! The Balcony Vault",
-      "narrative": "You drop into the building from above and land on a hidden balcony.\n\nBelow you sits a massive chest untouched by time.",
+      "title": "🏛 The Balcony Vault",
+      "narrative": "You enter through the rooftop hatch and land on a hidden balcony.\n\nBelow sits a massive untouched chest.",
       "choices": [
-        { "id": "c24", "text": "Jump down and open it", "nextSceneId": "treasure_ending" }
+        { "id": "c24", "text": "⬇️ Jump down and open it", "nextSceneId": "treasure_ending" }
       ],
       "isEnding": false
     },
 
     {
       "id": "lost_dunes",
-      "title": "Lost to the Desert",
-      "narrative": "You keep walking.\n\nThe sun rises higher. Your water runs out. The dunes never end.\n\nEventually, you collapse into the sand, becoming just another lost explorer.",
+      "title": "☀️ Lost to the Desert",
+      "narrative": "You continue wandering through the dunes.\n\n💧 Your water runs out.\n\nThe endless desert eventually claims you.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "death_run",
-      "title": "Too Slow",
-      "narrative": "You try to run, but the creature is faster.\n\nIt lunges, and everything goes dark.",
+      "title": "☠️ Too Slow",
+      "narrative": "You try to escape.\n\nBut the creature moves faster.\n\nEverything goes dark.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "trap_ending",
-      "title": "The Trap",
-      "narrative": "As you step closer, the ground shifts.\n\nThe chamber collapses, sealing you inside forever.\n\nThe treasure was never meant to be taken.",
+      "title": "⚠️ The Trap",
+      "narrative": "As you step closer, the ground begins to shake.\n\n🪨 The chamber collapses around you.\n\nThe treasure was never meant to leave the desert.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "treasure_ending",
-      "title": "The Treasure of Goldwind",
-      "narrative": "You open the chest.\n\nInside is more wealth than you could have imagined—gold, gems, artifacts from a lost civilization.\n\nYou have found the treasure.\n\nYour name will be remembered.",
+      "title": "💰 The Treasure of Goldwind",
+      "narrative": "You open the chest.\n\n✨ Gold, gems, and ancient artifacts sparkle inside.\n\nYou found the legendary treasure.\n\nYour name will be remembered.",
       "choices": [],
       "isEnding": true
     },
 
     {
       "id": "rock_path",
-      "title": "The Rocky Cliffs",
-      "narrative": "The path is steep and dangerous. Loose rocks shift beneath your feet.\n\nHalfway up, you find a skeleton clutching a journal.",
+      "title": "🪨 The Rocky Cliffs",
+      "narrative": "The rocky trail rises steeply above the desert.\n\nLoose stones shift beneath your feet.\n\n💀 Halfway up, you discover a skeleton clutching a journal.",
       "choices": [
-        { "id": "c25", "text": "Read the journal", "nextSceneId": "map_reading" },
-        { "id": "c26", "text": "Keep climbing", "nextSceneId": "fall_ending" }
+        { "id": "c25", "text": "📖 Read the journal", "nextSceneId": "map_reading" },
+        { "id": "c26", "text": "🧗 Keep climbing", "nextSceneId": "fall_ending" }
       ],
       "isEnding": false
     },
 
     {
       "id": "fall_ending",
-      "title": "The Fall",
-      "narrative": "A rock slips.\n\nYou lose your footing and fall into the canyon below.\n\nThe desert claims another.",
+      "title": "🕳 The Fall",
+      "narrative": "A loose rock slips beneath your foot.\n\nYou tumble into the canyon below.\n\n🏜 The desert claims another explorer.",
       "choices": [],
       "isEnding": true
     }
