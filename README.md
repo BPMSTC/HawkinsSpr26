@@ -9,3 +9,10 @@ To run the project locally, input the following for backend:
 For Frontend in a seperate terminal:
 -cd cyoa
 -ng serve
+
+
+## License
+
+Licensed under the Apache License, Version 2.0.
+
+See the [LICENSE](LICENSE) file for details.
